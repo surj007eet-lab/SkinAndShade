@@ -128,7 +128,7 @@ function Home() {
 
       {/* Category tiles */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6" aria-label="Categories">
-        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {CATEGORIES.map((c) => {
             const Icon = CATEGORY_ICONS[c];
             const count = products.filter((p) => p.category === c).length;

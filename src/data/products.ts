@@ -2,12 +2,9 @@ export const AFFILIATE_TAG = "zencart0c-21";
 
 export const CATEGORIES = [
   "Skincare",
-  "Makeup",
   "Hair Care",
   "Fragrance",
   "Bath & Body",
-  "Men's Grooming",
-  "Tools & Brushes",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];

@@ -2,13 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
   Bath,
-  Brush,
-  Palette,
   Scissors,
   Search,
   Sparkles,
   SprayCan,
-  UserRound,
   type LucideIcon,
 } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
@@ -49,12 +46,9 @@ export const Route = createFileRoute("/")({
 
 const CATEGORY_ICONS: Record<Category, LucideIcon> = {
   Skincare: Sparkles,
-  Makeup: Palette,
   "Hair Care": Scissors,
   Fragrance: SprayCan,
   "Bath & Body": Bath,
-  "Men's Grooming": UserRound,
-  "Tools & Brushes": Brush,
 };
 
 function Chip({
@@ -134,7 +128,7 @@ function Home() {
 
       {/* Category tiles */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6" aria-label="Categories">
-        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {CATEGORIES.map((c) => {
             const Icon = CATEGORY_ICONS[c];
             const count = products.filter((p) => p.category === c).length;

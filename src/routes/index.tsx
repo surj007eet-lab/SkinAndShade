@@ -137,7 +137,15 @@ function Home() {
               <button
                 key={c}
                 type="button"
-                onClick={() => setCategory(active ? "All" : c)}
+                onClick={() => {
+                  setCategory(active ? "All" : c);
+                  setQuery("");
+                  setBudget("Any");
+                  setConcern("All");
+                  requestAnimationFrame(() =>
+                    document.getElementById("all-picks")?.scrollIntoView({ behavior: "smooth" }),
+                  );
+                }}
                 aria-pressed={active}
                 className={`flex flex-col items-center gap-2 rounded-2xl border p-4 text-center transition-colors focus-visible:outline-2 focus-visible:outline-ring ${
                   active
@@ -174,8 +182,18 @@ function Home() {
       </section>
 
       {/* Filters + full grid */}
-      <section className="mx-auto max-w-6xl px-4 pt-12 sm:px-6" aria-label="All products">
-        <h2 className="text-2xl font-semibold text-primary sm:text-3xl">All picks</h2>
+      <section id="all-picks" className="mx-auto max-w-6xl scroll-mt-20 px-4 pt-12 sm:px-6" aria-label="All products">
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">All picks</h2>
+          <a
+            href="https://www.amazon.in/b?node=1355016031&linkCode=ll2&tag=zencart0c-21&linkId=c22e1e16471594b90fe93ec1356db9b5&ref_=as_li_ss_tl"
+            target="_blank"
+            rel="sponsored noopener"
+            className="rounded-full border border-primary px-4 py-1.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-ring"
+          >
+            Browse more on Amazon →
+          </a>
+        </div>
 
         <div className="mt-6 space-y-4">
           <div>

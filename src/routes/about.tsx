@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "About — SkinAndShade" },
@@ -16,10 +17,10 @@ export const Route = createFileRoute("/about")({
           "Why SkinAndShade exists: honest, budget-aware beauty picks for India, with a clear note on how the site earns.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/about" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://amazon-finds-and-favorites.lovable.app/about" }],
   }),
   component: AboutPage,
 });

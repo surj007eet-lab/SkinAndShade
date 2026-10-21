@@ -21,6 +21,7 @@ import {
 } from "@/data/products";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "SkinAndShade — Beauty picks worth your money" },
@@ -36,10 +37,10 @@ export const Route = createFileRoute("/")({
           "Handpicked skincare, makeup, hair care and fragrance deals for India, with honest notes on why each product earned its place.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://amazon-finds-and-favorites.lovable.app/" }],
   }),
   component: Home,
 });

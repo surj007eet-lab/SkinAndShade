@@ -46,12 +46,9 @@ export const Route = createFileRoute("/")({
 
 const CATEGORY_ICONS: Record<Category, LucideIcon> = {
   Skincare: Sparkles,
-  Makeup: Palette,
   "Hair Care": Scissors,
   Fragrance: SprayCan,
   "Bath & Body": Bath,
-  "Men's Grooming": UserRound,
-  "Tools & Brushes": Brush,
 };
 
 function Chip({

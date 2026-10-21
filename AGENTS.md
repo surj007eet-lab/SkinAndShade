@@ -12,3 +12,4 @@
 - Product catalogue lives in `src/data/products.ts` (typed array, not JSON) because each entry carries curated copy (description, whyPicked, bestFor) alongside scraped fields; guides live in `src/data/guides.ts` as structured blocks.
 - List + detail pairs use sibling routes (`guides.index.tsx` + `guides.$slug.tsx`), never a parent route with page content — a parent without `<Outlet />` hides the child.
 - Header, footer and the dark-mode toggle live in `src/routes/__root.tsx` via `SiteHeader`/`SiteFooter` so every page shares them.
+- Sitemap is router-derived: every route sets staticData.sitemap; guide pages are added from src/data/guides.ts in src/routes/sitemap[.]xml.ts — keeps the sitemap in sync without a manual list.

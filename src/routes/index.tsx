@@ -2,13 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
   Bath,
-  Brush,
-  Palette,
   Scissors,
   Search,
   Sparkles,
   SprayCan,
-  UserRound,
   type LucideIcon,
 } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";

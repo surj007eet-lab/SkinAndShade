@@ -2,6 +2,7 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { guides } from "@/data/guides";
 
 export const Route = createFileRoute("/guides/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const guide = guides.find((g) => g.slug === params.slug);
     if (!guide) throw notFound();
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/guides/$slug")({
         content: loaderData?.excerpt ?? "A beauty guide from SkinAndShade.",
       },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: `/guides/${params.slug}` },
+      { property: "og:url", content: `https://amazon-finds-and-favorites.lovable.app/guides/${params.slug}` },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: `/guides/${params.slug}` }],
+    links: [{ rel: "canonical", href: `https://amazon-finds-and-favorites.lovable.app/guides/${params.slug}` }],
     scripts: loaderData
       ? [
           {

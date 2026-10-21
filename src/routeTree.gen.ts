@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GuidesIndexRouteImport } from './routes/guides.index'
 import { Route as GuidesSlugRouteImport } from './routes/guides.$slug'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
@@ -38,12 +44,14 @@ const GuidesSlugRoute = GuidesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/guides': typeof GuidesIndexRoute
 }
@@ -51,20 +59,23 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/guides/$slug' | '/guides/'
+  fullPaths: '/' | '/about' | '/sitemap.xml' | '/guides/$slug' | '/guides/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/guides/$slug' | '/guides'
-  id: '__root__' | '/' | '/about' | '/guides/$slug' | '/guides/'
+  to: '/' | '/about' | '/sitemap.xml' | '/guides/$slug' | '/guides'
+  id:
+    '__root__' | '/' | '/about' | '/sitemap.xml' | '/guides/$slug' | '/guides/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   GuidesSlugRoute: typeof GuidesSlugRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
 }
@@ -83,6 +94,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/': {
@@ -105,6 +123,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   GuidesSlugRoute: GuidesSlugRoute,
   GuidesIndexRoute: GuidesIndexRoute,
 }

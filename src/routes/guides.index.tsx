@@ -2,6 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { guides } from "@/data/guides";
 
 export const Route = createFileRoute("/guides/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Beauty Guides — SkinAndShade" },
@@ -17,10 +18,10 @@ export const Route = createFileRoute("/guides/")({
           "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and serums that work.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/guides" },
+      { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/guides" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "/guides" }],
+    links: [{ rel: "canonical", href: "https://amazon-finds-and-favorites.lovable.app/guides" }],
   }),
   component: GuidesPage,
 });

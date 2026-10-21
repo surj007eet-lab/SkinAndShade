@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://amazon-finds-and-favorites.lovable.app/sitemap.xml

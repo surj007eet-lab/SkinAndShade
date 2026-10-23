@@ -32,6 +32,7 @@ export interface Product {
   title: string;
   category: Category;
   concerns: Concern[];
+  /** Historical captured value; not a current merchant price. Used only for labelled budget filtering. */
   price: number;
   mrp: number | null;
   description: string;
@@ -56,9 +57,9 @@ export const products: Product[] = [
     price: 207,
     mrp: null,
     description:
-      "A hyaluronic acid conditioner that coats dry lengths with lightweight moisture and keeps hair soft for up to 72 hours.",
-    whyPicked: "Salon-style slip and shine at a two-hundred-rupee price point.",
-    bestFor: "Dry, frizzy lengths",
+      "Conditioner in a 175ml format; check the current label for ingredients and directions.",
+    whyPicked: "Included as a single conditioner option rather than a full hair-care set.",
+    bestFor: "Comparing conditioners for hair lengths",
     image: img("31i9VQAxpvL"),
     trending: false,
   },
@@ -71,9 +72,9 @@ export const products: Product[] = [
     price: 400,
     mrp: null,
     description:
-      "A big bottle of classic Nivea body lotion with hyaluronic acid for 72-hour moisture on dry arms, legs and elbows.",
-    whyPicked: "The 600ml size lasts a whole season and costs less per ml than most body lotions.",
-    bestFor: "Dry body skin in winter",
+      "Body lotion listed in a 600ml bottle; confirm the variant and ingredients on Amazon.",
+    whyPicked: "Included for shoppers comparing larger body-lotion pack formats.",
+    bestFor: "Comparing body lotions",
     image: img("31g-kdcdSeL"),
     trending: true,
   },
@@ -86,9 +87,9 @@ export const products: Product[] = [
     price: 335,
     mrp: null,
     description:
-      "A ceramide-rich cream that rebuilds a damaged skin barrier and calms tight, flaky patches without feeling heavy.",
-    whyPicked: "Ceramides at this price usually come in tiny tubes — this one is generous.",
-    bestFor: "Compromised, flaky skin barrier",
+      "Face moisturizer listed for normal to dry skin; confirm the current formula and pack size.",
+    whyPicked: "Included as a cream option alongside cleansers and sunscreen.",
+    bestFor: "Comparing face moisturizers",
     image: img("317vjj87F1L"),
   },
   {
@@ -100,9 +101,9 @@ export const products: Product[] = [
     price: 498,
     mrp: null,
     description:
-      "A water-light aqua gel sunscreen with SPF 50 PA++++ that disappears into skin with zero white cast.",
-    whyPicked: "One of the few truly invisible sunscreens that oily skin will actually reapply.",
-    bestFor: "Oily skin, no white cast",
+      "Gel sunscreen listed as SPF 50 PA++++; verify protection claims and directions on the current pack.",
+    whyPicked: "Included to compare a gel format with the other sunscreen listing.",
+    bestFor: "Comparing gel sunscreen formats",
     image: img("31nvDjG7KVL"),
     trending: true,
   },
@@ -115,9 +116,9 @@ export const products: Product[] = [
     price: 280,
     mrp: null,
     description:
-      "A soap-free gel face wash with neem and turmeric that cuts through oil and helps keep breakouts in check.",
-    whyPicked: "A budget classic that has survived every skincare trend for a reason.",
-    bestFor: "Oily, pimple-prone skin",
+      "Face wash listed with neem and turmeric; check fragrance and ingredients for your tolerances.",
+    whyPicked: "Included as an alternative cleanser format, not an acne treatment.",
+    bestFor: "Comparing face washes",
     image: img("31mvOiuL2CL"),
   },
   {
@@ -129,9 +130,9 @@ export const products: Product[] = [
     price: 270,
     mrp: null,
     description:
-      "A 2% salicylic acid cleanser that unclogs pores and reduces blackheads without stripping the skin.",
-    whyPicked: "Real BHA at drugstore pricing — a genuine acne routine starter.",
-    bestFor: "Blackheads and clogged pores",
+      "Face wash labelled with 2% salicylic acid; follow the current label and stop if irritation occurs.",
+    whyPicked: "Included to compare an active-ingredient wash with a regular cleanser.",
+    bestFor: "Comparing salicylic acid cleansers",
     image: img("31fIPTLyP0L"),
   },
   {
@@ -143,9 +144,9 @@ export const products: Product[] = [
     price: 368,
     mrp: null,
     description:
-      "A broad-spectrum SPF 50 sunscreen with niacinamide and multivitamins that sits well under makeup.",
-    whyPicked: "High protection plus brightening niacinamide in one tube under 400.",
-    bestFor: "Daily wear under makeup",
+      "Sunscreen listed as SPF 50 PA++++ with niacinamide; verify the exact formulation and directions.",
+    whyPicked: "Included for label comparison with the gel sunscreen option.",
+    bestFor: "Comparing daily sunscreen options",
     image: img("3158BCnRsLL"),
     trending: true,
   },
@@ -158,9 +159,9 @@ export const products: Product[] = [
     price: 297,
     mrp: null,
     description:
-      "A lightweight vitamin C serum that targets dark spots and dullness for visibly brighter skin in weeks.",
-    whyPicked: "The cheapest vitamin C serum that actually shows results on dark spots.",
-    bestFor: "Dark spots and dullness",
+      "Vitamin C face serum in a listed 30ml format; the exact vitamin C form and formula need checking.",
+    whyPicked: "Included as a serum option, without a promise of brightening or a result timeline.",
+    bestFor: "Comparing vitamin C serum listings",
     image: img("31tQ+MfWR9L"),
     trending: true,
   },
@@ -173,9 +174,9 @@ export const products: Product[] = [
     price: 1515,
     mrp: 2000,
     description:
-      "A Korean glass-skin serum combining 10% niacinamide and 4% tranexamic acid to fade dark spots and even tone.",
-    whyPicked: "The K-beauty serum everyone talks about — worth it when it dips below 1600.",
-    bestFor: "Stubborn pigmentation",
+      "Serum labelled Niacinamide 10 + TXA 4 in a 30ml format; confirm concentrations and instructions.",
+    whyPicked: "Included for comparison with a vitamin C serum, not as a proven upgrade.",
+    bestFor: "Comparing multi-ingredient serums",
     image: img("61odQWUlZiL"),
     trending: true,
   },
@@ -188,9 +189,9 @@ export const products: Product[] = [
     price: 675,
     mrp: 750,
     description:
-      "A glossy lip treatment with vitamin C and shea butter that softens dry, chapped lips with a sheer berry tint.",
-    whyPicked: "The lip sleeping mask's daytime sibling — one tube lasts months.",
-    bestFor: "Dry, chapped lips",
+      "Berry lip balm in a listed 10g format; confirm the current ingredients and variant.",
+    whyPicked: "Included as a lip-care format distinct from face moisturizers.",
+    bestFor: "Comparing lip balms",
     image: img("612UcJQa1VL"),
     trending: true,
   },
@@ -203,9 +204,9 @@ export const products: Product[] = [
     price: 1439,
     mrp: 1799,
     description:
-      "A dermat-recommended ceramide cream with collagen and peptides that moisturises within 30 minutes and repairs the barrier.",
-    whyPicked: "Five ceramides plus peptides — a formula you usually see at twice the price.",
-    bestFor: "Sensitive, reactive skin",
+      "Cream labelled with ceramides; verify the full ingredient list and pack size before ordering.",
+    whyPicked: "Included as another cream option; no dermatologist endorsement is claimed.",
+    bestFor: "Comparing ceramide cream listings",
     image: img("513lF6Fa72L"),
   },
   {
@@ -217,9 +218,9 @@ export const products: Product[] = [
     price: 1439,
     mrp: 1799,
     description:
-      "A fragrance-free gel creme with collagen, peptides and panthenol for long-lasting, non-sticky hydration.",
-    whyPicked: "A rare fragrance-free option for combination skin that hates heavy creams.",
-    bestFor: "Combination skin",
+      "Cream labelled with collagen, peptides and panthenol; check fragrance and the full current label.",
+    whyPicked: "Included as an alternative moisturizer format; sensitivity claims are not verified.",
+    bestFor: "Comparing moisturizer formulations",
     image: img("41FAqdDdpcL"),
   },
   {
@@ -231,9 +232,9 @@ export const products: Product[] = [
     price: 1645,
     mrp: 2350,
     description:
-      "A three-step sulfate-free and paraben-free set — shampoo, conditioner and mask — for chemically treated hair.",
-    whyPicked: "A full salon repair routine for less than one salon visit.",
-    bestFor: "Coloured or straightened hair",
+      "Listing for a shampoo, conditioner and mask set; confirm included items and sizes.",
+    whyPicked: "Included so shoppers can compare a set with individual hair-care products.",
+    bestFor: "Comparing hair-care sets",
     image: img("41o3CPt4LZL"),
   },
   {
@@ -245,9 +246,9 @@ export const products: Product[] = [
     price: 595,
     mrp: null,
     description:
-      "A tea tree shampoo that tackles dandruff and itchy scalp while staying gentle on the lengths.",
-    whyPicked: "Natural actives that actually calm a flaky scalp within a few washes.",
-    bestFor: "Flaky, itchy scalp",
+      "Tea tree shampoo labelled Anti Dandruff in a 200ml format; check active ingredients and directions.",
+    whyPicked: "Included as a shampoo listing, without promising dandruff or hair-fall treatment.",
+    bestFor: "Comparing scalp shampoo labels",
     image: img("41du0O7Y2wL"),
   },
   {
@@ -259,9 +260,9 @@ export const products: Product[] = [
     price: 1828,
     mrp: 2150,
     description:
-      "A Korean firming ampoule with copper peptides, EGF, collagen and 24K gold for plumper, smoother skin.",
-    whyPicked: "An ingredient list that reads like a clinic treatment, at serum prices.",
-    bestFor: "Fine lines and loss of firmness",
+      "Ampoule labelled Silk Peptide EGF in a 40ml format; confirm ingredients and usage on the pack.",
+    whyPicked: "Included as an ampoule format; no clinical or firming outcome is implied.",
+    bestFor: "Comparing ampoule listings",
     image: img("517-G+SEIYL"),
   },
   {
@@ -273,9 +274,9 @@ export const products: Product[] = [
     price: 2340,
     mrp: 2600,
     description:
-      "A warm vanilla mist for hair and body — soft, skin-close and easy to layer with other scents.",
-    whyPicked: "A designer vanilla that works for daily wear, not just evenings.",
-    bestFor: "Everyday soft vanilla scent",
+      "Hair and body perfume mist in a listed 100ml format; confirm the exact variant and seller.",
+    whyPicked: "Included to compare a mist format with eau de toilette.",
+    bestFor: "Comparing perfume mists",
     image: img("71j01Ni4T7L"),
   },
   {
@@ -287,9 +288,9 @@ export const products: Product[] = [
     price: 599,
     mrp: null,
     description:
-      "A vitamin C toner that preps skin after cleansing and adds a brightening step to any routine.",
-    whyPicked: "An easy glow-boosting step for people who won't commit to a full routine.",
-    bestFor: "Dull, tired-looking skin",
+      "Vitamin C tonic listed in a 200ml format; it is a toner, not a serum.",
+    whyPicked: "Included to distinguish toner formats from leave-on serums.",
+    bestFor: "Comparing toners",
     image: img("51yxC3kfn4L"),
   },
   {
@@ -301,9 +302,9 @@ export const products: Product[] = [
     price: 1199,
     mrp: 1499,
     description:
-      "A 10% vitamin C serum stabilised with ferulic acid that brightens, evens tone and fades acne marks.",
-    whyPicked: "The ferulic-acid combo keeps the vitamin C effective for longer in the bottle.",
-    bestFor: "Acne marks and uneven tone",
+      "Serum labelled 10% Vitamin C with ferulic acid and collagen; check the manufacturer and full formula.",
+    whyPicked: "Included with caution: manufacturer identity and formulation need verification.",
+    bestFor: "Label comparison; verify manufacturer first",
     image: img("71U0l6TkTQL"),
   },
   {
@@ -315,9 +316,9 @@ export const products: Product[] = [
     price: 2380,
     mrp: 2800,
     description:
-      "A rich antioxidant day-and-night cream with berry extracts for very dry and sensitive skin.",
-    whyPicked: "French pharmacy comfort for skin that reacts to everything else.",
-    bestFor: "Very dry, sensitive skin",
+      "Nourishing face cream in a listed 50ml format; verify fragrance and ingredients for your tolerances.",
+    whyPicked: "Included as another cream option; suitability for sensitive skin is not guaranteed.",
+    bestFor: "Comparing richer face creams",
     image: img("41C79hIHziL"),
   },
   {
@@ -329,9 +330,9 @@ export const products: Product[] = [
     price: 3770,
     mrp: 5800,
     description:
-      "A citrus-woody EDT in the iconic hand-woven bottle — fresh, clean and quietly distinctive.",
-    whyPicked: "At 35% off, this is the cheapest entry into niche-smelling designer fragrance.",
-    bestFor: "A signature office scent",
+      "Artisan eau de toilette in a listed 75ml format; confirm seller, variant and returns terms.",
+    whyPicked: "Included to compare eau de toilette with the perfume mist; no discount is implied.",
+    bestFor: "Comparing eau de toilette formats",
     image: img("6165GCihYbL"),
   },
 ];

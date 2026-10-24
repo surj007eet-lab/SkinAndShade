@@ -11,7 +11,19 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AffiliateDisclosureRouteImport } from './routes/affiliate-disclosure'
+import { Route as BathBodyRouteImport } from './routes/bath-body'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
+import { Route as FragranceRouteImport } from './routes/fragrance'
+import { Route as HaircareRouteImport } from './routes/haircare'
+import { Route as MoisturizersRouteImport } from './routes/moisturizers'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SerumsRouteImport } from './routes/serums'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SkincareRouteImport } from './routes/skincare'
+import { Route as SunscreenRouteImport } from './routes/sunscreen'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as GuidesIndexRouteImport } from './routes/guides.index'
 import { Route as GuidesSlugRouteImport } from './routes/guides.$slug'
 
@@ -25,9 +37,69 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AffiliateDisclosureRoute = AffiliateDisclosureRouteImport.update({
+  id: '/affiliate-disclosure',
+  path: '/affiliate-disclosure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BathBodyRoute = BathBodyRouteImport.update({
+  id: '/bath-body',
+  path: '/bath-body',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
+  id: '/editorial-policy',
+  path: '/editorial-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FragranceRoute = FragranceRouteImport.update({
+  id: '/fragrance',
+  path: '/fragrance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HaircareRoute = HaircareRouteImport.update({
+  id: '/haircare',
+  path: '/haircare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoisturizersRoute = MoisturizersRouteImport.update({
+  id: '/moisturizers',
+  path: '/moisturizers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SerumsRoute = SerumsRouteImport.update({
+  id: '/serums',
+  path: '/serums',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkincareRoute = SkincareRouteImport.update({
+  id: '/skincare',
+  path: '/skincare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SunscreenRoute = SunscreenRouteImport.update({
+  id: '/sunscreen',
+  path: '/sunscreen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
@@ -44,14 +116,38 @@ const GuidesSlugRoute = GuidesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/affiliate-disclosure': typeof AffiliateDisclosureRoute
+  '/bath-body': typeof BathBodyRoute
+  '/contact': typeof ContactRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/fragrance': typeof FragranceRoute
+  '/haircare': typeof HaircareRoute
+  '/moisturizers': typeof MoisturizersRoute
+  '/privacy': typeof PrivacyRoute
+  '/serums': typeof SerumsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/skincare': typeof SkincareRoute
+  '/sunscreen': typeof SunscreenRoute
+  '/terms': typeof TermsRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/affiliate-disclosure': typeof AffiliateDisclosureRoute
+  '/bath-body': typeof BathBodyRoute
+  '/contact': typeof ContactRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/fragrance': typeof FragranceRoute
+  '/haircare': typeof HaircareRoute
+  '/moisturizers': typeof MoisturizersRoute
+  '/privacy': typeof PrivacyRoute
+  '/serums': typeof SerumsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/skincare': typeof SkincareRoute
+  '/sunscreen': typeof SunscreenRoute
+  '/terms': typeof TermsRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/guides': typeof GuidesIndexRoute
 }
@@ -59,23 +155,98 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/affiliate-disclosure': typeof AffiliateDisclosureRoute
+  '/bath-body': typeof BathBodyRoute
+  '/contact': typeof ContactRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/fragrance': typeof FragranceRoute
+  '/haircare': typeof HaircareRoute
+  '/moisturizers': typeof MoisturizersRoute
+  '/privacy': typeof PrivacyRoute
+  '/serums': typeof SerumsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/skincare': typeof SkincareRoute
+  '/sunscreen': typeof SunscreenRoute
+  '/terms': typeof TermsRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/sitemap.xml' | '/guides/$slug' | '/guides/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/affiliate-disclosure'
+    | '/bath-body'
+    | '/contact'
+    | '/editorial-policy'
+    | '/fragrance'
+    | '/haircare'
+    | '/moisturizers'
+    | '/privacy'
+    | '/serums'
+    | '/sitemap.xml'
+    | '/skincare'
+    | '/sunscreen'
+    | '/terms'
+    | '/guides/$slug'
+    | '/guides/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/sitemap.xml' | '/guides/$slug' | '/guides'
+  to:
+    | '/'
+    | '/about'
+    | '/affiliate-disclosure'
+    | '/bath-body'
+    | '/contact'
+    | '/editorial-policy'
+    | '/fragrance'
+    | '/haircare'
+    | '/moisturizers'
+    | '/privacy'
+    | '/serums'
+    | '/sitemap.xml'
+    | '/skincare'
+    | '/sunscreen'
+    | '/terms'
+    | '/guides/$slug'
+    | '/guides'
   id:
-    '__root__' | '/' | '/about' | '/sitemap.xml' | '/guides/$slug' | '/guides/'
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/affiliate-disclosure'
+    | '/bath-body'
+    | '/contact'
+    | '/editorial-policy'
+    | '/fragrance'
+    | '/haircare'
+    | '/moisturizers'
+    | '/privacy'
+    | '/serums'
+    | '/sitemap.xml'
+    | '/skincare'
+    | '/sunscreen'
+    | '/terms'
+    | '/guides/$slug'
+    | '/guides/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AffiliateDisclosureRoute: typeof AffiliateDisclosureRoute
+  BathBodyRoute: typeof BathBodyRoute
+  ContactRoute: typeof ContactRoute
+  EditorialPolicyRoute: typeof EditorialPolicyRoute
+  FragranceRoute: typeof FragranceRoute
+  HaircareRoute: typeof HaircareRoute
+  MoisturizersRoute: typeof MoisturizersRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SerumsRoute: typeof SerumsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SkincareRoute: typeof SkincareRoute
+  SunscreenRoute: typeof SunscreenRoute
+  TermsRoute: typeof TermsRoute
   GuidesSlugRoute: typeof GuidesSlugRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
 }
@@ -96,11 +267,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/affiliate-disclosure': {
+      id: '/affiliate-disclosure'
+      path: '/affiliate-disclosure'
+      fullPath: '/affiliate-disclosure'
+      preLoaderRoute: typeof AffiliateDisclosureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bath-body': {
+      id: '/bath-body'
+      path: '/bath-body'
+      fullPath: '/bath-body'
+      preLoaderRoute: typeof BathBodyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/editorial-policy': {
+      id: '/editorial-policy'
+      path: '/editorial-policy'
+      fullPath: '/editorial-policy'
+      preLoaderRoute: typeof EditorialPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fragrance': {
+      id: '/fragrance'
+      path: '/fragrance'
+      fullPath: '/fragrance'
+      preLoaderRoute: typeof FragranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/haircare': {
+      id: '/haircare'
+      path: '/haircare'
+      fullPath: '/haircare'
+      preLoaderRoute: typeof HaircareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/moisturizers': {
+      id: '/moisturizers'
+      path: '/moisturizers'
+      fullPath: '/moisturizers'
+      preLoaderRoute: typeof MoisturizersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/serums': {
+      id: '/serums'
+      path: '/serums'
+      fullPath: '/serums'
+      preLoaderRoute: typeof SerumsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skincare': {
+      id: '/skincare'
+      path: '/skincare'
+      fullPath: '/skincare'
+      preLoaderRoute: typeof SkincareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sunscreen': {
+      id: '/sunscreen'
+      path: '/sunscreen'
+      fullPath: '/sunscreen'
+      preLoaderRoute: typeof SunscreenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/': {
@@ -123,7 +378,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AffiliateDisclosureRoute: AffiliateDisclosureRoute,
+  BathBodyRoute: BathBodyRoute,
+  ContactRoute: ContactRoute,
+  EditorialPolicyRoute: EditorialPolicyRoute,
+  FragranceRoute: FragranceRoute,
+  HaircareRoute: HaircareRoute,
+  MoisturizersRoute: MoisturizersRoute,
+  PrivacyRoute: PrivacyRoute,
+  SerumsRoute: SerumsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SkincareRoute: SkincareRoute,
+  SunscreenRoute: SunscreenRoute,
+  TermsRoute: TermsRoute,
   GuidesSlugRoute: GuidesSlugRoute,
   GuidesIndexRoute: GuidesIndexRoute,
 }

@@ -1,0 +1,6 @@
+import { Link } from "@tanstack/react-router";
+import { policies, CONTACT_EMAIL } from "@/data/policies";
+export function PolicyPage({ policy }: { policy: keyof typeof policies }) {
+  const page = policies[policy];
+  return <main id="main-content" className="mx-auto max-w-3xl px-4 pt-10 sm:px-6"><nav aria-label="Breadcrumb" className="text-sm text-primary"><Link to="/">Home</Link> <span aria-hidden>/</span> <span className="text-muted-foreground">{page.title}</span></nav><h1 className="mt-8 text-4xl font-semibold text-primary">{page.title}</h1><p className="mt-4 text-xs text-muted-foreground">Updated 23 October 2026</p><div className="mt-8 space-y-8">{page.sections.map(s => <section key={s.heading}><h2 className="text-2xl text-foreground">{s.heading}</h2><p className="mt-3 leading-relaxed text-muted-foreground">{s.body}</p></section>)}</div><p className="mt-10 text-sm"><a href={`mailto:${CONTACT_EMAIL}`} className="break-all text-primary underline">{CONTACT_EMAIL}</a> · <Link to="/contact" className="text-primary underline">Contact</Link></p></main>;
+}

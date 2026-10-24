@@ -9,13 +9,13 @@ export const Route = createFileRoute("/guides/")({
       {
         name: "description",
         content:
-          "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and serums that work.",
+          "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and how to compare serum labels.",
       },
       { property: "og:title", content: "Beauty Guides — SkinAndShade" },
       {
         property: "og:description",
         content:
-          "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and serums that work.",
+          "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and how to compare serum labels.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/guides" },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/guides/")({
 
 function GuidesPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
+    <main id="main-content" className="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Guides</p>
       <h1 className="mt-4 text-4xl font-semibold text-primary sm:text-5xl">
         Skincare, minus the confusion
@@ -46,12 +46,12 @@ function GuidesPage() {
               className="block rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-ring"
             >
               <p className="text-xs text-muted-foreground">
-                {new Date(g.date).toLocaleDateString("en-IN", {
+                {new Date(g.updated).toLocaleDateString("en-IN", {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
                 })}{" "}
-                · {g.readTime}
+                · Editorial update · {g.readTime}
               </p>
               <h2 className="mt-2 text-2xl font-semibold leading-snug text-card-foreground">
                 {g.title}

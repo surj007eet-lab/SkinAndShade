@@ -1,103 +1,63 @@
-export interface GuideBlock {
-  heading?: string;
-  body: string;
-}
-
+export interface GuideBlock { heading?: string; body: string }
 export interface Guide {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  blocks: GuideBlock[];
+  slug: string; title: string; excerpt: string; readTime: string;
+  updated: string; blocks: GuideBlock[]; productAsins: string[];
+  sources: { title: string; url: string }[]; related: string[];
 }
-
+const sunscreenSource = { title: "AAD: How to select sunscreen", url: "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-select-sunscreen" };
+const oilySource = { title: "AAD: How to control oily skin", url: "https://www.aad.org/public/everyday-care/skin-care-basics/dry/oily-skin" };
 export const guides: Guide[] = [
   {
     slug: "simple-skincare-routine-under-1000",
-    title: "Simple skincare routine under ₹1,000",
-    excerpt:
-      "A cleanser, a serum and a sunscreen — the only three steps most Indian skin actually needs, all for under a thousand rupees.",
-    date: "2026-10-15",
-    readTime: "5 min read",
+    title: "Planning a simple skincare routine under ₹1,000",
+    excerpt: "Put cleanser, moisturizer and sunscreen first. A ₹1,000 target is a shopping plan, not a guaranteed complete routine or a fit for every skin type.",
+    updated: "2026-10-23", readTime: "6 min read",
+    productAsins: ["B07XS46Q73", "B096PJMGPL", "B0BDVG99J5", "B09FPS9D5T"],
+    related: ["sunscreen-101-india", "budget-serums-that-actually-work"], sources: [oilySource, sunscreenSource],
     blocks: [
-      {
-        body: "Skincare doesn't need ten steps. For most people dealing with Indian heat, humidity and city pollution, three products done consistently beat a shelf full of half-used bottles. Here's the routine I'd put together with a ₹1,000 budget.",
-      },
-      {
-        heading: "Step 1: A cleanser that matches your skin",
-        body: "If your skin is oily or acne-prone, a salicylic acid face wash like Minimalist's 2% Salicylic Acid cleanser (₹270) unclogs pores without stripping. On a tighter budget, Himalaya's Neem face wash does a solid job too. Dry skin should pick a gentle, non-foaming cleanser instead.",
-      },
-      {
-        heading: "Step 2: One serum, one job",
-        body: "Pick the concern that bothers you most. Dark spots and dullness? Garnier's Vitamin C serum (₹297) is the cheapest one I've seen genuinely fade marks. Breakouts? Stick with the salicylic wash and skip a second active — more is not better.",
-      },
-      {
-        heading: "Step 3: Sunscreen, every single morning",
-        body: "This is the step that makes the other two work. Minimalist's SPF 50 PA++++ (₹368) sits invisibly under makeup and doesn't grease up by noon. Two fingers' worth for face and neck, reapplied if you're outdoors past lunch.",
-      },
-      {
-        heading: "The math",
-        body: "Face wash ₹270 + vitamin C serum ₹297 + sunscreen ₹368 = ₹935. That's a complete morning and evening routine with ₹65 to spare. Add a moisturiser next month; you don't need everything on day one.",
-      },
+      { body: "Start with a gentle cleanser, a moisturizer suited to your skin and sunscreen for sun protection. A serum is optional. This guide helps you prioritize a ₹1,000 shopping target; it does not promise that today's prices will fit that budget, that three products suit everyone, or that cosmetics will treat a skin condition." },
+      { heading: "Who this plan is for", body: "This is a starting point for an adult comparing everyday skincare, not a prescribed routine. Dry, oily and combination skin can need different textures and ingredients. If your skin is persistently sore, inflamed or breaking out, seek qualified advice instead of adding multiple active products." },
+      { heading: "Step 1: Choose a cleanser you tolerate", body: "Choose gentle cleansing and avoid scrubbing. Oily skin does not need to feel tight after washing. The catalogue includes a neem-labelled face wash and a 2% salicylic acid wash, but neither has been tested here. The active wash is not a default choice for beginners or dry, easily irritated skin. Verify the label and use directions." },
+      { heading: "Step 2: Keep moisturizer in the budget", body: "Do not replace moisturizer with a serum merely to make the total cheaper. For oily skin, consider a product labelled oil-free and noncomedogenic; for dry skin, compare cream textures and your known ingredient tolerances. The Dot & Key listing is one normal-to-dry-skin moisturizer to examine, not a universal choice." },
+      { heading: "Step 3: Choose and use sunscreen", body: "AAD recommends broad-spectrum SPF 30 or higher and water resistance. Check those claims on the actual current pack, not only a listing title. Apply and reapply as directed, and also use shade and protective clothing. Sunscreen does not make an irritating routine suitable for your skin." },
+      { heading: "How to shop to a ₹1,000 target", body: "Add current checkout prices for cleanser + moisturizer + sunscreen, including delivery. Compare pack size and seller before paying. If the total exceeds ₹1,000, postpone an optional serum, compare simpler alternatives, or adjust the budget; do not treat an old ₹935 example as a current offer. No current price total has been verified here." },
+      { heading: "Morning and evening are different", body: "Use your tolerated basics consistently according to their labels. Sunscreen is for daytime sun protection; it is not an evening treatment. Introduce one new product at a time so you can identify irritation. A routine may need professional adjustment for your circumstances." },
+      { heading: "How the examples were selected", body: "Examples come from the existing catalogue to compare product roles, labelled formats and different cleanser options. Selection is editorial and label-based, not a personal trial, clinical test or best-in-market ranking. Current formulations, authenticity and prices must be checked with the merchant." },
+      { heading: "Your next step", body: "Choose the three roles first, then check current prices. If you already own a suitable basic, keep it rather than buying a replacement just to match this list. Read the sunscreen guide before adding optional serums." },
     ],
   },
   {
-    slug: "sunscreen-101-india",
-    title: "Sunscreen 101: SPF, PA++++ and how much to actually apply",
-    excerpt:
-      "What those numbers on the tube really mean, why most of us apply half what we should, and the textures that survive Indian summers.",
-    date: "2026-10-10",
-    readTime: "4 min read",
+    slug: "sunscreen-101-india", title: "Sunscreen in India: SPF, PA ratings and reapplication",
+    excerpt: "Read SPF and UVA labels, compare two sunscreen formats, and understand application and reapplication without promises about white cast or skin-type fit.",
+    updated: "2026-10-23", readTime: "6 min read", productAsins: ["B0BVWDJTHF", "B09FPS9D5T"],
+    related: ["simple-skincare-routine-under-1000"],
+    sources: [sunscreenSource, { title: "AAD: How to apply sunscreen", url: "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen" }, { title: "NHS: Sunscreen and sun safety", url: "https://www.nhs.uk/live-well/seasonal-health/sunscreen-and-sun-safety/" }, oilySource],
     blocks: [
-      {
-        body: "Sunscreen is the highest-impact product in any routine, and also the most misunderstood. Two minutes of label-reading saves you from buying the wrong tube.",
-      },
-      {
-        heading: "SPF measures UVB, PA measures UVA",
-        body: "SPF 50 blocks roughly 98% of UVB — the rays that burn. The PA rating (look for PA++++) covers UVA, the rays that tan, spot and age you. In India you need both numbers high; a high-SPF cream with PA++ will still let pigmentation through.",
-      },
-      {
-        heading: "The two-finger rule",
-        body: "Squeeze sunscreen along your index and middle finger — that's the amount for face and neck. Most people apply a quarter of that and get a quarter of the labelled protection.",
-      },
-      {
-        heading: "Texture decides whether you'll reapply",
-        body: "The best sunscreen is the one you don't hate wearing. Oily skin tends to love aqua gels like The Derma Co 1% Hyaluronic Sunscreen — no white cast, no grease. Drier skin usually prefers lotion textures like Minimalist's SPF 50 with niacinamide.",
-      },
+      { body: "Choose sunscreen by its protection label and whether you can use it as directed, not just by a promise of glow or an invisible finish. For Indian shoppers, this guide explains what to compare on the pack. It does not rank a best sunscreen for oily skin or verify any product's laboratory performance." },
+      { heading: "SPF and UVA protection are not the same", body: "SPF describes protection against UVB under test conditions. It does not tell you everything about UVA protection. PA is a UVA-related label; confirm the broad-spectrum claim on your pack rather than interpreting a high SPF as complete protection. The AAD practical baseline is broad-spectrum SPF 30 or higher plus water resistance." },
+      { heading: "SPF 30 versus SPF 50", body: "Both meet the AAD SPF 30-or-higher baseline if other requirements are met. Higher SPF is not permission to apply less or stay out longer. No sunscreen blocks every UV ray; correct application, reapplication, shade and clothing still matter. Do not convert an SPF number into a guaranteed number of hours outdoors." },
+      { heading: "For oily or dry skin, check more than texture", body: "For oily skin, AAD suggests considering oil-free and noncomedogenic labels. A gel name does not prove that a product is noncomedogenic, non-greasy or suitable for acne. For dry skin, compare your tolerated moisturizer and sunscreen textures; neither listed sunscreen has been personally tested here. Fragrance, eye stinging and finish vary by user." },
+      { heading: "How much to apply", body: "Follow the pack instructions and cover exposed skin evenly. AAD advises most adults need about one ounce to cover the body and application before going outdoors. A two-finger shortcut is not a universal precise dose for every face, neck or dispenser; do not assume a fraction of the amount delivers a matching fraction of labelled protection." },
+      { heading: "When to reapply", body: "AAD advises reapplying every two hours outdoors and immediately after swimming or sweating. Follow your pack's water-resistance instructions too: water resistant is not waterproof or all-day protection. Towelling and activity can affect coverage. Sunscreen is only one part of sun protection." },
+      { heading: "Comparing the two catalogue options", body: "The Derma Co listing names an aqua gel and SPF 50 PA++++; the Minimalist listing names SPF 50 PA++++ with niacinamide. Those listed formats are useful comparison points, not proof of superior protection. Verify the current ingredients, water-resistance label, pack size, expiry and seller. Neither is promised to have zero white cast." },
+      { heading: "How these options were selected", body: "These are the two existing sunscreen entries, shown together to make label comparison easier. This is not a test-based league table or a comprehensive Indian-market review. Pick based on a verified protection label, tolerability and a texture you will use, not this site's historical price captures." },
     ],
   },
   {
-    slug: "budget-serums-that-actually-work",
-    title: "5 budget serums that actually work",
-    excerpt:
-      "Vitamin C, niacinamide and salicylic acid picks that punch above their price — and one splurge that's worth it.",
-    date: "2026-10-02",
-    readTime: "6 min read",
+    slug: "budget-serums-that-actually-work", title: "Buying a face serum on a budget: what to compare",
+    excerpt: "Compare vitamin C, niacinamide and other serum listings without confusing cleansers with serums or assuming expensive formulas guarantee results.",
+    updated: "2026-10-23", readTime: "6 min read",
+    productAsins: ["B08FTQXWC7", "B0DL92QM79", "B0HDP19ZNZ"], related: ["simple-skincare-routine-under-1000", "sunscreen-101-india"],
+    sources: [oilySource, { title: "AAD: Skin care for acne-prone skin", url: "https://www.aad.org/public/diseases/acne/skin-care/tips" }],
     blocks: [
-      {
-        body: "Serums are where brands overpromise the most, so price tags mean little. These are the ones where the formula justifies the money.",
-      },
-      {
-        heading: "Garnier Vitamin C Serum — ₹297",
-        body: "The budget benchmark for dark spots. Lightweight, layers well, and shows visible brightening in about four weeks of nightly use.",
-      },
-      {
-        heading: "Minimalist Salicylic Acid 2% — ₹270 (as a wash)",
-        body: "Technically a face wash, but the 2% BHA does the pore-clearing work of many leave-on serums. Ideal if leave-on acids irritate your skin.",
-      },
-      {
-        heading: "O3+ Vitamin C Tonic — ₹599",
-        body: "A gentle entry point for sensitive skin that flushes at stronger vitamin C. Use it as a toner step before moisturiser.",
-      },
-      {
-        heading: "10% Vitamin C with Ferulic Acid — ₹1,199",
-        body: "Ferulic acid stabilises vitamin C, so the bottle stays potent to the last drop. The pick for stubborn acne marks.",
-      },
-      {
-        heading: "The splurge: Anua Niacinamide 10 + TXA 4 — ₹1,515",
-        body: "When budget options plateau on pigmentation, this Korean serum's tranexamic acid is the step up. Buy it on a deal day — it regularly drops below ₹1,600.",
-      },
+      { body: "A budget serum should be an optional, considered purchase—not a substitute for a tolerated cleanser, moisturizer or sun protection. This guide compares what existing listings disclose and what remains unknown. It does not claim five proven serums, guaranteed brightening or a current under-₹500 shortlist." },
+      { heading: "Set your goal before choosing an ingredient", body: "Decide what you want from an extra step and whether your basic routine is comfortable first. Vitamin C and niacinamide are different ingredient labels, but a name alone cannot establish a formula's effectiveness, stability or compatibility. There is no evidence here that one listed serum is clinically superior to another." },
+      { heading: "Vitamin C versus niacinamide: compare the actual formula", body: "The Garnier listing names vitamin C in a 30ml serum; Anua names niacinamide and TXA in a 30ml serum. Check the exact vitamin C form, full ingredient list, disclosed concentrations, fragrance and instructions. Do not infer that stronger concentrations, combined ingredients or a higher price will give faster results. Skin tolerance is individual." },
+      { heading: "A wash or toner is not a serum", body: "Minimalist's salicylic acid face wash is rinsed off; O3+'s tonic is a toner. Neither belongs in a list of five face serums or can be assumed interchangeable with a leave-on formula. Compare products with the same role before deciding what is good value." },
+      { heading: "Comparing the catalogue examples", body: "Garnier offers a listed 30ml vitamin C serum format; Anua offers a listed 30ml multi-ingredient serum format. The Generic vitamin C listing needs extra caution because manufacturer identity and formulation have not been independently verified. Its ingredient names do not prove stability. Consider postponing it until the seller and manufacturer can be confirmed." },
+      { heading: "Shopping under ₹500", body: "If ₹500 is your ceiling, check the current merchant price including delivery and compare pack size. The catalogue's old captured prices are not a live deal list. If no suitable verified option fits, skipping a serum is a reasonable choice; do not compromise your basic routine to buy one." },
+      { heading: "Use cautiously, without a result deadline", body: "Follow the exact label, introduce one new product at a time and stop if irritation occurs. Do not stack active products because their marketing sounds complementary. Persistent acne, pigmentation changes or irritation deserve qualified advice. This site cannot diagnose the cause or promise treatment outcomes." },
+      { heading: "Selection method and conclusion", body: "Examples are selected from existing serum entries to illustrate label comparison, not personal testing or a comprehensive best-of ranking. Choose only when the formula, seller and current cost are clear. Neither an attractive ingredient list nor affiliate inclusion is a guarantee of results." },
     ],
   },
 ];

@@ -1,65 +1,29 @@
+import { Bath, FlaskConical, Scissors, SprayCan } from "lucide-react";
 import { amazonUrl, type Product } from "@/data/products";
+import { Button } from "@/components/ui/button";
 
 export function ProductCard({ product }: { product: Product }) {
-  const off =
-    product.mrp && product.mrp > product.price
-      ? Math.round((1 - product.price / product.mrp) * 100)
-      : null;
-
+  const Icon = product.category === "Hair Care" ? Scissors : product.category === "Fragrance" ? SprayCan : product.category === "Bath & Body" ? Bath : FlaskConical;
   return (
-    <article className="group flex flex-col rounded-2xl border border-border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
-      <div className="relative aspect-square overflow-hidden rounded-xl bg-secondary">
-        <img
-          src={product.image}
-          alt={`${product.brand} ${product.title}`}
-          loading="lazy"
-          className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-        />
-        {off && (
-          <span className="absolute left-2 top-2 rounded-full bg-accent px-2 py-1 text-[11px] font-bold text-accent-foreground">
-            −{off}%
-          </span>
-        )}
+    <article className="group flex h-full flex-col rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="flex aspect-square flex-col items-center justify-center gap-4 rounded-xl bg-secondary p-6 text-center">
+        <Icon className="h-12 w-12 text-primary" aria-hidden />
+        <span className="font-display text-xl text-primary">{product.brand}</span>
+        <span className="text-xs text-muted-foreground">{product.category} · product photo not displayed</span>
       </div>
-
-      <div className="mt-4 flex items-center justify-between gap-2">
-        <span className="text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-          {product.brand}
-        </span>
-        <span className="rounded-full bg-secondary px-2 py-0.5 text-[11px] font-medium text-secondary-foreground">
-          {product.category}
-        </span>
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
+        <span className="text-xs font-semibold text-primary">{product.brand}</span>
+        <span className="text-xs text-muted-foreground">{product.category}</span>
       </div>
-
       <h3 className="mt-2 text-lg leading-snug text-card-foreground">{product.title}</h3>
-      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{product.description}</p>
-
-      <p className="mt-3 text-xs text-muted-foreground">
-        <span className="font-semibold text-foreground">Best for:</span> {product.bestFor}
-      </p>
-      <p className="mt-1 text-xs italic text-muted-foreground">
-        “{product.whyPicked}”
-      </p>
-
-      <div className="mt-3 flex items-baseline gap-2">
-        <span className="text-lg font-bold text-foreground">
-          ₹{product.price.toLocaleString("en-IN")}
-        </span>
-        {product.mrp && (
-          <span className="text-sm text-muted-foreground line-through">
-            ₹{product.mrp.toLocaleString("en-IN")}
-          </span>
-        )}
-      </div>
-
-      <a
-        href={amazonUrl(product.asin)}
-        target="_blank"
-        rel="sponsored noopener"
-        className="mt-4 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-ring"
-      >
-        View on Amazon →
-      </a>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+      <p className="mt-3 text-xs text-muted-foreground"><span className="font-semibold text-foreground">Consider for:</span> {product.bestFor}</p>
+      <p className="mt-2 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Why included:</span> {product.whyPicked}</p>
+      <p className="mt-3 text-xs text-muted-foreground">Current price and availability: check Amazon.</p>
+      <Button asChild className="mt-auto w-full rounded-full px-3 py-3 h-auto whitespace-normal">
+        <a href={amazonUrl(product.asin)} target="_blank" rel="sponsored noopener" aria-label={`View ${product.brand} ${product.title} on Amazon (opens in a new tab)`}>View on Amazon →</a>
+      </Button>
+      <p className="mt-2 text-center text-xs text-muted-foreground">Affiliate link · Amazon handles your purchase</p>
     </article>
   );
 }

@@ -1,15 +1,11 @@
-import { Bath, FlaskConical, Scissors, SprayCan } from "lucide-react";
 import { amazonUrl, type Product } from "@/data/products";
 import { Button } from "@/components/ui/button";
 
 export function ProductCard({ product }: { product: Product }) {
-  const Icon = product.category === "Hair Care" ? Scissors : product.category === "Fragrance" ? SprayCan : product.category === "Bath & Body" ? Bath : FlaskConical;
   return (
     <article className="group flex h-full flex-col rounded-2xl border border-border bg-card p-4 shadow-sm">
-      <div className="flex aspect-square flex-col items-center justify-center gap-4 rounded-xl bg-secondary p-6 text-center">
-        <Icon className="h-12 w-12 text-primary" aria-hidden />
-        <span className="font-display text-xl text-primary">{product.brand}</span>
-        <span className="text-xs text-muted-foreground">{product.category} · product photo not displayed</span>
+      <div className="aspect-square overflow-hidden rounded-xl bg-secondary">
+        <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" width={640} height={640} className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" />
       </div>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
         <span className="text-xs font-semibold text-primary">{product.brand}</span>

@@ -1,9 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { PolicyPage } from "@/components/PolicyPage";
-import { policies } from "@/data/policies";
-import { pageHead } from "@/lib/seo";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 export const Route = createFileRoute("/affiliate-disclosure")({
-  staticData: { sitemap: true },
-  head: () => pageHead("/affiliate-disclosure", policies["affiliate-disclosure"].title, policies["affiliate-disclosure"].description),
-  component: () => <PolicyPage policy="affiliate-disclosure" />,
+  staticData: { sitemap: false },
+  beforeLoad: () => { throw redirect({ to: "/about", hash: "affiliate-disclosure", statusCode: 301 }); },
 });

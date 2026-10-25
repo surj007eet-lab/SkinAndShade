@@ -52,7 +52,7 @@ function AboutPage() {
         </p>
       </div>
 
-      <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+      <div id="affiliate-disclosure" className="mt-10 scroll-mt-24 rounded-2xl border border-border bg-card p-6">
         <h2 className="text-xl font-semibold text-card-foreground">How this site earns</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           SkinAndShade is part of the Amazon Associates programme. When you tap "View on Amazon"

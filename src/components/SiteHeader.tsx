@@ -1,11 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { Moon, Sun } from "lucide-react";
+import { ChevronDown, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/guides", label: "Guides" },
   { to: "/about", label: "About" },
+  { to: "/guides", label: "Guides" },
+] as const;
+
+export const CATEGORY_NAV = [
+  { to: "/bath-body", label: "Bath & Body" },
+  { to: "/fragrance", label: "Fragrance" },
+  { to: "/haircare", label: "Haircare" },
+  { to: "/moisturizers", label: "Moisturizers" },
+  { to: "/serums", label: "Serums" },
+  { to: "/skincare", label: "Skincare" },
+  { to: "/sunscreen", label: "Sunscreen" },
 ] as const;
 
 export function SiteHeader() {
@@ -44,6 +54,25 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <details className="group relative">
+            <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+              Categories <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+            </summary>
+            <ul className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
+              {CATEGORY_NAV.map((c) => (
+                <li key={c.to}>
+                  <Link
+                    to={c.to}
+                    onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")}
+                    className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring"
+                    activeProps={{ className: "bg-secondary text-secondary-foreground" }}
+                  >
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </details>
           <button
             type="button"
             onClick={toggle}

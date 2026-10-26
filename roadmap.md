@@ -1,6 +1,6 @@
 # SkinAndShade optimization
 
-- [ ] Add 20–30 more hair-care products from verified, permitted sources with real photos and affiliate links.
+- [ ] Add 20–30 more hair-care products with real photos and affiliate links — blocked until an authorized Amazon product feed or permission-cleared product data/photos are supplied; the supplied link is a general search, not a product feed.
 
 - [x] Inspect current code, published pages and SEO foundations.
 - [ ] Improve product claims, historical-price presentation and affiliate disclosures.

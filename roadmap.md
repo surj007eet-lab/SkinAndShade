@@ -1,6 +1,6 @@
 # SkinAndShade optimization
 
-- [ ] Add 20–30 more hair-care products with real photos and affiliate links — user confirmed Creators API access but declined the secure credential form; waiting for credentials or permission-cleared product data/photos.
+- [ ] Add 20–30 more hair-care products with real photos and affiliate links — five individual links received and resolved; user requests full details from links, but authorized Creators API credentials or permission-cleared details/photos are still required. Secure credential form was previously declined.
 
 - [x] Inspect current code, published pages and SEO foundations.
 - [ ] Improve product claims, historical-price presentation and affiliate disclosures.

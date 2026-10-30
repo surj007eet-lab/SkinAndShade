@@ -13,9 +13,11 @@ export const CONCERNS = [
   "Acne",
   "Dry Skin",
   "Oily Skin",
-  "Hair Fall",
+  "Dry Hair",
+  "Frizz",
+  "Dandruff",
+  "Lip Care",
   "Sun Care",
-  "Anti-ageing",
 ] as const;
 
 export type Concern = (typeof CONCERNS)[number];
@@ -54,7 +56,7 @@ export const products: Product[] = [
     brand: "L'Oreal Paris",
     title: "Hyaluron Moisture 72H Conditioner, 175ml",
     category: "Hair Care",
-    concerns: ["Dry Skin"],
+    concerns: ["Dry Hair"],
     price: 207,
     mrp: null,
     description:
@@ -113,7 +115,7 @@ export const products: Product[] = [
     brand: "Himalaya",
     title: "Purifying Neem Face Wash with Neem & Turmeric",
     category: "Skincare",
-    concerns: ["Acne", "Oily Skin"],
+    concerns: ["Oily Skin"],
     price: 280,
     mrp: null,
     description:
@@ -156,7 +158,7 @@ export const products: Product[] = [
     brand: "Garnier",
     title: "Vitamin C Face Serum for Brightening, 30ml",
     category: "Skincare",
-    concerns: ["Anti-ageing", "Acne"],
+    concerns: [],
     price: 297,
     mrp: null,
     description:
@@ -171,7 +173,7 @@ export const products: Product[] = [
     brand: "Anua",
     title: "Niacinamide 10 + TXA 4 Serum, 30ml",
     category: "Skincare",
-    concerns: ["Acne", "Anti-ageing"],
+    concerns: [],
     price: 1515,
     mrp: 2000,
     description:
@@ -186,7 +188,7 @@ export const products: Product[] = [
     brand: "Laneige",
     title: "Lip Glowy Balm, Berry, 10g",
     category: "Skincare",
-    concerns: ["Dry Skin"],
+    concerns: ["Lip Care"],
     price: 675,
     mrp: 750,
     description:
@@ -229,7 +231,7 @@ export const products: Product[] = [
     brand: "Wella Professionals",
     title: "Elements Sulfate-Free Shampoo, Conditioner & Mask Set",
     category: "Hair Care",
-    concerns: ["Hair Fall"],
+    concerns: [],
     price: 1645,
     mrp: 2350,
     description:
@@ -243,7 +245,7 @@ export const products: Product[] = [
     brand: "Brillare",
     title: "Tea Tree Anti Dandruff Shampoo, 200ml",
     category: "Hair Care",
-    concerns: ["Hair Fall", "Oily Skin"],
+    concerns: ["Dandruff"],
     price: 595,
     mrp: null,
     description:
@@ -257,7 +259,7 @@ export const products: Product[] = [
     brand: "Sungboon Editor",
     title: "Glow Intensive Silk Peptide EGF Ampoule, 40ml",
     category: "Skincare",
-    concerns: ["Anti-ageing"],
+    concerns: [],
     price: 1828,
     mrp: 2150,
     description:
@@ -285,7 +287,7 @@ export const products: Product[] = [
     brand: "O3+",
     title: "Vitamin C Tonic Solution Toner, 200ml",
     category: "Skincare",
-    concerns: ["Anti-ageing"],
+    concerns: [],
     price: 599,
     mrp: null,
     description:
@@ -299,7 +301,7 @@ export const products: Product[] = [
     brand: "Generic",
     title: "10% Vitamin C Serum with Ferulic Acid & Collagen",
     category: "Skincare",
-    concerns: ["Anti-ageing", "Acne"],
+    concerns: [],
     price: 1199,
     mrp: 1499,
     description:
@@ -342,7 +344,7 @@ export const products: Product[] = [
     brand: "Kérastase",
     title: "Gloss Absolu Crème Anti-Frizz Mask, 200ml",
     category: "Hair Care",
-    concerns: [],
+    concerns: ["Frizz", "Dry Hair"],
     price: 3950,
     mrp: null,
     description: "A 200ml hydra-smoothing hair mask formulated for medium-to-thick, frizz-prone hair. Check the current Amazon listing for ingredients, seller and directions.",

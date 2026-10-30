@@ -11,7 +11,7 @@ export const guides: Guide[] = [
     slug: "simple-skincare-routine-under-1000",
     title: "Planning a simple skincare routine under ₹1,000",
     excerpt: "Put cleanser, moisturizer and sunscreen first. A ₹1,000 target is a shopping plan, not a guaranteed complete routine or a fit for every skin type.",
-    updated: "2026-10-23", readTime: "6 min read",
+    updated: "2026-10-31", readTime: "6 min read",
     productAsins: ["B07XS46Q73", "B096PJMGPL", "B0BDVG99J5", "B09FPS9D5T"],
     related: ["sunscreen-101-india", "budget-serums-that-actually-work"], sources: [oilySource, sunscreenSource],
     blocks: [
@@ -23,13 +23,14 @@ export const guides: Guide[] = [
       { heading: "How to shop to a ₹1,000 target", body: "Add current checkout prices for cleanser + moisturizer + sunscreen, including delivery. Compare pack size and seller before paying. If the total exceeds ₹1,000, postpone an optional serum, compare simpler alternatives, or adjust the budget; do not treat an old ₹935 example as a current offer. No current price total has been verified here." },
       { heading: "Morning and evening are different", body: "Use your tolerated basics consistently according to their labels. Sunscreen is for daytime sun protection; it is not an evening treatment. Introduce one new product at a time so you can identify irritation. A routine may need professional adjustment for your circumstances." },
       { heading: "How the examples were selected", body: "Examples come from the existing catalogue to compare product roles, labelled formats and different cleanser options. Selection is editorial and label-based, not a personal trial, clinical test or best-in-market ranking. Current formulations, authenticity and prices must be checked with the merchant." },
+      { heading: "Quick questions", body: "Do I need a serum? No. A tolerated cleanser, moisturizer and daytime sun protection are the priorities; a serum is optional. Can I stay under ₹1,000? Only if the current checkout total for suitable products fits; prices and delivery change. Should I buy all three products at once? Not necessarily—keep suitable products you already own and introduce new items one at a time. Is this a dermatologist-prescribed routine? No. It is a general shopping framework, not medical advice." },
       { heading: "Your next step", body: "Choose the three roles first, then check current prices. If you already own a suitable basic, keep it rather than buying a replacement just to match this list. Read the sunscreen guide before adding optional serums." },
     ],
   },
   {
     slug: "sunscreen-101-india", title: "Sunscreen in India: SPF, PA ratings and reapplication",
     excerpt: "Read SPF and UVA labels, compare two sunscreen formats, and understand application and reapplication without promises about white cast or skin-type fit.",
-    updated: "2026-10-23", readTime: "6 min read", productAsins: ["B0BVWDJTHF", "B09FPS9D5T"],
+    updated: "2026-10-31", readTime: "6 min read", productAsins: ["B0BVWDJTHF", "B09FPS9D5T"],
     related: ["simple-skincare-routine-under-1000"],
     sources: [sunscreenSource, { title: "AAD: How to apply sunscreen", url: "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen" }, { title: "NHS: Sunscreen and sun safety", url: "https://www.nhs.uk/live-well/seasonal-health/sunscreen-and-sun-safety/" }, oilySource],
     blocks: [
@@ -40,13 +41,14 @@ export const guides: Guide[] = [
       { heading: "How much to apply", body: "Follow the pack instructions and cover exposed skin evenly. AAD advises most adults need about one ounce to cover the body and application before going outdoors. A two-finger shortcut is not a universal precise dose for every face, neck or dispenser; do not assume a fraction of the amount delivers a matching fraction of labelled protection." },
       { heading: "When to reapply", body: "AAD advises reapplying every two hours outdoors and immediately after swimming or sweating. Follow your pack's water-resistance instructions too: water resistant is not waterproof or all-day protection. Towelling and activity can affect coverage. Sunscreen is only one part of sun protection." },
       { heading: "Comparing the two catalogue options", body: "The Derma Co listing names an aqua gel and SPF 50 PA++++; the Minimalist listing names SPF 50 PA++++ with niacinamide. Those listed formats are useful comparison points, not proof of superior protection. Verify the current ingredients, water-resistance label, pack size, expiry and seller. Neither is promised to have zero white cast." },
+      { heading: "Quick questions", body: "Is SPF 50 automatically twice as protective as SPF 25? No; SPF is not a simple linear measure, and application matters. Does PA++++ mean I never need to reapply? No. Reapply as directed, especially every two hours outdoors and after swimming or sweating. Is a gel sunscreen guaranteed to suit oily skin? No; check the full label and your own tolerance. Can I rely on sunscreen alone? No; combine it with shade and protective clothing." },
       { heading: "How these options were selected", body: "These are the two existing sunscreen entries, shown together to make label comparison easier. This is not a test-based league table or a comprehensive Indian-market review. Pick based on a verified protection label, tolerability and a texture you will use, not this site's historical price captures." },
     ],
   },
   {
     slug: "budget-serums-that-actually-work", title: "Buying a face serum on a budget: what to compare",
     excerpt: "Compare vitamin C, niacinamide and other serum listings without confusing cleansers with serums or assuming expensive formulas guarantee results.",
-    updated: "2026-10-23", readTime: "6 min read",
+    updated: "2026-10-31", readTime: "6 min read",
     productAsins: ["B08FTQXWC7", "B0DL92QM79", "B0HDP19ZNZ"], related: ["simple-skincare-routine-under-1000", "sunscreen-101-india"],
     sources: [oilySource, { title: "AAD: Skin care for acne-prone skin", url: "https://www.aad.org/public/diseases/acne/skin-care/tips" }],
     blocks: [
@@ -57,6 +59,7 @@ export const guides: Guide[] = [
       { heading: "Comparing the catalogue examples", body: "Garnier offers a listed 30ml vitamin C serum format; Anua offers a listed 30ml multi-ingredient serum format. The Generic vitamin C listing needs extra caution because manufacturer identity and formulation have not been independently verified. Its ingredient names do not prove stability. Consider postponing it until the seller and manufacturer can be confirmed." },
       { heading: "Shopping under ₹500", body: "If ₹500 is your ceiling, check the current merchant price including delivery and compare pack size. The catalogue's old captured prices are not a live deal list. If no suitable verified option fits, skipping a serum is a reasonable choice; do not compromise your basic routine to buy one." },
       { heading: "Use cautiously, without a result deadline", body: "Follow the exact label, introduce one new product at a time and stop if irritation occurs. Do not stack active products because their marketing sounds complementary. Persistent acne, pigmentation changes or irritation deserve qualified advice. This site cannot diagnose the cause or promise treatment outcomes." },
+      { heading: "Quick questions", body: "Do beginners need a face serum? No; it is optional. Is niacinamide better than vitamin C? They are different ingredients, and the better choice depends on the full formula, intended use and personal tolerance—not the ingredient name alone. Can a face wash replace a serum? No; a rinse-off cleanser and a leave-on serum have different product roles. Should I choose the cheapest listing? Not without checking manufacturer identity, seller, ingredients, pack size and return terms." },
       { heading: "Selection method and conclusion", body: "Examples are selected from existing serum entries to illustrate label comparison, not personal testing or a comprehensive best-of ranking. Choose only when the formula, seller and current cost are clear. Neither an attractive ingredient list nor affiliate inclusion is a guarantee of results." },
     ],
   },

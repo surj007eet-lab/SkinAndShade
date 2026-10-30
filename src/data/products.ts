@@ -39,6 +39,7 @@ export interface Product {
   whyPicked: string;
   bestFor: string;
   image: string;
+  affiliateUrl?: string;
   trending?: boolean;
 }
 
@@ -335,4 +336,34 @@ export const products: Product[] = [
     bestFor: "Comparing eau de toilette formats",
     image: img("6165GCihYbL"),
   },
+
+  {
+    asin: "B0G7HBDWRP",
+    brand: "Kérastase",
+    title: "Gloss Absolu Crème Anti-Frizz Mask, 200ml",
+    category: "Hair Care",
+    concerns: [],
+    price: 3950,
+    mrp: null,
+    description: "A 200ml hydra-smoothing hair mask formulated for medium-to-thick, frizz-prone hair. Check the current Amazon listing for ingredients, seller and directions.",
+    whyPicked: "Adds a premium hair-mask option to compare with the existing shampoos, conditioners and hair-care sets.",
+    bestFor: "Comparing hair masks for dry, frizz-prone lengths",
+    image: "https://www.kerastase.com/-/media/project/loreal/brand-sites/kerastase/emea/inter/products/gloss-absolu/masque/image-68-compressed.png?ch=630&cw=630&cx=0.51&cy=0.74&hash=7F8125B950A70249056E6FDC8F273380&rev=a2e7e8cfb76b426ba116c9ef335af9de",
+    affiliateUrl: "https://link.amazon/B097v9iHF",
+  },
+  {
+    asin: "B0BR585QS2",
+    brand: "FACES CANADA",
+    title: "Strobe Cream - Rose Gold, 30ml",
+    category: "Skincare",
+    concerns: [],
+    price: 489,
+    mrp: null,
+    description: "A 30ml illuminating cream marketed for use as a primer, highlighter and moisturising makeup base. Check the shade, ingredients and current seller details before buying.",
+    whyPicked: "Included as a face-prep product in the existing skincare catalogue; check the shade and finish on the current listing.",
+    bestFor: "Comparing illuminating face-prep products",
+    image: "https://www.bbassets.com/media/uploads/p/l/40292999-2_1-facescanada-strobe-cream-with-hyaluronic-acid-shea-butter-alcohol-free.jpg",
+    affiliateUrl: "https://link.amazon/B09YvMLom",
+  },
+
 ];

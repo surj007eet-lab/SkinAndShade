@@ -4,7 +4,7 @@ export const CATEGORIES = [
   "Skincare",
   "Hair Care",
   "Fragrance",
-  "Bath & Body",
+  "Personal Care",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];

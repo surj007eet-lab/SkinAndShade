@@ -49,7 +49,7 @@ const CATEGORY_ICONS: Record<Category, LucideIcon> = {
   Skincare: Sparkles,
   "Hair Care": Scissors,
   Fragrance: SprayCan,
-  "Bath & Body": Bath,
+  "Personal Care": Bath,
 };
 
 function Chip({

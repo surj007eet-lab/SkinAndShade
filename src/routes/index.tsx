@@ -225,8 +225,9 @@ function Home() {
           </div>
           <div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Budget
+              Budget · historical listing price
             </p>
+            <p className="mb-2 text-xs text-muted-foreground">Budget filters use previously captured prices, not live Amazon prices. Check the current listing for today’s price.</p>
             <div className="flex flex-wrap gap-2">
               {BUDGETS.map((b) => (
                 <Chip key={b} active={budget === b} onClick={() => setBudget(b)}>

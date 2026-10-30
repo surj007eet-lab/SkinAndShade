@@ -18,7 +18,6 @@ export const collections: Collection[] = [
   { slug: "fragrance", title: "Fragrance", description: "Compare perfume mist and eau de toilette formats from the SkinAndShade fragrance catalogue.", introduction: "Compare fragrance format, pack size and the exact variant. Longevity and scent preference are personal; these products have not been tested by SkinAndShade. Check the seller and returns terms before ordering.", guideSlugs: [], matches: p => p.category === "Fragrance" },
   { slug: "bath-body", title: "Bath & body", description: "Explore the body-lotion option in SkinAndShade's catalogue and check pack size, ingredients and seller before buying.", introduction: "This is a small selection, currently one body-lotion listing rather than a best-of comparison. Face and body products may have different formulations; check the label and avoid ingredients you know irritate your skin.", guideSlugs: [], matches: p => p.category === "Bath & Body" },
 
-  { slug: "makeup", title: "Makeup", description: "Compare makeup-base products, including illuminating creams and complexion-prep options, with practical notes on shades and formats.", introduction: "Makeup finishes and shades are personal. Check the exact shade, finish, ingredients and seller on the current listing; product descriptions are catalogue summaries, not wear tests by SkinAndShade.", guideSlugs: [], matches: p => p.category === "Makeup" },
 ];
 
 export const collectionProducts = (collection: Collection) => products.filter(collection.matches);

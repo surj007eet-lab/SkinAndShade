@@ -70,7 +70,7 @@ export const products: Product[] = [
     asin: "B07VKM2HR5",
     brand: "NIVEA",
     title: "Nourishing Body Milk 600ml with Hyaluronic Acid",
-    category: "Bath & Body",
+    category: "Personal Care",
     concerns: ["Dry Skin"],
     price: 400,
     mrp: null,

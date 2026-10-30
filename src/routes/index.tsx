@@ -24,17 +24,17 @@ export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "SkinAndShade | Beauty Shopping Guide for Women in India" },
+      { title: "SkinAndShade | Shopping Guide for Women in India" },
       {
         name: "description",
         content:
-          "A practical beauty shopping guide for women in India. Compare skincare, hair care, fragrance and bath products, check product details and read buying guides before you shop.",
+          "A simple shopping guide for women in India. Explore beauty products, compare listed details and read practical buying guides. Fashion sections are being added.",
       },
-      { property: "og:title", content: "SkinAndShade — Beauty product comparisons for India" },
+      { property: "og:title", content: "SkinAndShade — Shopping guide for women in India" },
       {
         property: "og:description",
         content:
-          "Compare skincare, hair care, fragrance and bath products for India. Explore product details, buying considerations and practical guides before you shop.",
+          "Explore beauty products, compare the details shown on product listings and read practical guides before you shop. Fashion sections are being added.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/" },
@@ -103,13 +103,13 @@ function Home() {
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 pb-12 pt-14 text-center sm:px-6 sm:pt-20">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-          BEAUTY SHOPPING GUIDE · INDIA
+          SHOPPING GUIDE · INDIA
         </p>
         <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-[1.1] text-primary sm:text-6xl">
-          Beauty shopping, <em className="text-accent">made easier</em> to compare
+          Shopping, <em className="text-accent">made easier</em> to compare
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-          Explore skincare, hair care, fragrance and bath essentials. Compare listed product details, understand what to check before buying, and make a more informed choice.
+          Explore beauty products, compare the details shown on listings, and check what matters before you buy. We are also working on fashion sections.
         </p>
 
         <div className="relative mx-auto mt-8 max-w-xl">
@@ -168,11 +168,11 @@ function Home() {
 
       {/* Editorial selection notes */}
       <section className="mx-auto mt-12 max-w-6xl rounded-2xl border border-border bg-card px-6 py-7 sm:px-8" aria-labelledby="selection-notes">
-        <h2 id="selection-notes" className="text-2xl font-semibold text-primary">How we help you compare beauty products</h2>
+        <h2 id="selection-notes" className="text-2xl font-semibold text-primary">How we help you compare products</h2>
         <div className="mt-4 max-w-4xl space-y-3 text-sm leading-relaxed text-muted-foreground">
-          <p>SkinAndShade is an independent shopping guide for people comparing skincare, hair care, fragrance and bath &amp; body products available to shoppers in India. We organize catalogue listings by product type, concern and budget so you can narrow your options before visiting the retailer. Our notes focus on details shoppers can verify: the stated product format, named ingredients, pack size where available, and what to check on the current product page.</p>
-          <p>We do not claim that a product is personally tested, dermatologist recommended, the most popular, or right for everyone unless that evidence is documented. Product formulas, sellers, stock and prices can change, so confirm the current listing, seller, ingredients, directions, expiry and final checkout price on Amazon before ordering. Prices previously captured by this site are historical reference points, not live quotes.</p>
-          <p>Some links are affiliate links. If you buy through them, we may earn a commission at no additional cost to you. Affiliate relationships do not guarantee product quality or change the need to compare options. Use our guides to understand labels and buying considerations; for persistent skin or scalp concerns, seek advice from a qualified professional. We review catalogue notes as information becomes available and welcome corrections through our contact page.</p>
+          <p>SkinAndShade is a shopping guide for women in India. We bring product information and buying guides together so you can compare a few options before visiting the retailer. Our current catalogue focuses on beauty products. Fashion sections are being added next.</p>
+          <p>We do not test products ourselves or make promises about results. Product details, sellers, stock and prices can change. Please check the current Amazon listing and product packaging for the latest information before ordering. Any old price used for a budget filter is only a past reference, not today’s price.</p>
+          <p>Some links are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This does not change the product information on this site. Always check the listing and seller before you order. If you notice a mistake, you can contact us through the Editorial Policy page.</p>
         </div>
       </section>
 

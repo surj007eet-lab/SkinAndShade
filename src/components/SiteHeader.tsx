@@ -9,13 +9,10 @@ const NAV = [
 ] as const;
 
 export const CATEGORY_NAV = [
-  { to: "/bath-body", label: "Bath & Body" },
-  { to: "/fragrance", label: "Fragrance" },
-  { to: "/haircare", label: "Haircare" },
-  { to: "/moisturizers", label: "Moisturizers" },
-  { to: "/serums", label: "Serums" },
   { to: "/skincare", label: "Skincare" },
-  { to: "/sunscreen", label: "Sunscreen" },
+  { to: "/haircare", label: "Hair Care" },
+  { to: "/fragrance", label: "Fragrance" },
+  { to: "/bath-body", label: "Personal Care" },
 ] as const;
 
 export function SiteHeader() {

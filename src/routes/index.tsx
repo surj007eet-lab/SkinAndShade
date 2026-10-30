@@ -91,7 +91,7 @@ function Home() {
     const limit = budgetLimit(budget);
     return products.filter((p) => {
       if (category !== "All" && p.category !== category) return false;
-      if (limit !== null && p.price >= limit) return false;
+      if (limit !== null && (p.price === null || p.price >= limit)) return false;
       if (concern !== "All" && !p.concerns.includes(concern)) return false;
       if (q && !`${p.brand} ${p.title} ${p.category}`.toLowerCase().includes(q)) return false;
       return true;

@@ -335,7 +335,7 @@ export const products: Product[] = [
     whyPicked: "Included to compare eau de toilette with the perfume mist; no discount is implied.",
     bestFor: "Comparing eau de toilette formats",
     image: img("6165GCihYbL"),
-  },,
+  },
 
   {
     asin: "B0G7HBDWRP",

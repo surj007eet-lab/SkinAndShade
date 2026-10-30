@@ -4,10 +4,10 @@ export const Route = createFileRoute("/about")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "About SkinAndShade | Beauty Shopping Guide for Women in India" },
-      { name: "description", content: "Learn how SkinAndShade organizes beauty product information and buying guides for women shopping in India." },
+      { title: "About SkinAndShade | Shopping Guide for Women in India" },
+      { name: "description", content: "Learn what SkinAndShade is, how we put product information together and how to contact us." },
       { property: "og:title", content: "About SkinAndShade" },
-      { property: "og:description", content: "Learn how SkinAndShade organizes beauty product information and buying guides for women shopping in India." },
+      { property: "og:description", content: "Learn what SkinAndShade is, how we put product information together and how to contact us." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/about" },
       { name: "twitter:card", content: "summary" },
@@ -27,21 +27,13 @@ function AboutPage() {
 
       <div className="mt-8 space-y-6 leading-relaxed text-muted-foreground">
         <p>
-          SkinAndShade is a beauty-shopping guide for women in India. It brings skincare, hair care,
-          fragrance and bath &amp; body listings together so shoppers can compare product formats,
-          stated details and practical buying considerations before visiting a retailer.
+          SkinAndShade is a shopping guide for women in India. We put product information and buying guides together to make it easier to compare a few options before visiting a retailer. The catalogue currently focuses on beauty products, and fashion sections are being added.
         </p>
         <p>
-          Our catalogue notes are based on information available in product listings and other
-          cited sources. Products are not represented as personally tested, clinically evaluated,
-          dermatologist recommended or suitable for everyone. Product formulas, sellers, stock and
-          prices can change, so check the current product page and packaging before ordering.
+          We use the information shown on product listings and the sources linked in our guides. We do not test products ourselves or promise results. Product details, sellers, stock and prices can change, so check the current Amazon listing and the product packaging before ordering.
         </p>
         <p>
-          Our guides explain how to compare labels and think through common buying decisions. We aim
-          to make the information clear and useful, distinguish verified details from unknowns,
-          and correct errors when they are brought to our attention. The current catalogue focuses
-          on beauty; fashion may be considered as the site develops.
+          Our aim is to keep things simple and useful. We share the details available to us, avoid making claims we cannot support and correct mistakes when they are brought to our attention. We are working on adding fashion categories to the site.
         </p>
       </div>
 

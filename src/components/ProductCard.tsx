@@ -5,7 +5,11 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group flex h-full min-w-0 flex-col rounded-2xl border border-border bg-card p-3 shadow-sm sm:p-4">
       <div className="aspect-square overflow-hidden rounded-xl bg-secondary">
-        <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" width={640} height={640} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw" className="h-full w-full object-contain p-3 sm:p-4 transition-transform duration-300 motion-reduce:transition-none group-hover:scale-105" />
+        {product.image ? (
+          <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" width={640} height={640} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw" className="h-full w-full object-contain p-3 sm:p-4 transition-transform duration-300 motion-reduce:transition-none group-hover:scale-105" />
+        ) : (
+          <div className="flex h-full items-center justify-center px-6 text-center text-sm text-muted-foreground">Product image not available</div>
+        )}
       </div>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
         <span className="text-xs font-semibold text-primary">{product.brand}</span>

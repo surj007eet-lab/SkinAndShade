@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
         url: `${SITE_URL}/`,
-        description: "An independent beauty-shopping guide helping women in India compare product listings and buying information.",
+        description: "A shopping guide for women in India, with product information and practical buying guides.",
       }),
       jsonLd({
         "@context": "https://schema.org",

@@ -24,17 +24,17 @@ export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "SkinAndShade — Beauty picks worth your money" },
+      { title: "SkinAndShade — Beauty product comparisons for India" },
       {
         name: "description",
         content:
-          "Handpicked skincare, makeup, hair care and fragrance deals for India, with honest notes on why each product earned its place.",
+          "Compare skincare, hair care, fragrance and bath products for India. Explore product details, buying considerations and practical guides before you shop.",
       },
-      { property: "og:title", content: "SkinAndShade — Beauty picks worth your money" },
+      { property: "og:title", content: "SkinAndShade — Beauty product comparisons for India" },
       {
         property: "og:description",
         content:
-          "Handpicked skincare, makeup, hair care and fragrance deals for India, with honest notes on why each product earned its place.",
+          "Compare skincare, hair care, fragrance and bath products for India. Explore product details, buying considerations and practical guides before you shop.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/" },
@@ -83,7 +83,8 @@ function Home() {
   const [budget, setBudget] = useState<Budget>("Any");
   const [concern, setConcern] = useState<Concern | "All">("All");
 
-  const trending = useMemo(() => products.filter((p) => p.trending), []);
+  // A small editorial sample, not a popularity or sales ranking.
+  const featuredPicks = useMemo(() => products.slice(0, 4), []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -165,16 +166,26 @@ function Home() {
         </div>
       </section>
 
-      {/* Trending picks */}
-      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6" aria-label="Trending picks">
+      {/* Editorial selection notes */}
+      <section className="mx-auto mt-12 max-w-6xl rounded-2xl border border-border bg-card px-6 py-7 sm:px-8" aria-labelledby="selection-notes">
+        <h2 id="selection-notes" className="text-2xl font-semibold text-primary">How we help you compare beauty products</h2>
+        <div className="mt-4 max-w-4xl space-y-3 text-sm leading-relaxed text-muted-foreground">
+          <p>SkinAndShade is an independent shopping guide for people comparing skincare, hair care, fragrance and bath &amp; body products available to shoppers in India. We organize catalogue listings by product type, concern and budget so you can narrow your options before visiting the retailer. Our notes focus on details shoppers can verify: the stated product format, named ingredients, pack size where available, and what to check on the current product page.</p>
+          <p>We do not claim that a product is personally tested, dermatologist recommended, the most popular, or right for everyone unless that evidence is documented. Product formulas, sellers, stock and prices can change, so confirm the current listing, seller, ingredients, directions, expiry and final checkout price on Amazon before ordering. Prices previously captured by this site are historical reference points, not live quotes.</p>
+          <p>Some links are affiliate links. If you buy through them, we may earn a commission at no additional cost to you. Affiliate relationships do not guarantee product quality or change the need to compare options. Use our guides to understand labels and buying considerations; for persistent skin or scalp concerns, seek advice from a qualified professional. We review catalogue notes as information becomes available and welcome corrections through our contact page.</p>
+        </div>
+      </section>
+
+      {/* Editorial sample — not a popularity ranking */}
+      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6" aria-label="A few products to explore">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">Trending picks</h2>
+          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">A few picks to explore</h2>
           <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Most loved this week
+            A starting point for comparison
           </span>
         </div>
         <div className="mt-6 flex snap-x gap-4 overflow-x-auto pb-4">
-          {trending.map((p) => (
+          {featuredPicks.map((p) => (
             <div key={p.asin} className="w-64 shrink-0 snap-start">
               <ProductCard product={p} />
             </div>

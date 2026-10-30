@@ -225,7 +225,10 @@ function Home() {
           </div>
           <div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Budget
+              Budget · historical listing price
+            </p>
+            <p className="mb-2 text-xs text-muted-foreground">
+              These filters use previously captured listing prices, not live Amazon prices. Check the current listing for today’s price.
             </p>
             <div className="flex flex-wrap gap-2">
               {BUDGETS.map((b) => (
@@ -252,9 +255,25 @@ function Home() {
           </div>
         </div>
 
-        <p className="mt-8 text-sm text-muted-foreground" role="status">
-          Showing {filtered.length} of {products.length} picks
-        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm text-muted-foreground" role="status" aria-live="polite">
+            Showing {filtered.length} of {products.length} picks
+          </p>
+          {(query || category !== "All" || budget !== "Any" || concern !== "All") && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setCategory("All");
+                setBudget("Any");
+                setConcern("All");
+              }}
+              className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
+            >
+              Clear all filters
+            </button>
+          )}
+        </div>
         <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => (
             <ProductCard key={p.asin} product={p} />

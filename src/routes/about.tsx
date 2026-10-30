@@ -4,18 +4,10 @@ export const Route = createFileRoute("/about")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "About — SkinAndShade" },
-      {
-        name: "description",
-        content:
-          "Why SkinAndShade exists: honest, budget-aware beauty picks for India, with a clear note on how the site earns.",
-      },
-      { property: "og:title", content: "About — SkinAndShade" },
-      {
-        property: "og:description",
-        content:
-          "Why SkinAndShade exists: honest, budget-aware beauty picks for India, with a clear note on how the site earns.",
-      },
+      { title: "About SkinAndShade | Beauty Shopping Guide for Women in India" },
+      { name: "description", content: "Learn how SkinAndShade organizes beauty product information and buying guides for women shopping in India." },
+      { property: "og:title", content: "About SkinAndShade" },
+      { property: "og:description", content: "Learn how SkinAndShade organizes beauty product information and buying guides for women shopping in India." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/about" },
       { name: "twitter:card", content: "summary" },
@@ -35,30 +27,31 @@ function AboutPage() {
 
       <div className="mt-8 space-y-6 leading-relaxed text-muted-foreground">
         <p>
-          Beauty shopping in India is noisy. Every product claims to be a miracle, prices swing
-          wildly between sale days, and it's hard to tell a genuine deal from a marked-up
-          "discount". SkinAndShade is my attempt to cut through that.
+          SkinAndShade is a beauty-shopping guide for women in India. It brings skincare, hair care,
+          fragrance and bath &amp; body listings together so shoppers can compare product formats,
+          stated details and practical buying considerations before visiting a retailer.
         </p>
         <p>
-          Every product on this site is something I'd hand to a friend without a caveat. Each card
-          carries two short notes: <span className="font-semibold text-foreground">who it suits
-          best</span> and <span className="font-semibold text-foreground">why it earned its
-          place</span>. If a product doesn't have a clear answer to both, it doesn't get listed.
+          Our catalogue notes are based on information available in product listings and other
+          cited sources. Products are not represented as personally tested, clinically evaluated,
+          dermatologist recommended or suitable for everyone. Product formulas, sellers, stock and
+          prices can change, so check the current product page and packaging before ordering.
         </p>
         <p>
-          I keep the catalogue small on purpose — a few dozen honest picks beat a thousand
-          copy-pasted listings. The guides section shares the routines and label-reading tricks
-          behind those choices.
+          Our guides explain how to compare labels and think through common buying decisions. We aim
+          to make the information clear and useful, distinguish verified details from unknowns,
+          and correct errors when they are brought to our attention. The current catalogue focuses
+          on beauty; fashion may be considered as the site develops.
         </p>
       </div>
 
       <div id="affiliate-disclosure" className="mt-10 scroll-mt-24 rounded-2xl border border-border bg-card p-6">
         <h2 className="text-xl font-semibold text-card-foreground">How this site earns</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          SkinAndShade is part of the Amazon Associates programme. When you tap "View on Amazon"
-          and buy something, Amazon pays a small commission at no extra cost to you. That
-          commission never decides what gets listed — a product earns its spot first, and the
-          link comes after.
+          As an Amazon Associate I earn from qualifying purchases. If you use an affiliate link
+          and make a qualifying purchase, the site may earn a commission at no additional cost to
+          you. Affiliate links do not replace the need to review product details, seller information
+          and current terms on Amazon.
         </p>
       </div>
 

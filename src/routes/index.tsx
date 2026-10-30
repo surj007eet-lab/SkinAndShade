@@ -24,11 +24,11 @@ export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "SkinAndShade — Beauty product comparisons for India" },
+      { title: "SkinAndShade | Beauty Shopping Guide for Women in India" },
       {
         name: "description",
         content:
-          "Compare skincare, hair care, fragrance and bath products for India. Explore product details, buying considerations and practical guides before you shop.",
+          "A practical beauty shopping guide for women in India. Compare skincare, hair care, fragrance and bath products, check product details and read buying guides before you shop.",
       },
       { property: "og:title", content: "SkinAndShade — Beauty product comparisons for India" },
       {
@@ -103,13 +103,13 @@ function Home() {
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 pb-12 pt-14 text-center sm:px-6 sm:pt-20">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-          Curated beauty · India
+          BEAUTY SHOPPING GUIDE · INDIA
         </p>
         <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-[1.1] text-primary sm:text-6xl">
-          Beauty picks <em className="text-accent">worth</em> your money
+          Beauty shopping, <em className="text-accent">made easier</em> to compare
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-          Every product here earned its spot — with a short note on why, and who it suits best.
+          Explore skincare, hair care, fragrance and bath essentials. Compare listed product details, understand what to check before buying, and make a more informed choice.
         </p>
 
         <div className="relative mx-auto mt-8 max-w-xl">

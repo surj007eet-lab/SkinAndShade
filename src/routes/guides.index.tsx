@@ -5,18 +5,10 @@ export const Route = createFileRoute("/guides/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "Beauty Guides — SkinAndShade" },
-      {
-        name: "description",
-        content:
-          "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and how to compare serum labels.",
-      },
-      { property: "og:title", content: "Beauty Guides — SkinAndShade" },
-      {
-        property: "og:description",
-        content:
-          "Practical beauty guides for Indian skin and budgets: routines under ₹1,000, sunscreen basics and how to compare serum labels.",
-      },
+      { title: "Beauty Buying Guides | SkinAndShade" },
+      { name: "description", content: "Practical beauty buying guides for women in India, covering skincare routines, sunscreen labels and how to compare face serums." },
+      { property: "og:title", content: "Beauty Buying Guides | SkinAndShade" },
+      { property: "og:description", content: "Practical beauty buying guides for women in India, covering skincare routines, sunscreen labels and how to compare face serums." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/guides" },
       { name: "twitter:card", content: "summary" },
@@ -31,10 +23,10 @@ function GuidesPage() {
     <main id="main-content" className="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Guides</p>
       <h1 className="mt-4 text-4xl font-semibold text-primary sm:text-5xl">
-        Skincare, minus the confusion
+        Beauty buying guides, minus the confusion
       </h1>
       <p className="mt-4 text-muted-foreground">
-        Short, practical reads on building a routine that suits Indian skin, weather and budgets.
+        Clear, practical reads to help women in India compare beauty products, understand labels and shop with more confidence.
       </p>
 
       <ul className="mt-10 space-y-5">

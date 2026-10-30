@@ -23,7 +23,7 @@ function GuidePage() {
   return <main id="main-content" className="mx-auto max-w-4xl px-4 pt-10 sm:px-6">
     <nav aria-label="Breadcrumb" className="flex flex-wrap gap-2 text-sm text-primary"><Link to="/">Home</Link><span aria-hidden>/</span><Link to="/guides">Guides</Link><span aria-hidden>/</span><span className="text-muted-foreground">{guide.title}</span></nav>
     <article>
-      <p className="mt-8 text-xs text-muted-foreground">Editorially updated <time dateTime={guide.updated}>23 October 2026</time> · {guide.readTime} · Not personally tested</p>
+      <p className="mt-8 text-xs text-muted-foreground">Editorially updated <time dateTime={guide.updated}>{new Date(guide.updated + "T00:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</time> · {guide.readTime} · Not personally tested</p>
       <h1 className="mt-3 text-4xl font-semibold leading-tight text-primary sm:text-5xl">{guide.title}</h1>
       <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{guide.excerpt}</p>
       <div className="mt-5"><AffiliateNotice /></div>

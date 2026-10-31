@@ -109,6 +109,7 @@ export const products: Product[] = [
   },
   {
     asin: "B0G148FK9D",
+    image: "https://m.media-amazon.com/images/I/41uTspkzVoL.jpg",
     brand: "Urban Yog",
     title: "7-in-1 Trimmer for Women, Waterproof Full-Body Grooming Kit",
     category: "Personal Care",
@@ -122,6 +123,7 @@ export const products: Product[] = [
   },
   {
     asin: "B0D8WBHYPT",
+    image: "https://m.media-amazon.com/images/I/51lxAwzz4vL.jpg",
     brand: "Bombae",
     title: "6-in-1 Sensitive Trimmer for Women, FuzzOff",
     category: "Personal Care",

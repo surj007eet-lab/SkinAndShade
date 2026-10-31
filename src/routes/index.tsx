@@ -10,14 +10,9 @@ import {
 } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import {
-  BUDGETS,
   CATEGORIES,
-  CONCERNS,
-  budgetLimit,
   products,
-  type Budget,
   type Category,
-  type Concern,
 } from "@/data/products";
 
 export const Route = createFileRoute("/")({
@@ -80,23 +75,18 @@ function Chip({
 function Home() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Category | "All">("All");
-  const [budget, setBudget] = useState<Budget>("Any");
-  const [concern, setConcern] = useState<Concern | "All">("All");
 
   // A small editorial sample, not a popularity or sales ranking.
   const featuredPicks = useMemo(() => products.slice(0, 4), []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const limit = budgetLimit(budget);
     return products.filter((p) => {
       if (category !== "All" && p.category !== category) return false;
-      if (limit !== null && (p.price === null || p.price >= limit)) return false;
-      if (concern !== "All" && !p.concerns.includes(concern)) return false;
       if (q && !`${p.brand} ${p.title} ${p.category}`.toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [query, category, budget, concern]);
+  }, [query, category]);
 
   return (
     <main>
@@ -142,8 +132,6 @@ function Home() {
                 onClick={() => {
                   setCategory(active ? "All" : c);
                   setQuery("");
-                  setBudget("Any");
-                  setConcern("All");
                   requestAnimationFrame(() =>
                     document.getElementById("all-picks")?.scrollIntoView({ behavior: "smooth" }),
                   );
@@ -223,50 +211,19 @@ function Home() {
               ))}
             </div>
           </div>
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Budget · historical listing price
-            </p>
-            <p className="mb-2 text-xs text-muted-foreground">
-              These filters use previously captured listing prices, not live Amazon prices. Check the current listing for today’s price.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {BUDGETS.map((b) => (
-                <Chip key={b} active={budget === b} onClick={() => setBudget(b)}>
-                  {b === "Any" ? "Any budget" : `Under ₹${b.replace("Under ", "")}`}
-                </Chip>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Concern
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Chip active={concern === "All"} onClick={() => setConcern("All")}>
-                All concerns
-              </Chip>
-              {CONCERNS.map((c) => (
-                <Chip key={c} active={concern === c} onClick={() => setConcern(c)}>
-                  {c}
-                </Chip>
-              ))}
-            </div>
-          </div>
+
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm text-muted-foreground" role="status" aria-live="polite">
             Showing {filtered.length} of {products.length} picks
           </p>
-          {(query || category !== "All" || budget !== "Any" || concern !== "All") && (
+          {(query || category !== "All") && (
             <button
               type="button"
               onClick={() => {
                 setQuery("");
                 setCategory("All");
-                setBudget("Any");
-                setConcern("All");
               }}
               className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
             >
@@ -281,7 +238,7 @@ function Home() {
         </div>
         {filtered.length === 0 && (
           <p className="mt-10 rounded-2xl border border-dashed border-border bg-card p-10 text-center text-sm text-muted-foreground">
-            No picks match those filters yet — try widening the budget or clearing a filter.
+            No picks match this search or category. Clear your selection to see all products.
           </p>
         )}
       </section>

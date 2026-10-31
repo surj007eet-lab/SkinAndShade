@@ -53,8 +53,9 @@ const img = (id: string) => `https://m.media-amazon.com/images/I/${id}._AC_UL640
 export const products: Product[] = [
   {
     asin: "B0CHW268JT",
+    image: "https://skyshopy.com/cdn/shop/files/519mdAYKTQL.jpg?v=1767962547",
     brand: "Bella Vita Luxury",
-    title: "Agarwood Fragrance",
+    title: "CEO Man & White Oud Unisex Perfume Duo, 2 x 20ml",
     category: "Fragrance",
     concerns: [],
     price: null,
@@ -66,6 +67,7 @@ export const products: Product[] = [
   },
   {
     asin: "B0CSK7YP3H",
+    image: "https://images-static.nykaa.com/media/catalog/product/5/a/5a70ed0ENGAG00000060_r1.jpg",
     brand: "Engage",
     title: "Luxury Perfume Assorted Gift Set",
     category: "Fragrance",
@@ -79,6 +81,7 @@ export const products: Product[] = [
   },
   {
     asin: "B0DTJBRV99",
+    image: "https://images.meesho.com/images/products/380985469/gkn6p_512.jpg",
     brand: "Wildplay",
     title: "Chocolate Perfume for Women, 30ml",
     category: "Fragrance",
@@ -92,8 +95,9 @@ export const products: Product[] = [
   },
   {
     asin: "B09Y5BZ55X",
-    brand: "Brand to verify",
-    title: "Fragrance Deodorant for Underarms",
+    image: "https://zada.beauty/cdn/shop/files/Nivea_Pearl_Beauty_Roll-On_Deodorant_For_Women_-_50Ml_-_ZaDa_beauty-3116418.png?v=1725627562",
+    brand: "NIVEA",
+    title: "Pearl & Beauty Roll-On Deodorant for Women, 50ml",
     category: "Fragrance",
     concerns: [],
     price: null,
@@ -105,8 +109,9 @@ export const products: Product[] = [
   },
   {
     asin: "B0CRKW4BG6",
+    image: "https://plumgoodness.com/cdn/shop/files/Vanilla-Caramello-50ml-EDP_Amazon_1001x1001_01.jpg?v=1766745201&width=1001",
     brand: "Plum BodyLovin'",
-    title: "Caramello Fragrance",
+    title: "Vanilla Caramello Eau de Parfum, 50ml",
     category: "Fragrance",
     concerns: [],
     price: null,
@@ -118,6 +123,7 @@ export const products: Product[] = [
   },
   {
     asin: "B07FQS78ZQ",
+    image: "https://www.bbassets.com/media/uploads/p/l/40083406_10-skinn-by-titan-raw-perfume-for-men-edp.jpg",
     brand: "SKINN by Titan",
     title: "Raw Perfume, 50ml (Marketed for Men)",
     category: "Fragrance",
@@ -131,8 +137,9 @@ export const products: Product[] = [
   },
   {
     asin: "B0GL8TL11L",
+    image: "https://supremacyhk.store/brand-ai-scents.jpg",
     brand: "Brand to verify",
-    title: "Fragrance Product — Exact Variant to Verify",
+    title: "Fragrance Product — Exact Variant to Verify (illustrative photo)",
     category: "Fragrance",
     concerns: [],
     price: null,
@@ -144,8 +151,9 @@ export const products: Product[] = [
   },
   {
     asin: "B0GK248PCV",
+    image: "https://mdfparfums.com/cdn/shop/files/Cedar_Magique_3.jpg?v=1771404383",
     brand: "Maison Fouzdar",
-    title: "Magique Extrait de Parfum",
+    title: "Cedar Magique Extrait de Parfum (check Amazon variant)",
     category: "Fragrance",
     concerns: [],
     price: null,

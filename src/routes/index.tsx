@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
   Bath,
+  Shirt,
   Scissors,
   Search,
   Sparkles,
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A simple shopping guide for women in India. Explore beauty products, compare listed details and read practical buying guides. Fashion sections are being added.",
+          "A simple shopping guide for women in India. Explore beauty products, compare listed details and read practical buying guides. Explore our new fashion discovery section.",
       },
       { property: "og:title", content: "SkinAndShade — Shopping guide for women in India" },
       {
@@ -99,7 +100,7 @@ function Home() {
           Shopping, <em className="text-accent">made easier</em> to compare
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-          Explore beauty products, compare the details shown on listings, and check what matters before you buy. We are also working on fashion sections.
+          Explore beauty products, compare the details shown on listings, and check what matters before you buy. You can also browse our new fashion discovery section.
         </p>
 
         <div className="relative mx-auto mt-8 max-w-xl">
@@ -154,11 +155,45 @@ function Home() {
         </div>
       </section>
 
+      {/* Fashion discovery: external Amazon catalogue, not local product listings */}
+      <section id="fashion" className="mx-auto mt-14 max-w-6xl scroll-mt-24 px-4 sm:px-6" aria-labelledby="fashion-heading">
+        <div className="rounded-3xl border border-border bg-card p-6 sm:p-9">
+          <div className="flex items-center gap-3">
+            <Shirt className="h-7 w-7 text-accent" aria-hidden />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Fashion for women</p>
+              <h2 id="fashion-heading" className="text-2xl font-semibold text-primary sm:text-3xl">Explore Fashion</h2>
+            </div>
+          </div>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">Browse women's clothing and style essentials by category. We're building our fashion picks; for now, use the link below to explore the wider collection on Amazon.</p>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { id: "fashion-ethnic", title: "Ethnic Wear", detail: "Kurtas, salwar suits and traditional outfits" },
+              { id: "fashion-western", title: "Western Wear", detail: "Dresses, tops and contemporary styles" },
+              { id: "fashion-everyday", title: "Everyday Fashion", detail: "Comfortable outfits for daily wear" },
+              { id: "fashion-formal", title: "Formal Wear", detail: "Workwear and smart dressing" },
+              { id: "fashion-winter", title: "Winter Wear", detail: "Layers, sweaters and jackets" },
+              { id: "fashion-accessories", title: "Fashion Accessories", detail: "Style additions and finishing touches" },
+            ].map((item) => (
+              <div key={item.id} id={item.id} className="scroll-mt-24 rounded-2xl border border-border bg-background p-5">
+                <h3 className="text-lg font-semibold text-primary">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.detail}</p>
+                <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="mt-4 inline-flex rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground">Explore on Amazon →</a>
+              </div>
+            ))}
+          </div>
+          <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-6">
+            <p className="text-xs text-muted-foreground">Affiliate link: we may earn a commission from qualifying purchases.</p>
+            <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90">Explore More Fashion on Amazon →</a>
+          </div>
+        </div>
+      </section>
+
       {/* Editorial selection notes */}
       <section className="mx-auto mt-12 max-w-6xl rounded-2xl border border-border bg-card px-6 py-7 sm:px-8" aria-labelledby="selection-notes">
         <h2 id="selection-notes" className="text-2xl font-semibold text-primary">How we help you compare products</h2>
         <div className="mt-4 max-w-4xl space-y-3 text-sm leading-relaxed text-muted-foreground">
-          <p>SkinAndShade is a shopping guide for women in India. We bring product information and buying guides together so you can compare a few options before visiting the retailer. Our current catalogue focuses on beauty products. Fashion sections are being added next.</p>
+          <p>SkinAndShade is a shopping guide for women in India. We bring product information and buying guides together so you can compare a few options before visiting the retailer. Our current catalogue focuses on beauty products. Our fashion discovery section links to Amazon while we build individual fashion picks.</p>
           <p>We do not test products ourselves or make promises about results. Product details, sellers, stock and prices can change. Please check the current Amazon listing and product packaging for the latest information before ordering. Any old price used for a budget filter is only a past reference, not today’s price.</p>
           <p>Some links are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This does not change the product information on this site. Always check the listing and seller before you order. If you notice a mistake, you can contact us through the Editorial Policy page.</p>
         </div>

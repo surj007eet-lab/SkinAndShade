@@ -53,6 +53,26 @@ export function SiteHeader() {
           ))}
           <details className="group relative">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+              Fashion <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+            </summary>
+            <ul className="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
+              {[
+                { id: "fashion", label: "All Fashion" },
+                { id: "fashion-ethnic", label: "Ethnic Wear" },
+                { id: "fashion-western", label: "Western Wear" },
+                { id: "fashion-everyday", label: "Everyday Fashion" },
+                { id: "fashion-formal", label: "Formal Wear" },
+                { id: "fashion-winter", label: "Winter Wear" },
+                { id: "fashion-accessories", label: "Accessories" },
+              ].map((item) => (
+                <li key={item.id}>
+                  <a href={`/#${item.id}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+          <details className="group relative">
+            <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Categories <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>
             <ul className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">

@@ -57,16 +57,16 @@ export function SiteHeader() {
             </summary>
             <ul className="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
               {[
-                { id: "fashion", label: "All Fashion" },
-                { id: "fashion-ethnic", label: "Ethnic Wear" },
-                { id: "fashion-western", label: "Western Wear" },
-                { id: "fashion-everyday", label: "Everyday Fashion" },
-                { id: "fashion-formal", label: "Formal Wear" },
-                { id: "fashion-winter", label: "Winter Wear" },
-                { id: "fashion-accessories", label: "Accessories" },
+                { id: "", label: "All Fashion" },
+                { id: "ethnic", label: "Ethnic Wear" },
+                { id: "western", label: "Western Wear" },
+                { id: "everyday", label: "Everyday Fashion" },
+                { id: "formal", label: "Formal Wear" },
+                { id: "winter", label: "Winter Wear" },
+                { id: "accessories", label: "Accessories" },
               ].map((item) => (
                 <li key={item.id}>
-                  <a href={`/#${item.id}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
+                  <a href={item.id ? `/fashion#${item.id}` : "/fashion"} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
                 </li>
               ))}
             </ul>

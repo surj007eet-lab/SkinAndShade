@@ -747,19 +747,6 @@ export const products: Product[] = [
   },
 
   {
-    asin: "B0G7HBDWRP",
-    brand: "Kérastase",
-    title: "Gloss Absolu Crème Anti-Frizz Mask, 200ml",
-    category: "Hair Care",
-    concerns: ["Frizz", "Dry Hair"],
-    price: 3950,
-    mrp: null,
-    description: "Hair mask listed in a 200ml format. Check the current Amazon listing for the exact variant, ingredients, seller and directions.",
-    whyPicked: "Included as another hair-care format to compare with shampoos, conditioners and sets.",
-    bestFor: "Comparing hair masks for dry, frizz-prone lengths",
-    affiliateUrl: "https://link.amazon/B097v9iHF",
-  },
-  {
     asin: "B0BR585QS2",
     brand: "FACES CANADA",
     title: "Strobe Cream - Rose Gold, 30ml",

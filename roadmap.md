@@ -18,3 +18,5 @@
 - Improve product-card usability, browsing and filtering.
 - Strengthen buying guides, category SEO, affiliate disclosures, privacy and technical SEO.
 - Add individually verified fashion products and category-specific affiliate links when provided; avoid implying generic Amazon catalogue links are curated product selections.
+
+- Keep Beauty and Fashion product catalogues separate: beauty products never appear in Fashion listings, fashion products never appear in Beauty filters/grids. Fashion has its own /fashion page with six subcategory tiles and 5 planned occasion/style article topics; publish articles only when written and reviewed.

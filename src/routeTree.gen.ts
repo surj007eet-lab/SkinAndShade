@@ -15,6 +15,7 @@ import { Route as AffiliateDisclosureRouteImport } from './routes/affiliate-disc
 import { Route as BathBodyRouteImport } from './routes/bath-body'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
+import { Route as FashionRouteImport } from './routes/fashion'
 import { Route as FragranceRouteImport } from './routes/fragrance'
 import { Route as HaircareRouteImport } from './routes/haircare'
 import { Route as MoisturizersRouteImport } from './routes/moisturizers'
@@ -55,6 +56,11 @@ const ContactRoute = ContactRouteImport.update({
 const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
   id: '/editorial-policy',
   path: '/editorial-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FashionRoute = FashionRouteImport.update({
+  id: '/fashion',
+  path: '/fashion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FragranceRoute = FragranceRouteImport.update({
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/bath-body': typeof BathBodyRoute
   '/contact': typeof ContactRoute
   '/editorial-policy': typeof EditorialPolicyRoute
+  '/fashion': typeof FashionRoute
   '/fragrance': typeof FragranceRoute
   '/haircare': typeof HaircareRoute
   '/moisturizers': typeof MoisturizersRoute
@@ -139,6 +146,7 @@ export interface FileRoutesByTo {
   '/bath-body': typeof BathBodyRoute
   '/contact': typeof ContactRoute
   '/editorial-policy': typeof EditorialPolicyRoute
+  '/fashion': typeof FashionRoute
   '/fragrance': typeof FragranceRoute
   '/haircare': typeof HaircareRoute
   '/moisturizers': typeof MoisturizersRoute
@@ -159,6 +167,7 @@ export interface FileRoutesById {
   '/bath-body': typeof BathBodyRoute
   '/contact': typeof ContactRoute
   '/editorial-policy': typeof EditorialPolicyRoute
+  '/fashion': typeof FashionRoute
   '/fragrance': typeof FragranceRoute
   '/haircare': typeof HaircareRoute
   '/moisturizers': typeof MoisturizersRoute
@@ -180,6 +189,7 @@ export interface FileRouteTypes {
     | '/bath-body'
     | '/contact'
     | '/editorial-policy'
+    | '/fashion'
     | '/fragrance'
     | '/haircare'
     | '/moisturizers'
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/bath-body'
     | '/contact'
     | '/editorial-policy'
+    | '/fashion'
     | '/fragrance'
     | '/haircare'
     | '/moisturizers'
@@ -218,6 +229,7 @@ export interface FileRouteTypes {
     | '/bath-body'
     | '/contact'
     | '/editorial-policy'
+    | '/fashion'
     | '/fragrance'
     | '/haircare'
     | '/moisturizers'
@@ -238,6 +250,7 @@ export interface RootRouteChildren {
   BathBodyRoute: typeof BathBodyRoute
   ContactRoute: typeof ContactRoute
   EditorialPolicyRoute: typeof EditorialPolicyRoute
+  FashionRoute: typeof FashionRoute
   FragranceRoute: typeof FragranceRoute
   HaircareRoute: typeof HaircareRoute
   MoisturizersRoute: typeof MoisturizersRoute
@@ -293,6 +306,13 @@ declare module '@tanstack/react-router' {
       path: '/editorial-policy'
       fullPath: '/editorial-policy'
       preLoaderRoute: typeof EditorialPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fashion': {
+      id: '/fashion'
+      path: '/fashion'
+      fullPath: '/fashion'
+      preLoaderRoute: typeof FashionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fragrance': {
@@ -382,6 +402,7 @@ const rootRouteChildren: RootRouteChildren = {
   BathBodyRoute: BathBodyRoute,
   ContactRoute: ContactRoute,
   EditorialPolicyRoute: EditorialPolicyRoute,
+  FashionRoute: FashionRoute,
   FragranceRoute: FragranceRoute,
   HaircareRoute: HaircareRoute,
   MoisturizersRoute: MoisturizersRoute,

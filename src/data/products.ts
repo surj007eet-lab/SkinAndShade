@@ -52,6 +52,21 @@ const img = (id: string) => `https://m.media-amazon.com/images/I/${id}._AC_UL640
 
 export const products: Product[] = [
   {
+    asin: "B07JL7YGC7",
+    brand: "Victoria's Secret",
+    title: "Bombshell Fine Fragrance Mist, 250ml",
+    category: "Fragrance",
+    concerns: [],
+    price: null,
+    mrp: null,
+    description: "Light fruity-floral fragrance mist with passion fruit, peony and vanilla orchid notes.",
+    whyPicked: "A fragrance option for comparing formats and scent styles.",
+    bestFor: "Comparing women's fragrances",
+    image: "https://images-static.nykaa.com/media/catalog/product/b/9/b9676e2VICTO00001071.jpg",
+    affiliateUrl: "https://link.amazon/B0bdnyJgC",
+  },
+
+  {
     asin: "B0CHW268JT",
     image: "https://skyshopy.com/cdn/shop/files/519mdAYKTQL.jpg?v=1767962547",
     brand: "Bella Vita Luxury",
@@ -136,18 +151,18 @@ export const products: Product[] = [
     affiliateUrl: "https://link.amazon/A04QvkrSv",
   },
   {
-    asin: "B0GL8TL11L",
-    image: "https://supremacyhk.store/brand-ai-scents.jpg",
-    brand: "Brand to verify",
-    title: "Fragrance Product — Exact Variant to Verify (illustrative photo)",
+    asin: "B000C1W2DK",
+    brand: "Paris Hilton",
+    title: "Paris Hilton Eau de Parfum for Women, 100ml",
     category: "Fragrance",
     concerns: [],
     price: null,
     mrp: null,
-    description: "Fragrance listing supplied for comparison. Confirm the exact variant, size, ingredients and seller on Amazon before purchasing.",
-    whyPicked: "Included to broaden the fragrance catalogue; scent preference and performance vary.",
-    bestFor: "Comparing fragrance options",
-    affiliateUrl: "https://link.amazon/A0artWGDf",
+    description: "Women's eau de parfum in a 100ml bottle, with signature pink striped packaging.",
+    whyPicked: "A fragrance option for comparing formats and scent styles.",
+    bestFor: "Comparing women's fragrances",
+    image: "https://bsecommerceprod.blob.core.windows.net/magento/catalog/product/cache/4d7bf8575b873e81d084ecf5c6c633f2/0/6/0608940517482-a.jpg",
+    affiliateUrl: "https://link.amazon/B04bDbscI",
   },
   {
     asin: "B0GK248PCV",

@@ -52,6 +52,21 @@ const img = (id: string) => `https://m.media-amazon.com/images/I/${id}._AC_UL640
 
 export const products: Product[] = [
   {
+    asin: "B0HJQCM6WF",
+    brand: "Facial Hair Remover",
+    title: "2-in-1 USB Rechargeable Facial Hair Remover for Women, Purple",
+    category: "Personal Care",
+    concerns: [],
+    price: null,
+    mrp: null,
+    description: "Portable electric facial hair remover with two trimming heads and LED light, for upper lip, chin, cheeks and eyebrow grooming. Purple variant.",
+    whyPicked: "Two interchangeable grooming heads for different facial areas.",
+    bestFor: "Facial hair grooming",
+    image: "https://m.media-amazon.com/images/I/612TKcZxdjL._SL1254_.jpg",
+    affiliateUrl: "https://link.amazon/A03ECmYun",
+  },
+
+  {
     asin: "B0FBXBY9MY",
     brand: "VIFERA",
     title: "USB Rechargeable Facial Hair Remover for Women",

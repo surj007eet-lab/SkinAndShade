@@ -52,6 +52,21 @@ const img = (id: string) => `https://m.media-amazon.com/images/I/${id}._AC_UL640
 
 export const products: Product[] = [
   {
+    asin: "B08M4QF7V9",
+    brand: "Vaseline",
+    title: "Intensive Care Deep Restore Body Lotion",
+    category: "Skincare",
+    concerns: ["Dry Skin"],
+    price: null,
+    mrp: null,
+    description: "Moisturising body lotion for dry skin with glycerin and Vaseline Jelly. Check the Amazon listing for the selected bottle size.",
+    whyPicked: "A familiar daily body moisturiser for dry-skin routines.",
+    bestFor: "Daily body moisturising",
+    image: "https://www.wholesalemartindia.in/auth/upload/product-photo/VASELINE%20B%20ODY%20LOTION%20100%20ML.jpgP011816.jpg",
+    affiliateUrl: "https://link.amazon/B030SZgHE",
+  },
+
+  {
     asin: "B0HJQCM6WF",
     brand: "Facial Hair Remover",
     title: "2-in-1 USB Rechargeable Facial Hair Remover for Women, Purple",

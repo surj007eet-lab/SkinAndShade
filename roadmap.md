@@ -9,3 +9,12 @@
 - [ ] Improve metadata, breadcrumbs, organization and website structured data.
 - [ ] Verify pages, sitemap, filters, links, desktop/mobile and accessibility.
 - [ ] Deliver audit, verification results and 30-day plan; identify external blockers.
+
+## Phase 2 — Fashion expansion and site improvements
+
+- Add Fashion menu and homepage subcategory discovery blocks below Beauty; link to the user-supplied Amazon Fashion affiliate URL `https://link.amazon/A0aNtzL4K`.
+- Improve homepage branding, category presentation, typography and mobile navigation using FindsVault as design inspiration, without copying its content.
+- Verify all 60 existing beauty product images, exact product identities, affiliate links and descriptions.
+- Improve product-card usability, browsing and filtering.
+- Strengthen buying guides, category SEO, affiliate disclosures, privacy and technical SEO.
+- Add individually verified fashion products and category-specific affiliate links when provided; avoid implying generic Amazon catalogue links are curated product selections.

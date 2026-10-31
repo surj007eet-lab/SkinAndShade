@@ -155,36 +155,30 @@ function Home() {
         </div>
       </section>
 
-      {/* Fashion discovery: external Amazon catalogue, not local product listings */}
-      <section id="fashion" className="mx-auto mt-14 max-w-6xl scroll-mt-24 px-4 sm:px-6" aria-labelledby="fashion-heading">
+      {/* Separate Fashion discovery entry point; beauty product grid stays beauty-only */}
+      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="fashion-preview-heading">
         <div className="rounded-3xl border border-border bg-card p-6 sm:p-9">
-          <div className="flex items-center gap-3">
-            <Shirt className="h-7 w-7 text-accent" aria-hidden />
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Fashion for women</p>
-              <h2 id="fashion-heading" className="text-2xl font-semibold text-primary sm:text-3xl">Explore Fashion</h2>
-            </div>
-          </div>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">Browse women's clothing and style essentials by category. We're building our fashion picks; for now, use the link below to explore the wider collection on Amazon.</p>
-          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Fashion for women</p>
+          <h2 id="fashion-preview-heading" className="mt-2 text-2xl font-semibold text-primary sm:text-3xl">Explore Fashion</h2>
+          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Discover six fashion categories and upcoming guides for outfits, occasions and fabrics. Fashion products are kept separate from the beauty catalogue.</p>
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {[
-              { id: "fashion-ethnic", title: "Ethnic Wear", detail: "Kurtas, salwar suits and traditional outfits" },
-              { id: "fashion-western", title: "Western Wear", detail: "Dresses, tops and contemporary styles" },
-              { id: "fashion-everyday", title: "Everyday Fashion", detail: "Comfortable outfits for daily wear" },
-              { id: "fashion-formal", title: "Formal Wear", detail: "Workwear and smart dressing" },
-              { id: "fashion-winter", title: "Winter Wear", detail: "Layers, sweaters and jackets" },
-              { id: "fashion-accessories", title: "Fashion Accessories", detail: "Style additions and finishing touches" },
+              { id: "ethnic", title: "Ethnic Wear" },
+              { id: "western", title: "Western Wear" },
+              { id: "everyday", title: "Everyday Fashion" },
+              { id: "formal", title: "Formal Wear" },
+              { id: "winter", title: "Winter Wear" },
+              { id: "accessories", title: "Accessories" },
             ].map((item) => (
-              <div key={item.id} id={item.id} className="scroll-mt-24 rounded-2xl border border-border bg-background p-5">
-                <h3 className="text-lg font-semibold text-primary">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{item.detail}</p>
-                <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="mt-4 inline-flex rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground">Explore on Amazon →</a>
-              </div>
+              <a key={item.id} href={`/fashion#${item.id}`} className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-background p-3 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
+                <Shirt className="h-6 w-6 text-accent" aria-hidden />
+                <span className="text-xs font-semibold text-primary">{item.title}</span>
+              </a>
             ))}
           </div>
-          <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-6">
-            <p className="text-xs text-muted-foreground">Affiliate link: we may earn a commission from qualifying purchases.</p>
-            <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90">Explore More Fashion on Amazon →</a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="/fashion" className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">Explore Fashion & Style Guides →</a>
+            <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary">Explore More on Amazon →</a>
           </div>
         </div>
       </section>

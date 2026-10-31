@@ -13,7 +13,8 @@ export function SiteFooter() {
             <ul className="mt-3 space-y-2">
               <li><Link to="/" className={linkCls}>Home</Link></li>
               <li><Link to="/about" className={linkCls}>About</Link></li>
-              <li><Link to="/guides" className={linkCls}>Guides</Link></li>
+              <li><Link to="/guides" className={linkCls}>Beauty guides</Link></li>
+              <li><Link to="/fashion" className={linkCls}>Fashion & occasion guides</Link></li>
             </ul>
           </nav>
           <nav aria-label="Categories">

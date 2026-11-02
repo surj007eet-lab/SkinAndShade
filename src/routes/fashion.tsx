@@ -12,11 +12,11 @@ const sections = [
 ] as const;
 
 const ethnicProducts = [
-  { asin: "B0DWXX7Y6Q", brand: "Vaamsi", title: "Paisley Printed Straight Kurta Set (VKSKD2318)", detail: "Paisley-patterned straight-cut ethnic outfit. Confirm the selected fabric, size and included pieces on Amazon.", affiliate: "https://link.amazon/B00A5tWFr" },
-  { asin: "B0C73VF7H3", brand: "Rajnandini", title: "Cotton Printed Salwar Suit Set (VSMRW4267)", detail: "Printed cotton ethnic-wear option; linked variant is Large. Check the listing for included pieces and measurements.", affiliate: "https://link.amazon/B0dNOrr9T" },
-  { asin: "B0CXTGJSN6", brand: "FABNEX", title: "Cotton Kurta Set with Dupatta (K-43, Grey, 2XL)", detail: "Grey kurta outfit with dupatta, linked in size 2XL. Confirm fabric composition and garment measurements on Amazon.", affiliate: "https://link.amazon/B04Avm3Di" },
-  { asin: "B0DDCNQRQZ", brand: "Vaamsi", title: "Printed Straight Kurta Set with Dupatta (VKSKD2247, Blue, 4XL)", detail: "Blue printed straight-style ethnic outfit with dupatta; linked variant is 4XL. Check the seller's size chart.", affiliate: "https://link.amazon/B09y8OLgy" },
-  { asin: "B0DYF21LMS", brand: "LAVANDIS", title: "Embroidered Anarkali Kurti for Women", detail: "Anarkali-style embroidered kurti for ethnic and occasion wear. Check the exact colour, fabric and included pieces on Amazon.", affiliate: "https://link.amazon/B0eigRBSw" },
+  { asin: "B0DWXX7Y6Q", brand: "Vaamsi", title: "Paisley Printed Straight Kurta Set (VKSKD2318)", detail: "Paisley-patterned straight-cut ethnic outfit. Confirm the selected fabric, size and included pieces on Amazon.", affiliate: "https://link.amazon/B00A5tWFr", image: "https://m.media-amazon.com/images/I/91ZUTlLx1jL._SX679_.jpg" },
+  { asin: "B0C73VF7H3", brand: "Rajnandini", title: "Cotton Printed Salwar Suit Set (VSMRW4267)", detail: "Printed cotton ethnic-wear option; linked variant is Large. Check the listing for included pieces and measurements.", affiliate: "https://link.amazon/B0dNOrr9T", image: "https://m.media-amazon.com/images/I/91Da+J6yhvL._SX679_.jpg" },
+  { asin: "B0CXTGJSN6", brand: "FABNEX", title: "Cotton Kurta Set with Dupatta (K-43, Grey, 2XL)", detail: "Grey kurta outfit with dupatta, linked in size 2XL. Confirm fabric composition and garment measurements on Amazon.", affiliate: "https://link.amazon/B04Avm3Di", image: "https://m.media-amazon.com/images/I/917F9xeB8BL._SX679_.jpg" },
+  { asin: "B0DDCNQRQZ", brand: "Vaamsi", title: "Printed Straight Kurta Set with Dupatta (VKSKD2247, Blue, 4XL)", detail: "Blue printed straight-style ethnic outfit with dupatta; linked variant is 4XL. Check the seller's size chart.", affiliate: "https://link.amazon/B09y8OLgy", image: "https://m.media-amazon.com/images/I/715qtb1GseL._SX679_.jpg" },
+  { asin: "B0DYF21LMS", brand: "LAVANDIS", title: "Embroidered Anarkali Kurti for Women", detail: "Anarkali-style embroidered kurti for ethnic and occasion wear. Check the exact colour, fabric and included pieces on Amazon.", affiliate: "https://link.amazon/B0eigRBSw", image: "https://m.media-amazon.com/images/I/81SE+5zzlTL._SX679_.jpg" },
 ] as const;
 
 const plannedGuides = [
@@ -55,15 +55,12 @@ function FashionPage() {
       <div className="sr-only" aria-hidden="true">{sections.filter((s) => s.id !== "ethnic").map((s) => <span key={s.id} id={`${s.id}-upcoming`} />)}</div>
       <section id="ethnic-products" className="mt-14 scroll-mt-24" aria-labelledby="ethnic-products-heading">
         <h2 id="ethnic-products-heading" className="text-2xl font-semibold text-primary">Ethnic Wear Picks</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Batch 1 of 3 · 5 of 15 products. Product photographs remain pending exact-item verification; no unrelated clothing images are used.</p>
+        <p className="mt-2 text-sm text-muted-foreground">Batch 1 of 3 · 5 of 15 products. Product photographs use the five Amazon image URLs supplied for these listings. Check the selected variant on Amazon before ordering.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ethnicProducts.map((product) => (
             <article key={product.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="flex aspect-[4/3] items-center justify-center bg-secondary/50 px-6 text-center">
-                <div>
-                  <Shirt className="mx-auto h-10 w-10 text-muted-foreground" aria-hidden />
-                  <p className="mt-3 text-xs text-muted-foreground">Product photograph pending verification</p>
-                </div>
+              <div className="flex aspect-[4/3] items-center justify-center bg-white p-3">
+                <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" />
               </div>
               <div className="p-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">{product.brand}</p>

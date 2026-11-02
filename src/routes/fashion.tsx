@@ -41,29 +41,21 @@ function FashionPage() {
       <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Browse the first Ethnic Wear selections below. Other fashion categories will be added in stages.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6" aria-label="Fashion subcategories">
         {sections.map((section) => (
-          <a key={section.id} href={`#${section.id}`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
+          <a key={section.id} href={section.id === "ethnic" ? "#ethnic-products" : `#${section.id}-upcoming`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
             <Shirt className="mb-3 h-6 w-6 text-accent" aria-hidden />
             <span className="text-sm font-semibold text-primary">{section.title}</span>
             <span className="mt-2 text-xs text-muted-foreground">Explore category</span>
           </a>
         ))}
       </div>
-      <section className="mt-14" aria-labelledby="fashion-categories">
-        <h2 id="fashion-categories" className="text-2xl font-semibold text-primary">Shop by fashion category</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {sections.map((section) => (
-            <article id={section.id} key={section.id} className="scroll-mt-28 rounded-2xl border border-border bg-card p-6">
-              <h3 className="text-xl font-semibold text-primary">{section.title}</h3>
-              <p className="mt-2 min-h-12 text-sm text-muted-foreground">{section.description}</p>
-              {section.id === "ethnic" ? <p className="mt-3 text-xs text-muted-foreground">{ethnicProducts.length} product picks added</p> : <p className="mt-3 text-xs text-muted-foreground">Individual product picks coming soon</p>}
-              <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="mt-4 inline-flex items-center gap-1 rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">Browse Amazon Fashion <ArrowUpRight className="h-4 w-4" /></a>
-            </article>
-          ))}
-        </div>
-      </section>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">Explore More Fashion on Amazon ↗</a>
+        <a href="#fashion-articles" className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-primary hover:border-primary">Fashion Guides ↓</a>
+      </div>
+      <div className="sr-only" aria-hidden="true">{sections.filter((s) => s.id !== "ethnic").map((s) => <span key={s.id} id={`${s.id}-upcoming`} />)}</div>
       <section id="ethnic-products" className="mt-14 scroll-mt-24" aria-labelledby="ethnic-products-heading">
         <h2 id="ethnic-products-heading" className="text-2xl font-semibold text-primary">Ethnic Wear Picks</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Batch 1 of 3 · 5 of 15 products. Exact item photographs are being verified; no unrelated clothing images are used.</p>
+        <p className="mt-2 text-sm text-muted-foreground">Batch 1 of 3 · 5 of 15 products. Product photographs remain pending exact-item verification; no unrelated clothing images are used.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ethnicProducts.map((product) => (
             <article key={product.asin} className="overflow-hidden rounded-2xl border border-border bg-card">

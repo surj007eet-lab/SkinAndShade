@@ -57,7 +57,7 @@ export function SiteHeader() {
             </summary>
             <ul className="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
               {[
-                { id: "", label: "All Fashion" },
+                { id: "fashion-articles", label: "Fashion Guide" },
                 { id: "ethnic", label: "Ethnic Wear" },
                 { id: "western", label: "Western Wear" },
                 { id: "everyday", label: "Everyday Fashion" },
@@ -66,7 +66,7 @@ export function SiteHeader() {
                 { id: "accessories", label: "Accessories" },
               ].map((item) => (
                 <li key={item.id}>
-                  <a href={item.id ? `/fashion#${item.id}` : "/fashion"} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
+                  <a href={item.id === "fashion-articles" ? "/fashion#fashion-articles" : `/fashion#${item.id === "ethnic" ? "ethnic-products" : `${item.id}-upcoming`}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
                 </li>
               ))}
             </ul>

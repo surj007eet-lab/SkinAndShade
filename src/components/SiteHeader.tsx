@@ -39,7 +39,7 @@ export function SiteHeader() {
         <Link to="/" className="font-display text-2xl font-semibold tracking-tight text-primary">
           Skin<span className="italic text-accent">And</span>Shade
         </Link>
-        <nav className="flex max-w-full items-center gap-1 overflow-x-auto sm:gap-2" aria-label="Main">
+        <nav className="flex max-w-full flex-wrap items-center justify-center gap-1 sm:gap-2" aria-label="Main">
           {NAV.map((item) => (
             <Link
               key={item.to}

@@ -29,6 +29,14 @@ const ethnicProducts = [
   { asin: "B0GTVX18KW", brand: "GoSriKi", title: "Banditha Viscose Printed Ethnic Set", detail: "Printed ethnic-wear option described as Banditha, in the seller's Kerosin colour variant and Large size. Verify fabric and included pieces on Amazon.", affiliate: "https://link.amazon/B0g6qrnJ7", consider: "Casual ethnic dressing and printed traditional looks", styleTip: "Build the look around one colour in the print, then add simple flats and a compact bag.", whyConsider: "A printed ethnic outfit is a flexible starting point for casual styling when you want the pattern to provide visual interest.", image: "https://m.media-amazon.com/images/I/91GSJqKX1cL._SX679_.jpg" },
 ] as const;
 
+const westernProducts = [
+  { asin: "B0HPSY6GFC", brand: "Brand not confirmed", title: "Printed Smocked Western Dress", detail: "Printed women's dress with elastic-smocked styling. Check the seller's size chart, fabric and dress length for the selected variant.", consider: "Casual outings and relaxed printed-dress styling", styleTip: "Let the print take centre stage with solid-colour sandals and a compact crossbody bag.", whyConsider: "Smocked detailing creates a distinct silhouette to compare with more structured dresses.", affiliate: "https://link.amazon/B06esl1zg", image: "https://m.media-amazon.com/images/I/71IyICzr5NL._SX679_.jpg" },
+  { asin: "B0H2QP1GDM", brand: "GRECIILOOKS", title: "Sleeveless Striped Vacation Dress", detail: "Sleeveless striped women's dress marketed for vacation wear. Verify length, fabric and fit on the Amazon listing.", consider: "Holiday looks and casual warm-weather outfits", styleTip: "Pair the stripes with simple flats, a straw-look bag or understated accessories.", whyConsider: "A striped sleeveless design offers a different visual direction from floral or solid-colour dresses.", affiliate: "https://link.amazon/B08WR8xzE", image: "https://m.media-amazon.com/images/I/81tKqwLJ3wL._SX679_.jpg" },
+  { asin: "B0GZGTHC6F", brand: "Brand not confirmed", title: "Tribal-Print Flared-Sleeve Shirt Dress", detail: "Women's shirt-style dress with a tribal-inspired print and flared sleeves, as described in the listing URL. Confirm exact length and fabric.", consider: "Statement-print daywear and casual outings", styleTip: "Choose plain shoes and minimal jewellery to balance the patterned sleeves.", whyConsider: "The shirt-dress shape and flared sleeves make this a distinctive option among casual dresses.", affiliate: "https://link.amazon/B05U5hFK0", image: "https://m.media-amazon.com/images/I/61wK4PYlmCL._SX679_.jpg" },
+  { asin: "B0G59MJ661", brand: "FYLTR", title: "Solid Midi Dress", detail: "Solid-colour women's midi dress. Check the current colour, fabric composition and measurements on Amazon.", consider: "Minimalist outfits and versatile day-to-evening styling", styleTip: "Add a contrasting belt or a small shoulder bag to give the solid colour a personal touch.", whyConsider: "A plain midi dress can be styled in several directions by changing shoes and accessories.", affiliate: "https://link.amazon/B0eg6JmCX", image: "https://m.media-amazon.com/images/I/41uFye+uAsL.jpg" },
+  { asin: "B0FLK9RWQV", brand: "Shasmi", title: "Cinched-Waist Western Dress", detail: "Women's western dress with a cinched-waist design, based on the product listing. Verify silhouette, fabric and sizing on Amazon.", consider: "Dressier casual occasions and waist-defined silhouettes", styleTip: "Try a simple pendant and neutral footwear to keep attention on the waist detail.", whyConsider: "A cinched-waist design offers a shape-focused alternative to loose or straight-cut dresses.", affiliate: "https://link.amazon/B04ghPEwO", image: "https://m.media-amazon.com/images/I/81cIJSHLG7L._SX679_.jpg" },
+] as const;
+
 const plannedGuides = [
   { title: "What to Wear to a Job Interview", detail: "Choosing comfortable, polished outfits for different workplaces" },
   { title: "What to Wear to an Indian Wedding", detail: "Outfit ideas for daytime, evening and festive functions" },
@@ -48,10 +56,10 @@ function FashionPage() {
     <main className="mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Women's Fashion</p>
       <h1 className="mt-3 text-4xl font-semibold text-primary sm:text-5xl">Explore Fashion</h1>
-      <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Browse the first Ethnic Wear selections below. Other fashion categories will be added in stages.</p>
+      <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Browse the first Ethnic Wear selections below. Western Wear picks are now being added; other categories will follow.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6" aria-label="Fashion subcategories">
         {sections.map((section) => (
-          <a key={section.id} href={section.id === "ethnic" ? "#ethnic-products" : `#${section.id}-upcoming`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
+          <a key={section.id} href={section.id === "ethnic" ? "#ethnic-products" : section.id === "western" ? "#western-products" : `#${section.id}-upcoming`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
             <Shirt className="mb-3 h-6 w-6 text-accent" aria-hidden />
             <span className="text-sm font-semibold text-primary">{section.title}</span>
             <span className="mt-2 text-xs text-muted-foreground">Explore category</span>
@@ -62,7 +70,7 @@ function FashionPage() {
         <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">Explore More Fashion on Amazon ↗</a>
         <a href="#fashion-articles" className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-primary hover:border-primary">Fashion Guides ↓</a>
       </div>
-      <div className="sr-only" aria-hidden="true">{sections.filter((s) => s.id !== "ethnic").map((s) => <span key={s.id} id={`${s.id}-upcoming`} />)}</div>
+      <div className="sr-only" aria-hidden="true">{sections.filter((s) => s.id !== "ethnic" && s.id !== "western").map((s) => <span key={s.id} id={`${s.id}-upcoming`} />)}</div>
       <section id="ethnic-products" className="mt-14 scroll-mt-24" aria-labelledby="ethnic-products-heading">
         <h2 id="ethnic-products-heading" className="text-2xl font-semibold text-primary">Ethnic Wear Picks</h2>
         <p className="mt-2 text-sm text-muted-foreground">15 of 15 Ethnic Wear picks added. All 15 products have supplied Amazon image URLs. Styling ideas are editorial suggestions, not customer testimonials or claims of product performance. Check current reviews, sizes and variants on Amazon before ordering.</p>
@@ -71,6 +79,28 @@ function FashionPage() {
             <article key={product.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="flex aspect-[4/3] items-center justify-center bg-white p-3">
                 {product.image ? <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" /> : <div className="text-center text-muted-foreground"><Shirt className="mx-auto h-9 w-9" aria-hidden /><p className="mt-2 text-xs">Photo awaiting Amazon image link</p></div>}
+              </div>
+              <div className="p-5">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent">{product.brand}</p>
+                <h3 className="mt-2 text-lg font-semibold text-primary">{product.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{product.detail}</p>
+                <p className="mt-3 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Best for:</strong> {product.consider}</p>
+                <p className="mt-2 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Style tip:</strong> {product.styleTip}</p>
+                <p className="mt-2 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Why consider it:</strong> {product.whyConsider}</p>
+                <a href={product.affiliate} target="_blank" rel="sponsored noopener noreferrer" className="mt-5 inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">View on Amazon <ArrowUpRight className="h-4 w-4" /></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section id="western-products" className="mt-14 scroll-mt-24" aria-labelledby="western-products-heading">
+        <h2 id="western-products-heading" className="text-2xl font-semibold text-primary">Western Wear Picks</h2>
+        <p className="mt-2 text-sm text-muted-foreground">5 of 15 Western Wear picks added with supplied product image URLs and affiliate links. Styling suggestions are editorial ideas, not customer testimonials. Confirm sizes, materials and variants on Amazon before ordering.</p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {westernProducts.map((product) => (
+            <article key={product.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="flex aspect-[4/3] items-center justify-center bg-white p-3">
+                <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" />
               </div>
               <div className="p-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">{product.brand}</p>

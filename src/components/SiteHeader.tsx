@@ -66,7 +66,7 @@ export function SiteHeader() {
                 { id: "accessories", label: "Accessories" },
               ].map((item) => (
                 <li key={item.id}>
-                  <a href={item.id === "fashion-articles" ? "/fashion#fashion-articles" : `/fashion#${item.id === "ethnic" ? "ethnic-products" : `${item.id}-upcoming`}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
+                  <a href={item.id === "fashion-articles" ? "/fashion#fashion-articles" : item.id === "western" ? "/fashion/western" : `/fashion#${item.id === "ethnic" ? "ethnic-products" : `${item.id}-upcoming`}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
                 </li>
               ))}
             </ul>

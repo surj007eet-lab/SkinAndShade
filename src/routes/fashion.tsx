@@ -17,6 +17,11 @@ const ethnicProducts = [
   { asin: "B0CXTGJSN6", brand: "FABNEX", title: "Cotton Kurta Set with Dupatta (K-43, Grey, 2XL)", detail: "Grey kurta outfit with dupatta, linked in size 2XL. Confirm fabric composition and garment measurements on Amazon.", affiliate: "https://link.amazon/B04Avm3Di", image: "https://m.media-amazon.com/images/I/917F9xeB8BL._SX679_.jpg" },
   { asin: "B0DDCNQRQZ", brand: "Vaamsi", title: "Printed Straight Kurta Set with Dupatta (VKSKD2247, Blue, 4XL)", detail: "Blue printed straight-style ethnic outfit with dupatta; linked variant is 4XL. Check the seller's size chart.", affiliate: "https://link.amazon/B09y8OLgy", image: "https://m.media-amazon.com/images/I/715qtb1GseL._SX679_.jpg" },
   { asin: "B0DYF21LMS", brand: "LAVANDIS", title: "Embroidered Anarkali Kurti for Women", detail: "Anarkali-style embroidered kurti for ethnic and occasion wear. Check the exact colour, fabric and included pieces on Amazon.", affiliate: "https://link.amazon/B0eigRBSw", image: "https://m.media-amazon.com/images/I/81SE+5zzlTL._SX679_.jpg" },
+  { asin: "B0HN5C5S8D", brand: "Brand to verify", title: "Women's Maroon Printed Traditional Outfit", detail: "Maroon printed traditional-style women's outfit. Confirm the brand, fabric, included pieces and available sizes on Amazon.", affiliate: "https://link.amazon/B0aks70z5", image: "" },
+  { asin: "B0H5KTHGSK", brand: "LookMark", title: "Printed Ethnic Set with Dupatta (AZ-LM-OG2-KS2391)", detail: "Printed traditional-style outfit with dupatta. Check the exact set contents, fabric and measurements on Amazon.", affiliate: "https://link.amazon/B0fJDgFbH", image: "" },
+  { asin: "B0GRNNBGR9", brand: "Klosia", title: "Embroidered Straight Kurta with Dupatta", detail: "Straight-cut embroidered ethnic outfit with dupatta. Verify colour, included garments and fit details on Amazon.", affiliate: "https://link.amazon/B0iyd18M7", image: "" },
+  { asin: "B0H6JL12YL", brand: "Nermosa", title: "Printed Straight Palazzo Outfit", detail: "Printed straight-style ethnic outfit with palazzo-style bottoms. Confirm included pieces, fabric and size chart on Amazon.", affiliate: "https://link.amazon/B01tPdnxF", image: "" },
+  { asin: "B0FFBB38T6", brand: "Nermosa", title: "Orange Embroidered Outfit with Dupatta", detail: "Orange embroidered ethnic-wear option with dupatta. Check the listing for exact colour, fabric, included pieces and sizes.", affiliate: "https://link.amazon/B0iFUBQIQ", image: "" },
 ] as const;
 
 const plannedGuides = [
@@ -55,12 +60,12 @@ function FashionPage() {
       <div className="sr-only" aria-hidden="true">{sections.filter((s) => s.id !== "ethnic").map((s) => <span key={s.id} id={`${s.id}-upcoming`} />)}</div>
       <section id="ethnic-products" className="mt-14 scroll-mt-24" aria-labelledby="ethnic-products-heading">
         <h2 id="ethnic-products-heading" className="text-2xl font-semibold text-primary">Ethnic Wear Picks</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Batch 1 of 3 · 5 of 15 products. Product photographs use the five Amazon image URLs supplied for these listings. Check the selected variant on Amazon before ordering.</p>
+        <p className="mt-2 text-sm text-muted-foreground">10 of 15 Ethnic Wear picks added. Photos for the latest five products are pending direct Amazon image URLs. Check selected variants and product details on Amazon before ordering.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ethnicProducts.map((product) => (
             <article key={product.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="flex aspect-[4/3] items-center justify-center bg-white p-3">
-                <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" />
+                {product.image ? <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" /> : <div className="text-center text-muted-foreground"><Shirt className="mx-auto h-9 w-9" aria-hidden /><p className="mt-2 text-xs">Photo awaiting Amazon image link</p></div>}
               </div>
               <div className="p-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">{product.brand}</p>

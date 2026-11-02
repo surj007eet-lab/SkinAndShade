@@ -76,7 +76,7 @@ function FashionPage() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">{product.brand}</p>
                 <h3 className="mt-2 text-lg font-semibold text-primary">{product.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground">{product.detail}</p>
-                <p className="mt-3 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Consider for:</strong> {product.consider}</p>
+                <p className="mt-3 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Best for:</strong> {product.consider}</p>
                 <p className="mt-2 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Style tip:</strong> {product.styleTip}</p>
                 <p className="mt-2 text-sm text-muted-foreground"><strong className="font-semibold text-foreground">Why consider it:</strong> {product.whyConsider}</p>
                 <a href={product.affiliate} target="_blank" rel="sponsored noopener noreferrer" className="mt-5 inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">View on Amazon <ArrowUpRight className="h-4 w-4" /></a>

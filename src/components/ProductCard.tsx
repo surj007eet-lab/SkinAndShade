@@ -17,11 +17,8 @@ export function ProductCard({ product }: { product: Product }) {
       </div>
       <h3 className="mt-2 break-words text-base leading-snug text-card-foreground sm:text-lg">{product.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-      <p className="mt-3 text-xs text-muted-foreground"><span className="font-semibold text-foreground">Consider for:</span> {product.bestFor}</p>
-      <p className="mt-2 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Why included:</span> {product.whyPicked}</p>
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Style tip:</span> {product.styleTip}</p>
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Why consider it:</span> {product.whyConsider}</p>
-      <p className="mt-3 text-xs text-muted-foreground">Current price and availability: check Amazon.</p>
       <Button asChild className="mt-auto min-h-11 w-full rounded-full px-3 py-3 h-auto whitespace-normal">
         <a href={product.affiliateUrl ?? amazonUrl(product.asin)} target="_blank" rel="sponsored noopener" aria-label={`View ${product.brand} ${product.title} on Amazon (opens in a new tab)`}>View on Amazon →</a>
       </Button>

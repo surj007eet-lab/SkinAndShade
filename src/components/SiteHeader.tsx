@@ -39,19 +39,19 @@ export function SiteHeader() {
         <Link to="/" className="font-display text-2xl font-semibold tracking-tight text-primary">
           Skin<span className="italic text-accent">And</span>Shade
         </Link>
-        <nav className="flex items-center gap-1 sm:gap-2" aria-label="Main">
+        <nav className="flex max-w-full items-center gap-1 overflow-x-auto sm:gap-2" aria-label="Main">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring"
+              className="shrink-0 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring"
               activeProps={{ className: "bg-secondary text-secondary-foreground" }}
             >
               {item.label}
             </Link>
           ))}
-          <details className="group relative">
+          <details className="group relative shrink-0">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Fashion <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>
@@ -71,7 +71,7 @@ export function SiteHeader() {
               ))}
             </ul>
           </details>
-          <details className="group relative">
+          <details className="group relative shrink-0">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Beauty <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>
@@ -94,7 +94,7 @@ export function SiteHeader() {
             type="button"
             onClick={toggle}
             aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-            className="ml-1 rounded-full border border-border p-2 text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring"
+            className="ml-1 shrink-0 rounded-full border border-border p-2 text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring"
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>

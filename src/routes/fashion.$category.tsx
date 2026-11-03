@@ -19,9 +19,22 @@ const everydayProducts = [
   {asin:"B09K44FLG1",brand:"Miss Chase",title:"Multicoloured Sleeveless Outfit",detail:"Multicoloured sleeveless women's outfit from Miss Chase. Verify exact style and selected size before buying.",tip:"Keep footwear and accessories understated to complement the colours.",affiliate:"https://link.amazon/B0e6TTsSh",image:"https://m.media-amazon.com/images/I/A1HMW+56DKL._SX679_.jpg"},
 ] as const;
 
+const formalProducts = [
+  {asin:"B0GBWJ557Z",brand:"Classy Fashion",title:"White Collared Polyester Formal Top",detail:"White collared polyester garment; check the exact fit and sleeve details on the retailer listing.",tip:"Pair with dark tailored trousers for a clean office outfit.",affiliate:"https://link.amazon/B05gHhJ01",image:"https://m.media-amazon.com/images/I/91FXQLEjDZL._SX679_.jpg"},
+  {asin:"B0GSQJX35M",brand:"TOOCHKI",title:"Lightweight Longline Blazer",detail:"Longline blazer for office layering; confirm lining, measurements and closure.",tip:"Wear over a plain shirt with straight-leg trousers.",affiliate:"https://link.amazon/B0gtXj40L",image:"https://m.media-amazon.com/images/I/81NraLgpCtL._SX679_.jpg"},
+  {asin:"B0GNMX2JSY",brand:"LITZO",title:"Women's Western Workwear",detail:"Workwear fashion item; check the garment style, material and fit on Amazon.",tip:"Coordinate with understated accessories for a work-ready look.",affiliate:"https://link.amazon/B01Fpu5Rd",image:"https://m.media-amazon.com/images/I/81n5TOZ-CbL._SX679_.jpg"},
+  {asin:"B0GQSP9QQG",brand:"TOOCHKI",title:"High-Waisted Straight Formal Trousers",detail:"High-waisted straight-cut trousers described as stretchable; check the size chart.",tip:"Pair with a tucked-in blouse or structured shirt.",affiliate:"https://link.amazon/B05mvGdT4",image:"https://m.media-amazon.com/images/I/61L6W-1iZaL._SX679_.jpg"},
+  {asin:"B0CSG5R4N2",brand:"Symbol Premium",title:"Women's Regular-Fit Shirt — Peach",detail:"Peach regular-fit women's shirt; check fabric and sleeve details on the listing.",tip:"Combine with neutral trousers for everyday office wear.",affiliate:"https://link.amazon/B0eCnNF20",image:"https://m.media-amazon.com/images/I/91nVujywkTL._SX679_.jpg"},
+  {asin:"B0HDJK4TST",brand:"Gufrina",title:"Tailored Collared Western Wear",detail:"Tailored collared women's workwear item; verify the exact garment type and fit.",tip:"Style with plain formal bottoms and simple footwear.",affiliate:"https://link.amazon/B01OtYBKN",image:"https://m.media-amazon.com/images/I/916m1351wpL._SX679_.jpg"},
+  {asin:"B0G4WLQR3S",brand:"KERI PERRY",title:"High-Waisted Stretchable Trousers",detail:"High-waisted trousers described as stretchable; compare waist and inseam measurements.",tip:"Pair with a button-down shirt or blazer.",affiliate:"https://link.amazon/B03Pj5vJf",image:"https://m.media-amazon.com/images/I/71XQJ+e8NNL._SX679_.jpg"},
+  {asin:"B0D4Z95Z53",brand:"Allen Solly",title:"Women's Regular-Fit Navy Top",detail:"Navy regular-fit women's clothing item; confirm exact style and material on Amazon.",tip:"Navy pairs well with beige, grey or black workwear.",affiliate:"https://link.amazon/B0hsXjGel",image:"https://m.media-amazon.com/images/I/81bStZCLb8L._SX679_.jpg"},
+  {asin:"B0G38Y5HS6",brand:"BlissClub",title:"Ultimate Regular-Fit Trousers",detail:"Regular-fit trousers for smart-casual outfits; verify fabric, cut and size.",tip:"Wear with a collared shirt or relaxed blazer.",affiliate:"https://link.amazon/B07FiPBqv",image:"https://m.media-amazon.com/images/I/814gwT2+2JL._SX679_.jpg"},
+  {asin:"B0GTYRSMMB",brand:"Selvia",title:"Women's Brown Formal Trousers",detail:"Brown women's trousers; check rise, length and material before ordering.",tip:"Pair with ivory or cream tops for a coordinated work look.",affiliate:"https://link.amazon/B04CQ6vnD",image:"https://m.media-amazon.com/images/I/8119SoiSoWL._SX679_.jpg"},
+] as const;
+
 const categories: Record<string, { title: string; description: string }> = {
   everyday: { title: "Everyday Fashion", description: "Browse everyday clothing, shoes and wardrobe essentials with practical buying considerations." },
-  formal: { title: "Formal Wear", description: "Office-ready outfits and smart occasion dressing. Product selections are coming soon." },
+  formal: { title: "Formal Wear", description: "Explore shirts, blazers and tailored trousers for office outfits and smart occasions." },
   winter: { title: "Winter Wear", description: "Sweaters, jackets and practical layering ideas. Product selections are coming soon." },
   accessories: { title: "Fashion Accessories", description: "Bags, jewellery and finishing touches. Product selections are coming soon." },
 };
@@ -41,16 +54,19 @@ function FashionCategoryPage() {
   if (!details) {
     return <main className="mx-auto max-w-6xl px-4 py-16"><h1 className="text-3xl font-semibold text-primary">Category not found</h1><Link to="/fashion" className="mt-6 inline-block underline">Browse Fashion categories</Link></main>;
   }
-  if (category === "everyday") return (
+  if (category === "everyday" || category === "formal") {
+    const currentProducts = category === "formal" ? formalProducts : everydayProducts;
+    const isFormal = category === "formal";
+    return (
     <main className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6">
       <Link to="/fashion" className="text-sm font-semibold text-primary underline">← All Fashion categories</Link>
-      <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / Everyday Fashion</p>
-      <h1 className="mt-3 text-4xl font-semibold text-primary">Everyday Fashion</h1>
-      <p className="mt-5 max-w-3xl text-muted-foreground">Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering.</p>
-      <section className="mt-12" aria-label="Everyday Fashion Picks">
-        <h2 className="text-2xl font-semibold text-primary">Everyday Fashion Picks</h2>
+      <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / {isFormal ? "Formal Wear" : "Everyday Fashion"}</p>
+      <h1 className="mt-3 text-4xl font-semibold text-primary">{isFormal ? "Formal Wear" : "Everyday Fashion"}</h1>
+      <p className="mt-5 max-w-3xl text-muted-foreground">{isFormal ? "Explore work-ready shirts, blazers and trousers for office days and smart occasions. Check fabric, measurements and garment details on Amazon before ordering." : "Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering."}</p>
+      <section className="mt-12" aria-label={isFormal ? "Formal Wear Picks" : "Everyday Fashion Picks"}>
+        <h2 className="text-2xl font-semibold text-primary">{isFormal ? "Formal Wear Picks" : "Everyday Fashion Picks"}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {everydayProducts.map(p => (
+          {currentProducts.map(p => (
             <article key={p.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="flex aspect-[4/3] items-center justify-center bg-white p-3"><img src={p.image} alt={p.brand + " " + p.title} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" /></div>
               <div className="p-5">
@@ -67,6 +83,7 @@ function FashionCategoryPage() {
       <p className="mt-10 text-xs text-muted-foreground">Some links are affiliate links. We may earn a commission from qualifying purchases. Confirm details on Amazon.</p>
     </main>
   );
+  }
   return (
     <main className="mx-auto max-w-6xl px-4 pb-20 pt-12 sm:px-6">
       <Link to="/fashion" className="text-sm font-semibold text-primary underline underline-offset-4">← All Fashion categories</Link>

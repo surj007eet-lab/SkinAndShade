@@ -17,6 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
 import { Route as FashionRouteImport } from './routes/fashion'
 import { Route as FashionWesternRouteImport } from './routes/fashion.western'
+import { Route as FashionEthnicRouteImport } from './routes/fashion.ethnic'
 import { Route as FashionCategoryRouteImport } from './routes/fashion.$category'
 import { Route as FragranceRouteImport } from './routes/fragrance'
 import { Route as HaircareRouteImport } from './routes/haircare'
@@ -63,6 +64,11 @@ const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
 const FashionRoute = FashionRouteImport.update({
   id: '/fashion',
   path: '/fashion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FashionEthnicRoute = FashionEthnicRouteImport.update({
+  id: '/fashion/ethnic',
+  path: '/fashion/ethnic',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FashionWesternRoute = FashionWesternRouteImport.update({
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/editorial-policy': typeof EditorialPolicyRoute
   '/fashion': typeof FashionRoute
   '/fashion/western': typeof FashionWesternRoute
+  '/fashion/ethnic': typeof FashionEthnicRoute
   '/fashion/$category': typeof FashionCategoryRoute
   '/fragrance': typeof FragranceRoute
   '/haircare': typeof HaircareRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/editorial-policy': typeof EditorialPolicyRoute
   '/fashion': typeof FashionRoute
   '/fashion/western': typeof FashionWesternRoute
+  '/fashion/ethnic': typeof FashionEthnicRoute
   '/fashion/$category': typeof FashionCategoryRoute
   '/fragrance': typeof FragranceRoute
   '/haircare': typeof HaircareRoute
@@ -185,6 +193,7 @@ export interface FileRoutesById {
   '/editorial-policy': typeof EditorialPolicyRoute
   '/fashion': typeof FashionRoute
   '/fashion/western': typeof FashionWesternRoute
+  '/fashion/ethnic': typeof FashionEthnicRoute
   '/fashion/$category': typeof FashionCategoryRoute
   '/fragrance': typeof FragranceRoute
   '/haircare': typeof HaircareRoute
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/editorial-policy'
     | '/fashion'
     | '/fashion/western'
+    | '/fashion/ethnic'
     | '/fashion/$category'
     | '/fragrance'
     | '/haircare'
@@ -231,6 +241,7 @@ export interface FileRouteTypes {
     | '/editorial-policy'
     | '/fashion'
     | '/fashion/western'
+    | '/fashion/ethnic'
     | '/fashion/$category'
     | '/fragrance'
     | '/haircare'
@@ -253,6 +264,7 @@ export interface FileRouteTypes {
     | '/editorial-policy'
     | '/fashion'
     | '/fashion/western'
+    | '/fashion/ethnic'
     | '/fashion/$category'
     | '/fragrance'
     | '/haircare'
@@ -276,6 +288,7 @@ export interface RootRouteChildren {
   EditorialPolicyRoute: typeof EditorialPolicyRoute
   FashionRoute: typeof FashionRoute
   FashionWesternRoute: typeof FashionWesternRoute
+  FashionEthnicRoute: typeof FashionEthnicRoute
   FashionCategoryRoute: typeof FashionCategoryRoute
   FragranceRoute: typeof FragranceRoute
   HaircareRoute: typeof HaircareRoute
@@ -339,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/fashion'
       fullPath: '/fashion'
       preLoaderRoute: typeof FashionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fashion/ethnic': {
+      id: '/fashion/ethnic'
+      path: '/fashion/ethnic'
+      fullPath: '/fashion/ethnic'
+      preLoaderRoute: typeof FashionEthnicRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fashion/western': {
@@ -444,6 +464,7 @@ const rootRouteChildren: RootRouteChildren = {
   EditorialPolicyRoute: EditorialPolicyRoute,
   FashionRoute: FashionRoute,
   FashionWesternRoute: FashionWesternRoute,
+  FashionEthnicRoute: FashionEthnicRoute,
   FashionCategoryRoute: FashionCategoryRoute,
   FragranceRoute: FragranceRoute,
   HaircareRoute: HaircareRoute,

@@ -55,11 +55,27 @@ const winterProducts = [
   {asin:"B0CR9XFHZ4",brand:"Supersox",title:"Thermal-Control Cushioned Socks",detail:"Socks advertised with thermal-control and cushioning features. Check pack quantity and fabric on the listing.",tip:"Wear with closed footwear for winter outfits.",affiliate:"https://link.amazon/B0hgicP9a",image:"https://m.media-amazon.com/images/I/91BGjOT9h0L._SX679_.jpg"},
 ] as const;
 
+const accessoryProducts = [
+  {asin:"B0FWY2XLXT",brand:"XFSAFDM",title:"Layered Crossover Adjustable Accessory",detail:"Layered crossover accessory with an adjustable design; check exact type and dimensions on Amazon.",tip:"Check the fit and fastening before choosing.",affiliate:"https://link.amazon/B0f7UH8FL",image:"https://m.media-amazon.com/images/I/61u4BM-4-DL._SX679_.jpg"},
+  {asin:"B078YQWP4Y",brand:"Oviya",title:"Rhodium-Plated Crystal Bracelet",detail:"Crystal bracelet with a rhodium-plated finish described in the listing. Check dimensions and materials.",tip:"Wear with understated jewellery for a balanced look.",affiliate:"https://link.amazon/B01wz3cRO",image:"https://m.media-amazon.com/images/I/91TFqPEPItL._SX695_.jpg"},
+  {asin:"B09W2KTVR8",brand:"Unspecified",title:"Elegant Lightweight Pendant",detail:"Pendant accessory described as lightweight; check metal composition and chain details.",tip:"Pair with a simple neckline to highlight the pendant.",affiliate:"https://link.amazon/B0j7HNocD",image:"https://m.media-amazon.com/images/I/811G78LtuVL._SX695_.jpg"},
+  {asin:"B081824HH5",brand:"Om Jewells",title:"Imitation Jewellery Accessory",detail:"Imitation jewellery item; check the exact design, included pieces and dimensions on Amazon.",tip:"Coordinate with your outfit's neckline and colours.",affiliate:"https://link.amazon/B09LlyQl7",image:"https://m.media-amazon.com/images/I/91Yl1nDShPL._SX695_.jpg"},
+  {asin:"B0DH8K9ZM3",brand:"RR DESIGN",title:"Women's Plush Ear Muffs",detail:"Plush ear muffs for cold-weather outfits. Check fit and material on the product page.",tip:"Pair with a winter coat or sweater.",affiliate:"https://link.amazon/B0fWUVz00",image:"https://m.media-amazon.com/images/I/81pMlHTcyUL._SX679_.jpg"},
+  {asin:"B0HM43JG5P",brand:"Evolon Deals",title:"Touchscreen Winter Gloves",detail:"Cold-weather gloves advertised with touchscreen compatibility; check sizes and specifications.",tip:"Choose a size that allows comfortable finger movement.",affiliate:"https://link.amazon/B014U7mjd",image:"https://m.media-amazon.com/images/I/71aqYTjI2kL._SX679_.jpg"},
+  {asin:"B0FBFYGHTX",brand:"CREATIONS",title:"Fashion Hair Clutcher",detail:"Hair clutcher accessory; check dimensions and colour variations on Amazon.",tip:"Use to secure a casual updo.",affiliate:"https://link.amazon/B0ieMIBGX",image:"https://m.media-amazon.com/images/I/71QBXLDbnoL._SL1500_.jpg"},
+  {asin:"B0CJ36VHJ9",brand:"Radhu Kabby",title:"Assorted Hairpins Set",detail:"Hairpins in assorted designs; check the listing for the number of pieces and sizes.",tip:"Mix styles for everyday hair arrangements.",affiliate:"https://link.amazon/B0hgKAiD9",image:"https://m.media-amazon.com/images/I/811ffImZ6tL._SX679_PIbundle-5,TopRight,0,0_AA679SH20_.jpg"},
+  {asin:"B0D6C4HHRT",brand:"ChicTresses",title:"Black & Off-White Hair Accessories Pack",detail:"Hair accessories pack in black and off-white shades. Confirm included items and materials.",tip:"Match with neutral casual or formal outfits.",affiliate:"https://link.amazon/B05goVGRP",image:"https://m.media-amazon.com/images/I/51sOX3YOywL._SX679_PIbundle-2,TopRight,0,0_AA679SH20_.jpg"},
+  {asin:"B0FNDJPV7G",brand:"Unspecified",title:"Women's Fashion Accessory",detail:"Fashion accessory; check the retailer listing for its exact type, size and materials.",tip:"Confirm the item details before choosing it for an outfit.",affiliate:"https://link.amazon/A08S20mYS",image:"https://m.media-amazon.com/images/I/61mAoCEXlWL._SX679_.jpg"},
+  {asin:"B0H2DMFH6V",brand:"KASHIVAL",title:"Strapless Adhesive Silicone Accessory",detail:"Reusable silicone adhesive clothing accessory; review use, care and sizing instructions.",tip:"Check compatibility with your intended outfit.",affiliate:"https://link.amazon/B0adj2gO5",image:"https://m.media-amazon.com/images/I/61SIorycC2L._SX679_.jpg"},
+  {asin:"B07L92XRZC",brand:"Zeneme",title:"Silver-Plated Jewellery Chain",detail:"Silver-plated jewellery chain; verify length and material details on Amazon.",tip:"Wear on its own or with a compatible pendant.",affiliate:"https://link.amazon/B04joIxUK",image:"https://m.media-amazon.com/images/I/61+egCURM3L._SY695_.jpg"},
+  {asin:"B0GDQTNX45",brand:"VIRADHAM",title:"Women's Adjustable Concho Belt",detail:"Adjustable concho-style belt for dresses and other outfits. Check length and fastening.",tip:"Use over a dress to define the waist.",affiliate:"https://link.amazon/B08Prl03L",image:"https://m.media-amazon.com/images/I/51N+F1midEL.jpg"},
+] as const;
+
 const categories: Record<string, { title: string; description: string }> = {
   everyday: { title: "Everyday Fashion", description: "Browse everyday clothing, shoes and wardrobe essentials with practical buying considerations." },
   formal: { title: "Formal Wear", description: "Explore shirts, blazers and tailored trousers for office outfits and smart occasions." },
   winter: { title: "Winter Wear", description: "Browse sweaters, jackets, thermal layers and cold-weather accessories with practical buying tips." },
-  accessories: { title: "Fashion Accessories", description: "Bags, jewellery and finishing touches. Product selections are coming soon." },
+  accessories: { title: "Fashion Accessories", description: "Explore jewellery, hair accessories, belts and seasonal accessories with practical buying details." },
 };
 
 export const Route = createFileRoute("/fashion/$category")({
@@ -77,17 +93,18 @@ function FashionCategoryPage() {
   if (!details) {
     return <main className="mx-auto max-w-6xl px-4 py-16"><h1 className="text-3xl font-semibold text-primary">Category not found</h1><Link to="/fashion" className="mt-6 inline-block underline">Browse Fashion categories</Link></main>;
   }
-  if (category === "everyday" || category === "formal" || category === "winter") {
-    const currentProducts = category === "formal" ? formalProducts : category === "winter" ? winterProducts : everydayProducts;
+  if (category === "everyday" || category === "formal" || category === "winter" || category === "accessories") {
+    const currentProducts = category === "formal" ? formalProducts : category === "winter" ? winterProducts : category === "accessories" ? accessoryProducts : everydayProducts;
     const isFormal = category === "formal";
     const isWinter = category === "winter";
+    const isAccessories = category === "accessories";
     return (
     <main className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6">
       <Link to="/fashion" className="text-sm font-semibold text-primary underline">← All Fashion categories</Link>
-      <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / {isFormal ? "Formal Wear" : isWinter ? "Winter Wear" : "Everyday Fashion"}</p>
+      <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / {isFormal ? "Formal Wear" : isWinter ? "Winter Wear" : isAccessories ? "Fashion Accessories" : "Everyday Fashion"}</p>
       <h1 className="mt-3 text-4xl font-semibold text-primary">{isFormal ? "Formal Wear" : "Everyday Fashion"}</h1>
-      <p className="mt-5 max-w-3xl text-muted-foreground">{isFormal ? "Explore work-ready shirts, blazers and trousers for office days and smart occasions. Check fabric, measurements and garment details on Amazon before ordering." : isWinter ? "Explore winter layers, sweatshirts, jackets, thermal basics and accessories. Check sizes, fabrics and current product details on Amazon before ordering." : "Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering."}</p>
-      <section className="mt-12" aria-label={isFormal ? "Formal Wear Picks" : isWinter ? "Winter Wear Picks" : "Everyday Fashion Picks"}>
+      <p className="mt-5 max-w-3xl text-muted-foreground">{isFormal ? "Explore work-ready shirts, blazers and trousers for office days and smart occasions. Check fabric, measurements and garment details on Amazon before ordering." : isWinter ? "Explore winter layers, sweatshirts, jackets, thermal basics and accessories. Check sizes, fabrics and current product details on Amazon before ordering." : isAccessories ? "Explore jewellery, hair accessories, belts, gloves and finishing touches. Check product dimensions, materials and current details on Amazon before ordering." : "Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering."}</p>
+      <section className="mt-12" aria-label={isFormal ? "Formal Wear Picks" : isWinter ? "Winter Wear Picks" : isAccessories ? "Fashion Accessories Picks" : "Everyday Fashion Picks"}>
         <h2 className="text-2xl font-semibold text-primary">{isFormal ? "Formal Wear Picks" : "Everyday Fashion Picks"}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {currentProducts.map(p => (

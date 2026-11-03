@@ -29,9 +29,8 @@ export function SiteFooter() {
             <h2 className="font-display text-lg text-primary">Editorial &amp; legal</h2>
             <ul className="mt-3 space-y-2">
               <li><Link to="/editorial-policy" className={linkCls}>Editorial policy</Link></li>
-              <li><Link to="/affiliate-disclosure" className={linkCls}>Affiliate disclosure</Link></li>
-              <li><Link to="/privacy" className={linkCls}>Privacy policy</Link></li>
-              <li><Link to="/terms" className={linkCls}>Terms of use</Link></li>
+              <li><Link to="/about" hash="affiliate-disclosure" className={linkCls}>Affiliate disclosure</Link></li>
+              <li><Link to="/terms" className={linkCls}>Terms &amp; privacy policy</Link></li>
             </ul>
           </nav>
         </div>

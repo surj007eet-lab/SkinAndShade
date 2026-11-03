@@ -1022,6 +1022,7 @@ export const products: Product[] = [
     styleTip: "Tap a small amount on high points of the face and blend before adding more.",
     whyConsider: "A rose-gold strobe cream can add a reflective makeup finish without requiring a full highlighter routine.",
     affiliateUrl: "https://link.amazon/B09YvMLom",
+    image: img("515W5cQZxDL"),
   },
 
 ];

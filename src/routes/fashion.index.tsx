@@ -12,11 +12,11 @@ const sections = [
 ] as const;
 
 const plannedGuides = [
-  { title: "What to Wear to a Job Interview", detail: "Choosing comfortable, polished outfits for different workplaces" },
-  { title: "What to Wear to an Indian Wedding", detail: "Outfit ideas for daytime, evening and festive functions" },
-  { title: "Choosing Fabrics for Indian Summers", detail: "Cotton, linen and breathable fabric considerations" },
-  { title: "Building a Versatile Everyday Wardrobe", detail: "How to choose pieces that work together" },
-  { title: "Winter Layering Without Bulk", detail: "Practical layering tips for different temperatures" },
+  { title: "What to Wear to a Job Interview", detail: "Choosing comfortable, polished outfits for different workplaces" , slug: "what-to-wear-to-a-job-interview" },
+  { title: "What to Wear to an Indian Wedding", detail: "Outfit ideas for daytime, evening and festive functions" , slug: "what-to-wear-to-an-indian-wedding" },
+  { title: "Choosing Fabrics for Indian Summers", detail: "Cotton, linen and breathable fabric considerations" , slug: "choosing-fabrics-for-indian-summers" },
+  { title: "Building a Versatile Everyday Wardrobe", detail: "How to choose pieces that work together" , slug: "building-a-versatile-everyday-wardrobe" },
+  { title: "Winter Layering Without Bulk", detail: "Practical layering tips for different temperatures" , slug: "winter-layering-without-bulk" },
 ];
 
 export const Route = createFileRoute("/fashion/")({
@@ -45,14 +45,15 @@ function FashionPage() {
       </div>
       <section id="fashion-articles" className="mt-16 scroll-mt-24" aria-labelledby="fashion-guides">
         <div className="flex items-center gap-3"><BookOpen className="h-6 w-6 text-accent" aria-hidden /><h2 id="fashion-guides" className="text-2xl font-semibold text-primary">Fashion & Occasion Guides</h2></div>
-        <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Our planned articles will cover what to wear for different occasions, climates and everyday needs. These are upcoming topics, not published reviews.</p>
+        <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Read simple, practical guides for work, celebrations, summer weather and everyday outfits. Each article includes shopping considerations and optional Amazon product links.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {plannedGuides.map((guide) => (
-            <div key={guide.title} className="rounded-2xl border border-border bg-card p-5">
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent">Article planned</p>
+            <Link key={guide.title} to="/guides/$slug" params={{ slug: guide.slug }} className="block rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-ring">
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent">Read the guide</p>
               <h3 className="mt-2 text-lg font-semibold text-primary">{guide.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{guide.detail}</p>
-            </div>
+              <span className="mt-4 inline-block text-sm font-semibold text-primary underline">Read article →</span>
+            </Link>
           ))}
         </div>
       </section>

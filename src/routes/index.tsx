@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
   Bath,
@@ -170,10 +170,10 @@ function Home() {
               { id: "winter", title: "Winter Wear" },
               { id: "accessories", title: "Accessories" },
             ].map((item) => (
-              <a key={item.id} href={`/fashion#${item.id}`} className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-background p-3 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
+              <Link key={item.id} to={`/fashion/${item.id}`} className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-background p-3 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
                 <Shirt className="h-6 w-6 text-accent" aria-hidden />
                 <span className="text-xs font-semibold text-primary">{item.title}</span>
-              </a>
+              </Link>
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-3">

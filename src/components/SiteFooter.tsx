@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { CATEGORY_NAV } from "./SiteHeader";
 
 const linkCls = "text-sm text-muted-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-ring";
 
@@ -7,7 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-border">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div className="grid gap-8 text-center sm:grid-cols-3 sm:text-left">
+        <div className="grid gap-8 text-center sm:grid-cols-2 sm:text-left">
           <nav aria-label="Explore">
             <h2 className="font-display text-lg text-primary">Explore</h2>
             <ul className="mt-3 space-y-2">
@@ -15,14 +14,6 @@ export function SiteFooter() {
               <li><Link to="/about" className={linkCls}>About</Link></li>
               <li><Link to="/guides" className={linkCls}>Beauty guides</Link></li>
               <li><Link to="/fashion" className={linkCls}>Fashion & occasion guides</Link></li>
-            </ul>
-          </nav>
-          <nav aria-label="Categories">
-            <h2 className="font-display text-lg text-primary">Categories</h2>
-            <ul className="mt-3 space-y-2">
-              {CATEGORY_NAV.map((c) => (
-                <li key={c.to}><Link to={c.to} className={linkCls}>{c.label}</Link></li>
-              ))}
             </ul>
           </nav>
           <nav aria-label="Editorial and legal">

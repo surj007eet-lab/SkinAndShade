@@ -37,7 +37,7 @@ function FashionPage() {
             <Shirt className="mb-3 h-6 w-6 text-accent" aria-hidden />
             <span className="text-sm font-semibold text-primary">{section.title}</span>
             <span className="mt-2 text-xs text-muted-foreground">{section.id === "ethnic" ? "15 products · View collection" : section.id === "western" ? "5 products · View collection" : "Explore category"}</span>
-          </a>
+          </Link>
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">

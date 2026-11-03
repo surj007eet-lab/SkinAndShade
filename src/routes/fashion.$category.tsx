@@ -100,14 +100,28 @@ function FashionCategoryPage() {
     const isFormal = category === "formal";
     const isWinter = category === "winter";
     const isAccessories = category === "accessories";
+    const bestFor = (title: string) => {
+      const name = title.toLowerCase();
+      if (/bracelet|pendant|jewellery|jewelry|chain|headpiece|rhinestone/.test(name)) return "Adding a jewellery accent to an outfit.";
+      if (/hair|clutcher|hairpin/.test(name)) return "Everyday hairstyles and finishing touches.";
+      if (/glove|ear muff|muffler|sock/.test(name)) return "Cold-weather accessories and layering.";
+      if (/belt/.test(name)) return "Adding shape to dresses and layered outfits.";
+      if (/legging|thermal|innerwear/.test(name)) return "Layering and comfortable winter outfits.";
+      if (/jacket|cardigan|sweater|pullover|sweatshirt|knitwear/.test(name)) return "Layering for cooler days.";
+      if (/blazer|shirt|trouser/.test(name) && category === "formal") return "Office outfits and smart-casual occasions.";
+      if (/dress|suit|co-ord|tracksuit/.test(name)) return "Putting together an easy coordinated look.";
+      if (/shoe|sandal|flat|heel/.test(name)) return "Completing an everyday outfit.";
+      if (/jogger|track pant/.test(name)) return "Relaxed casual outfits.";
+      return category === "formal" ? "Workwear and smart occasions." : category === "winter" ? "Cold-weather outfit planning." : category === "accessories" ? "Finishing touches for everyday looks." : "Versatile everyday styling.";
+    };
     return (
     <main className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6">
       <Link to="/fashion" className="text-sm font-semibold text-primary underline">← All Fashion categories</Link>
       <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / {isFormal ? "Formal Wear" : isWinter ? "Winter Wear" : isAccessories ? "Fashion Accessories" : "Everyday Fashion"}</p>
-      <h1 className="mt-3 text-4xl font-semibold text-primary">{isFormal ? "Formal Wear" : "Everyday Fashion"}</h1>
+      <h1 className="mt-3 text-4xl font-semibold text-primary">{details.title}</h1>
       <p className="mt-5 max-w-3xl text-muted-foreground">{isFormal ? "Explore work-ready shirts, blazers and trousers for office days and smart occasions. Check fabric, measurements and garment details on Amazon before ordering." : isWinter ? "Explore winter layers, sweatshirts, jackets, thermal basics and accessories. Check sizes, fabrics and current product details on Amazon before ordering." : isAccessories ? "Explore jewellery, hair accessories, belts, gloves and finishing touches. Check product dimensions, materials and current details on Amazon before ordering." : "Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering."}</p>
       <section className="mt-12" aria-label={isFormal ? "Formal Wear Picks" : isWinter ? "Winter Wear Picks" : isAccessories ? "Fashion Accessories Picks" : "Everyday Fashion Picks"}>
-        <h2 className="text-2xl font-semibold text-primary">{isFormal ? "Formal Wear Picks" : "Everyday Fashion Picks"}</h2>
+        <h2 className="text-2xl font-semibold text-primary">{details.title} Picks</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {currentProducts.map(p => (
             <article key={p.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
@@ -115,8 +129,9 @@ function FashionCategoryPage() {
               <div className="p-5">
                 <p className="text-xs font-semibold uppercase text-accent">{p.brand}</p>
                 <h3 className="mt-2 text-lg font-semibold text-primary">{p.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{p.detail}</p>
-                <p className="mt-3 text-sm text-muted-foreground"><strong className="text-foreground">Styling / buying tip:</strong> {p.tip}</p>
+                <p className="mt-3 text-sm text-muted-foreground"><strong className="text-foreground">Best for:</strong> {bestFor(p.title)}</p>
+                <p className="mt-2 text-sm text-muted-foreground"><strong className="text-foreground">Style tip:</strong> {p.tip}</p>
+                <p className="mt-2 text-sm text-muted-foreground"><strong className="text-foreground">Why consider it:</strong> {p.detail}</p>
                 <a href={p.affiliate} target="_blank" rel="sponsored noopener noreferrer" className="mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">View on Amazon ↗</a>
               </div>
             </article>

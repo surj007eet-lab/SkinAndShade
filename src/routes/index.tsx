@@ -29,10 +29,10 @@ const fashion = [
 ] as const;
 
 const beautyCategories = [
-  { title: "Skincare", subtitle: "A little care, every day", href: "/category/skincare", image: "https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg" },
-  { title: "Hair Care", subtitle: "For your wash-day routine", href: "/category/hair-care", image: "https://m.media-amazon.com/images/I/81GLK1cOQ3L._SX679_.jpg" },
-  { title: "Fragrance", subtitle: "Find a scent that feels like you", href: "/category/fragrance", image: "https://m.media-amazon.com/images/I/91Yl1nDShPL._SX695_.jpg" },
-  { title: "Personal Care", subtitle: "Useful everyday essentials", href: "/category/personal-care", image: "https://m.media-amazon.com/images/I/71Ka7dXLwuL._SX679_.jpg" },
+  { title: "Skincare", subtitle: "A little care, every day", href: "/skincare", image: "" },
+  { title: "Hair Care", subtitle: "For your wash-day routine", href: "/haircare", image: "" },
+  { title: "Fragrance", subtitle: "Find a scent that feels like you", href: "/fragrance", image: "" },
+  { title: "Personal Care", subtitle: "Useful everyday essentials", href: "/bath-body", image: "" },
 ] as const;
 
 const beautyAsins = ["B08M4QF7V9", "B0BDVG99J5", "B00JLGCPCU", "B0H6MC7DGG", "B0BVWDJTHF"];
@@ -93,7 +93,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-accent">A little everyday care</p><h2 id="beauty-heading" className="mt-2 text-3xl font-semibold text-primary sm:text-4xl">Beauty, without the guesswork</h2><p className="mt-3 max-w-2xl text-muted-foreground">From a dry-skin day to a busy hair-wash morning, find the products and simple advice that fit your routine.</p></div><Link to="/guides" className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline underline-offset-4">Explore beauty guides <ArrowRight size={16}/></Link></div>
           <div className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {beautyCategories.map((c,i) => <Link key={c.title} to={c.href} className="group overflow-hidden rounded-2xl bg-white p-4 shadow-sm transition-shadow hover:shadow-md"><div className="flex aspect-[5/4] items-center justify-center rounded-xl bg-[#f9f0f1]"><span className="text-4xl" aria-hidden>{["✨","🪮","🌸","🧴"][i]}</span></div><h3 className="mt-4 text-lg font-semibold text-primary">{c.title}</h3><p className="mt-1 text-sm text-muted-foreground">{c.subtitle}</p><span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">Explore <ArrowRight size={14}/></span></Link>)}
+            {beautyCategories.map(c => <Link key={c.title} to={c.href} className="group overflow-hidden rounded-2xl bg-white p-4 shadow-sm transition-shadow hover:shadow-md"><div className="flex aspect-[5/4] items-center justify-center overflow-hidden rounded-xl bg-[#f9f0f1]"><img src={products.find(p => p.category === c.title && p.image)?.image ?? ""} alt={c.title + " product selection"} loading="lazy" className="h-full w-full object-contain p-3"/></div><h3 className="mt-4 text-lg font-semibold text-primary">{c.title}</h3><p className="mt-1 text-sm text-muted-foreground">{c.subtitle}</p><span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">Explore <ArrowRight size={14}/></span></Link>)}
           </div>
           <h3 className="mt-12 text-2xl font-semibold text-primary">Five everyday beauty essentials to compare</h3>
           <p className="mt-2 text-sm text-muted-foreground">A small selection from different routines, not a bestseller ranking. Check ingredients, sizes and current prices on Amazon.</p>

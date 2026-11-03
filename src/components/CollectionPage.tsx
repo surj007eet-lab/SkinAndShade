@@ -23,8 +23,9 @@ export function CollectionPage({ slug }: { slug: string }) {
         return matchesQuery && matchesConcern;
       })
       .sort((a, b) => {
-        if (sort === "price-low") return a.price - b.price;
-        if (sort === "price-high") return b.price - a.price;
+        const priceOf = (product: typeof allProducts[number]) => product.price ?? Number.MAX_SAFE_INTEGER;
+        if (sort === "price-low") return priceOf(a) - priceOf(b);
+        if (sort === "price-high") return priceOf(b) - priceOf(a);
         return 0;
       });
   }, [allProducts, query, concern, sort]);

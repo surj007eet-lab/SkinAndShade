@@ -51,7 +51,7 @@ function FashionPage() {
       <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Select a fashion category to explore its products. Ethnic Wear picks appear below, while Western Wear has its own dedicated collection page.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6" aria-label="Fashion subcategories">
         {sections.map((section) => (
-          <a key={section.id} href={section.id === "ethnic" ? "#ethnic-products" : section.id === "western" ? "/fashion/western" : `#${section.id}-upcoming`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
+          <a key={section.id} href={section.id === "ethnic" ? "#ethnic-products" : section.id === "western" ? "/fashion/western" : `/fashion/${section.id}`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
             <Shirt className="mb-3 h-6 w-6 text-accent" aria-hidden />
             <span className="text-sm font-semibold text-primary">{section.title}</span>
             <span className="mt-2 text-xs text-muted-foreground">Explore category</span>
@@ -62,7 +62,6 @@ function FashionPage() {
         <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">Explore More Fashion on Amazon ↗</a>
         <a href="#fashion-articles" className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-primary hover:border-primary">Fashion Guides ↓</a>
       </div>
-      <div className="sr-only" aria-hidden="true">{sections.filter((s) => s.id !== "ethnic" && s.id !== "western").map((s) => <span key={s.id} id={`${s.id}-upcoming`} />)}</div>
       <section id="ethnic-products" className="mt-14 scroll-mt-24" aria-labelledby="ethnic-products-heading">
         <h2 id="ethnic-products-heading" className="text-2xl font-semibold text-primary">Ethnic Wear Picks</h2>
         <p className="mt-2 text-sm text-muted-foreground">15 of 15 Ethnic Wear picks added. All 15 products have supplied Amazon image URLs. Styling ideas are editorial suggestions, not customer testimonials or claims of product performance. Check current reviews, sizes and variants on Amazon before ordering.</p>

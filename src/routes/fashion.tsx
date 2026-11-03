@@ -33,7 +33,7 @@ function FashionPage() {
       <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Open Ethnic Wear to browse 15 products or Western Wear to browse 5 dresses. Each collection has its own dedicated page.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6" aria-label="Fashion subcategories">
         {sections.map((section) => (
-          <Link key={section.id} to={`/fashion/${section.id}`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
+          <Link key={section.id} to="/fashion/$category" params={{ category: section.id }} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
             <Shirt className="mb-3 h-6 w-6 text-accent" aria-hidden />
             <span className="text-sm font-semibold text-primary">{section.title}</span>
             <span className="mt-2 text-xs text-muted-foreground">{section.id === "ethnic" ? "15 products · View collection" : section.id === "western" ? "5 products · View collection" : "Explore category"}</span>

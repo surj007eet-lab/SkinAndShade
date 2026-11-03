@@ -37,10 +37,23 @@ const formalProducts = [
   {asin:"B0D9BS36XH",brand:"Selvia",title:"Women's Brown Bodycon Western Dress",detail:"Brown bodycon-style western dress. Check the length, fabric stretch and fit before ordering.",tip:"Consider a structured blazer for a smart occasion outfit.",affiliate:"https://link.amazon/B0eHSMaW7",image:"https://m.media-amazon.com/images/I/81vNw9iqEgL._SX679_.jpg"},
 ] as const;
 
+const winterProducts = [
+  {asin:"B0H6BX87C9",brand:"Amazon Brand",title:"Women's Acrylic Cardigan",detail:"Acrylic cardigan for layering over everyday outfits. Check the listing for fit, fastening and care instructions.",tip:"Layer over a long-sleeve tee or shirt.",affiliate:"https://link.amazon/B0gTCY4bU",image:"https://m.media-amazon.com/images/I/A1riLD7RNhL._SX679_.jpg"},
+  {asin:"B0DS2SLBKC",brand:"Kaththai",title:"Thermal-Style Translucent Leggings",detail:"Winter leggings described as thermal-style and translucent. Check the material, lining and sizing before ordering.",tip:"Wear under a longer top or winter dress.",affiliate:"https://link.amazon/B01YqYAuX",image:"https://m.media-amazon.com/images/I/51r7FP5Ht9L._SX679_.jpg"},
+  {asin:"B0CRDKR83C",brand:"KOTTY",title:"Women's Puffer Jacket",detail:"Puffer-style jacket for outerwear layering. Compare fit, closure and insulation details on Amazon.",tip:"Leave room for a sweater underneath.",affiliate:"https://link.amazon/B0i5nPEKY",image:"https://m.media-amazon.com/images/I/81h3TrXIAFL._SX679_.jpg"},
+  {asin:"B0HK3M3931",brand:"NETCLICK",title:"Women's Full-Zip Sweatshirt",detail:"Cotton-labelled full-zip sweatshirt for casual layering. Check fabric composition and sizing.",tip:"Wear open over a tee for flexible layering.",affiliate:"https://link.amazon/B08eMaXvz",image:"https://m.media-amazon.com/images/I/81Xg3aDr0uL._SX679_.jpg"},
+  {asin:"B0FBMDJVKF",brand:"BLACKSTEP",title:"Women's Regular-Fit Pullover Sweatshirt",detail:"Pullover sweatshirt in a regular-fit style. Review measurements and material before buying.",tip:"Pair with jeans or joggers for everyday wear.",affiliate:"https://link.amazon/B0fzYaYLj",image:"https://m.media-amazon.com/images/I/51YYUbfgZ8L.jpg"},
+  {asin:"B07V4VX8KN",brand:"Alan Jones Clothing",title:"Women's Wine-Coloured Sweatshirt",detail:"Wine-coloured sweatshirt for casual cold-weather outfits. Check the product page for fabric and fit.",tip:"Combine with neutral trousers or denim.",affiliate:"https://link.amazon/B0gckeP32",image:"https://m.media-amazon.com/images/I/A1m-yPAdOiL._SX679_.jpg"},
+  {asin:"B0CN3HT3PL",brand:"Alan Jones Clothing",title:"Women's Full-Zip Layer",detail:"Full-zip winter layering piece. Check the listing for fabric, collar and size details.",tip:"Wear over a base layer for adjustable coverage.",affiliate:"https://link.amazon/B0h2vjZ6p",image:"https://m.media-amazon.com/images/I/91T+aac1DAL._SX679_.jpg"},
+  {asin:"B0F3JLLYCV",brand:"Unspecified",title:"Women's Brown Drawstring Joggers",detail:"Brown drawstring-waist athletic joggers. Verify fabric weight and fit before treating them as winter wear.",tip:"Pair with a sweatshirt for a casual outfit.",affiliate:"https://link.amazon/B08M6EEFi",image:"https://m.media-amazon.com/images/I/81eZBwlHeAL._SX679_.jpg"},
+  {asin:"B017MBDLGE",brand:"Unspecified",title:"Quilted Winter Thermal Innerwear Set",detail:"Quilted thermal innerwear set intended as a base layer. Confirm included pieces and material on Amazon.",tip:"Check the size chart for comfortable layering.",affiliate:"https://link.amazon/B0hxcFoyz",image:"https://m.media-amazon.com/images/I/51-dwQIPXVL._SY741_.jpg"},
+  {asin:"B0CR9XFHZ4",brand:"Supersox",title:"Thermal-Control Cushioned Socks",detail:"Socks advertised with thermal-control and cushioning features. Check pack quantity and fabric on the listing.",tip:"Wear with closed footwear for winter outfits.",affiliate:"https://link.amazon/B0hgicP9a",image:"https://m.media-amazon.com/images/I/91BGjOT9h0L._SX679_.jpg"},
+] as const;
+
 const categories: Record<string, { title: string; description: string }> = {
   everyday: { title: "Everyday Fashion", description: "Browse everyday clothing, shoes and wardrobe essentials with practical buying considerations." },
   formal: { title: "Formal Wear", description: "Explore shirts, blazers and tailored trousers for office outfits and smart occasions." },
-  winter: { title: "Winter Wear", description: "Sweaters, jackets and practical layering ideas. Product selections are coming soon." },
+  winter: { title: "Winter Wear", description: "Browse sweaters, jackets, thermal layers and cold-weather accessories with practical buying tips." },
   accessories: { title: "Fashion Accessories", description: "Bags, jewellery and finishing touches. Product selections are coming soon." },
 };
 
@@ -59,16 +72,17 @@ function FashionCategoryPage() {
   if (!details) {
     return <main className="mx-auto max-w-6xl px-4 py-16"><h1 className="text-3xl font-semibold text-primary">Category not found</h1><Link to="/fashion" className="mt-6 inline-block underline">Browse Fashion categories</Link></main>;
   }
-  if (category === "everyday" || category === "formal") {
-    const currentProducts = category === "formal" ? formalProducts : everydayProducts;
+  if (category === "everyday" || category === "formal" || category === "winter") {
+    const currentProducts = category === "formal" ? formalProducts : category === "winter" ? winterProducts : everydayProducts;
     const isFormal = category === "formal";
+    const isWinter = category === "winter";
     return (
     <main className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6">
       <Link to="/fashion" className="text-sm font-semibold text-primary underline">← All Fashion categories</Link>
-      <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / {isFormal ? "Formal Wear" : "Everyday Fashion"}</p>
+      <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-accent">Fashion / {isFormal ? "Formal Wear" : isWinter ? "Winter Wear" : "Everyday Fashion"}</p>
       <h1 className="mt-3 text-4xl font-semibold text-primary">{isFormal ? "Formal Wear" : "Everyday Fashion"}</h1>
-      <p className="mt-5 max-w-3xl text-muted-foreground">{isFormal ? "Explore work-ready shirts, blazers and trousers for office days and smart occasions. Check fabric, measurements and garment details on Amazon before ordering." : "Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering."}</p>
-      <section className="mt-12" aria-label={isFormal ? "Formal Wear Picks" : "Everyday Fashion Picks"}>
+      <p className="mt-5 max-w-3xl text-muted-foreground">{isFormal ? "Explore work-ready shirts, blazers and trousers for office days and smart occasions. Check fabric, measurements and garment details on Amazon before ordering." : isWinter ? "Explore winter layers, sweatshirts, jackets, thermal basics and accessories. Check sizes, fabrics and current product details on Amazon before ordering." : "Explore casual tops, leggings, coordinated outfits, footwear and everyday essentials. Compare sizes, materials and current product details on Amazon before ordering."}</p>
+      <section className="mt-12" aria-label={isFormal ? "Formal Wear Picks" : isWinter ? "Winter Wear Picks" : "Everyday Fashion Picks"}>
         <h2 className="text-2xl font-semibold text-primary">{isFormal ? "Formal Wear Picks" : "Everyday Fashion Picks"}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {currentProducts.map(p => (

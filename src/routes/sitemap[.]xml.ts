@@ -31,6 +31,20 @@ export const Route = createFileRoute("/sitemap.xml")({
             if (path) entries.push({ path });
           }
         }
+        // Include valid dynamic fashion collection URLs as well as article slugs.
+        const fashionRouteId = "/fashion/$category";
+        if (isSitemapRouteIncluded(router.routesById[fashionRouteId])) {
+          for (const category of ["everyday", "formal", "winter", "accessories"]) {
+            const location = router.buildLocation({
+              to: "/fashion/$category",
+              params: { category },
+              search: () => ({}),
+              hash: "",
+            });
+            const path = sitemapPathForLocation(router, location, fashionRouteId);
+            if (path) entries.push({ path });
+          }
+        }
         return new Response(sitemapXML(BASE_URL, entries), {
           headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
         });

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -17,9 +17,27 @@ export const CATEGORY_NAV = [
 
 export function SiteHeader() {
   const [dark, setDark] = useState(false);
+  const fashionMenu = useRef<HTMLDetailsElement>(null);
+  const beautyMenu = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
     setDark(document.documentElement.classList.contains("dark"));
+    const closeOnOutside = (event: PointerEvent) => {
+      if (!fashionMenu.current?.contains(event.target as Node)) fashionMenu.current?.removeAttribute("open");
+      if (!beautyMenu.current?.contains(event.target as Node)) beautyMenu.current?.removeAttribute("open");
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        fashionMenu.current?.removeAttribute("open");
+        beautyMenu.current?.removeAttribute("open");
+      }
+    };
+    document.addEventListener("pointerdown", closeOnOutside);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutside);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
   }, []);
 
   const toggle = () => {
@@ -51,7 +69,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <details className="group relative shrink-0">
+          <details ref={fashionMenu} onToggle={(e) => { if (e.currentTarget.open) beautyMenu.current?.removeAttribute("open"); }} className="group relative shrink-0">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Fashion <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>
@@ -66,12 +84,12 @@ export function SiteHeader() {
                 { id: "accessories", label: "Accessories" },
               ].map((item) => (
                 <li key={item.id}>
-                  <a href={item.id === "fashion-articles" ? "/fashion#fashion-articles" : item.id === "western" ? "/fashion/western" : item.id === "ethnic" ? "/fashion#ethnic-products" : `/fashion/${item.id}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
+                  <a href={item.id === "fashion-articles" ? "/fashion#fashion-articles" : item.id === "western" ? "/fashion/western" : item.id === "ethnic" ? "/fashion/ethnic" : `/fashion/${item.id}`} onClick={(e) => (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring">{item.label}</a>
                 </li>
               ))}
             </ul>
           </details>
-          <details className="group relative shrink-0">
+          <details ref={beautyMenu} onToggle={(e) => { if (e.currentTarget.open) fashionMenu.current?.removeAttribute("open"); }} className="group relative shrink-0">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Beauty <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>

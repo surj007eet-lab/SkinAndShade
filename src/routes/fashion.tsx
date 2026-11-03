@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Shirt, ArrowUpRight, BookOpen } from "lucide-react";
+import { Shirt, BookOpen } from "lucide-react";
 import { pageHead } from "@/lib/seo";
 
 const sections = [
@@ -30,19 +30,18 @@ function FashionPage() {
     <main className="mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Women's Fashion</p>
       <h1 className="mt-3 text-4xl font-semibold text-primary sm:text-5xl">Explore Fashion</h1>
-      <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Select a fashion category to explore its products. Each category has its own page. Ethnic Wear and Western Wear collections are kept separate.</p>
+      <p className="mt-4 max-w-3xl text-muted-foreground">Find your style by category. Open Ethnic Wear to browse 15 products or Western Wear to browse 5 dresses. Each collection has its own dedicated page.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6" aria-label="Fashion subcategories">
         {sections.map((section) => (
           <a key={section.id} href={`/fashion/${section.id}`} className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
             <Shirt className="mb-3 h-6 w-6 text-accent" aria-hidden />
             <span className="text-sm font-semibold text-primary">{section.title}</span>
-            <span className="mt-2 text-xs text-muted-foreground">Explore category</span>
+            <span className="mt-2 text-xs text-muted-foreground">{section.id === "ethnic" ? "15 products · View collection" : section.id === "western" ? "5 products · View collection" : "Explore category"}</span>
           </a>
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
         <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">Explore More Fashion on Amazon ↗</a>
-        <a href="#fashion-articles" className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-primary hover:border-primary">Fashion Guides ↓</a>
       </div>
       <section id="fashion-articles" className="mt-16 scroll-mt-24" aria-labelledby="fashion-guides">
         <div className="flex items-center gap-3"><BookOpen className="h-6 w-6 text-accent" aria-hidden /><h2 id="fashion-guides" className="text-2xl font-semibold text-primary">Fashion & Occasion Guides</h2></div>

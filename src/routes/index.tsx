@@ -160,7 +160,7 @@ function Home() {
         <div className="rounded-3xl border border-border bg-card p-6 sm:p-9">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Fashion for women</p>
           <h2 id="fashion-preview-heading" className="mt-2 text-2xl font-semibold text-primary sm:text-3xl">Explore Fashion</h2>
-          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Discover six fashion categories and upcoming guides for outfits, occasions and fabrics. Fashion products are kept separate from the beauty catalogue.</p>
+          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Browse clothing and accessories by occasion and personal style. Explore ethnic outfits, Western styles, everyday essentials and more, with practical ideas to help you compare fits, fabrics and ways to wear them.</p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {[
               { id: "ethnic", title: "Ethnic Wear" },

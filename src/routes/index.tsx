@@ -37,11 +37,11 @@ const beautyCategories = [
 
 const beautyAsins = ["B08M4QF7V9", "B0BDVG99J5", "B00JLGCPCU", "B0H6MC7DGG", "B0BVWDJTHF"];
 const fashionPicks = [
-  { name: "Everyday Co-ord Set", note: "A ready-to-wear look for busy mornings", image: "https://m.media-amazon.com/images/I/91IZ1hG6TwL._SX679_.jpg", href: "https://link.amazon/B0dthzEiF", category: "Everyday Fashion" },
-  { name: "White Collared Top", note: "An easy starting point for office outfits", image: "https://m.media-amazon.com/images/I/91FXQLEjDZL._SX679_.jpg", href: "https://link.amazon/B05gHhJ01", category: "Formal Wear" },
-  { name: "Knitted Sweater Set", note: "A coordinated option for cooler days", image: "https://m.media-amazon.com/images/I/81Nn827f2CL._SX679_.jpg", href: "https://link.amazon/B05qNlKgZ", category: "Winter Wear" },
-  { name: "Silver Bracelet", note: "A simple finishing touch", image: "https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg", href: "https://link.amazon/B0cMT39HS", category: "Accessories" },
-  { name: "Light Green Embroidered Kurti", note: "Easy to style with trousers or jeans", image: "https://m.media-amazon.com/images/I/71aZJp5w0aL._SY879_.jpg", href: "https://link.amazon/B07pp5uHL", category: "Everyday Fashion" },
+  { name: "Paisley Print Kurta Set", note: "An easy ethnic look for family gatherings", image: "https://m.media-amazon.com/images/I/91ZUTlLx1jL._SX679_.jpg", href: "https://link.amazon/B00A5tWFr", category: "Ethnic Wear" },
+  { name: "Striped Vacation Dress", note: "A relaxed choice for warm-weather outings", image: "https://m.media-amazon.com/images/I/81tKqwLJ3wL._SX679_.jpg", href: "https://link.amazon/B08WR8xzE", category: "Western Wear" },
+  { name: "Relaxed Printed T-Shirt", note: "A simple piece to wear with your favourite jeans", image: "https://m.media-amazon.com/images/I/71IP8bwk5CL._SX679_.jpg", href: "https://link.amazon/B01WqpNHy", category: "Everyday Fashion" },
+  { name: "Longline Blazer", note: "An extra layer for work and smart outfits", image: "https://m.media-amazon.com/images/I/81NraLgpCtL._SX679_.jpg", href: "https://link.amazon/B0gtXj40L", category: "Formal Wear" },
+  { name: "Women's Puffer Jacket", note: "A practical outer layer for colder days", image: "https://m.media-amazon.com/images/I/81h3TrXIAFL._SX679_.jpg", href: "https://link.amazon/B0i5nPEKY", category: "Winter Wear" },
 ] as const;
 
 const stories = [

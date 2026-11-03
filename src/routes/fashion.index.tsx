@@ -21,7 +21,7 @@ const plannedGuides = [
 
 export const Route = createFileRoute("/fashion/")({
   staticData: { sitemap: true },
-  head: () => pageHead("/fashion", "Women's Fashion Categories & Style Guides | SkinAndShade", "Explore women's fashion categories and upcoming practical outfit guides for occasions, work and everyday wear in India."),
+  head: () => pageHead("/fashion", "Women's Fashion & Style Guides", "Browse women's outfits for work, celebrations and everyday wear, plus simple style guides for shopping in India."),
   component: FashionPage,
 });
 

@@ -1,3 +1,6 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
@@ -13,5 +16,26 @@ describe("App routing", () => {
     const matches = router.matchRoutes("/");
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
+});
+
+describe("Route layout integrity", () => {
+  // A file named `parent.child.tsx` nests under `parent.tsx`. If that parent renders
+  // no <Outlet />, the child's page is silently hidden and the parent's own content
+  // shows at the child's URL. Catch that here instead of in the browser.
+  it("renders an Outlet in every route file that has child routes", () => {
+    const routesDir = join(process.cwd(), "src/routes");
+    const files = readdirSync(routesDir).filter((f) => f.endsWith(".tsx"));
+    const parents = new Set<string>();
+
+    for (const file of files) {
+      const parts = file.replace(/\.tsx$/, "").split(".");
+      if (parts.length > 1) parents.add(parts.slice(0, -1).join("."));
+    }
+
+    for (const parent of parents) {
+      const source = readFileSync(join(routesDir, `${parent}.tsx`), "utf8");
+      expect(source, `${parent}.tsx has child routes and must render <Outlet />`).toContain("<Outlet");
+    }
   });
 });

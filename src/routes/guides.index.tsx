@@ -23,14 +23,14 @@ function GuidesPage() {
     <main id="main-content" className="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Guides</p>
       <h1 className="mt-4 text-4xl font-semibold text-primary sm:text-5xl">
-        Beauty buying guides, minus the confusion
+        Beauty guides for everyday skin and hair concerns
       </h1>
       <p className="mt-4 text-muted-foreground">
-        Clear, practical reads to help women in India compare beauty products, understand labels and shop with more confidence.
+        Dry skin, oily skin, frizzy hair or dry lips? Start with a simple explanation, practical steps and optional products to compare. Fashion articles are in our Fashion section.
       </p>
 
       <ul className="mt-10 space-y-5">
-        {guides.map((g) => (
+        {guides.filter(g => g.kind !== "fashion").map((g) => (
           <li key={g.slug}>
             <Link
               to="/guides/$slug"

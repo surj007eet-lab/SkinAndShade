@@ -14,27 +14,19 @@ export const policies = {
       { heading: "Contact and corrections", body: "If you have a question or spot a mistake, email us at the address below. Please include the page link and explain what needs to be corrected. For an Amazon order, delivery, payment or return, contact Amazon or the seller directly. Please do not email passwords, payment details or sensitive personal information." }
     ]
   },
-  privacy: {
-    title: "Privacy Policy",
-    description: "How SkinAndShade and the services used to run the website may handle visitor information.",
-    sections: [
-      { heading: "Information about your visit", body: "The website is hosted through Lovable. Hosting and site analytics may process technical and usage information such as IP address, browser or device details, referring page and pages visited. The exact information and retention period depend on the provider's settings and policies." },
-      { heading: "Cookies and local storage", body: "The site stores your light or dark theme choice in your browser's local storage. Hosting or analytics providers may use cookies or similar technologies as described in their own policies and settings." },
-      { heading: "Fonts and external links", body: "The site loads fonts from Google Fonts, so your browser makes a request to Google's servers. Product and guide links may take you to Amazon or another external website. Those websites have their own privacy notices and practices." },
-      { heading: "Affiliate links", body: "Amazon affiliate links include a publisher tracking tag. If you follow one, Amazon may use information about the visit and any later activity according to Amazon's privacy notice and the terms of its Associates Program." },
-      { heading: "Email messages", body: "If you email us, we receive the email address and the information you include so we can reply. Please do not send passwords, payment details, medical records or other sensitive information." },
-      { heading: "Changes and questions", body: "We may update this page when the website or the services it uses change. For privacy questions about a message you sent to us, use the email address on the Editorial Policy & Contact page. This page describes the website as currently configured and is not a legal compliance certification." }
-    ]
-  },
   terms: {
-    title: "Terms of Use",
-    description: "Terms for using SkinAndShade and understanding the limits of the product information on this website.",
+    title: "Terms & Privacy Policy",
+    description: "Terms for using SkinAndShade, how purchases and affiliate links work, and how visitor information may be handled.",
     sections: [
       { heading: "Information on this website", body: "SkinAndShade shares general shopping information and buying guides. We do our best to keep the information clear, but product listings, ingredients, pack sizes, sellers, prices and availability can change. Check the current retailer listing and packaging before buying." },
       { heading: "Not medical advice", body: "The information on this website is general and is not a diagnosis or personal medical advice. We do not promise that a product will treat a condition or suit your skin or hair. Speak with a qualified health professional about persistent symptoms or medical concerns." },
       { heading: "Purchases and external websites", body: "Purchases are made on the retailer's website, not on SkinAndShade. The retailer handles payment, delivery, customer service and returns. Check the seller, final price, delivery details and return terms before placing an order." },
-      { heading: "Affiliate relationship", body: "Some links may earn us a commission if you make a qualifying purchase. This does not add a fee to your purchase. Affiliate links are not a guarantee or endorsement of a product." },
-      { heading: "Corrections and changes", body: "If you notice an error, please contact us using the details on the Editorial Policy & Contact page. We may change website content or these terms as the site develops." }
+      { heading: "Affiliate relationship and tracking", body: "Some links may earn us a commission if you make a qualifying purchase. This does not add a fee to your purchase, and an affiliate link is not a guarantee or endorsement of a product. Amazon affiliate links include a publisher tracking tag, so Amazon may use information about the visit and any later activity according to its own privacy notice and Associates Program terms." },
+      { heading: "Information about your visit", body: "The website is hosted through Lovable. Hosting and site analytics may process technical and usage information such as IP address, browser or device details, referring page and pages visited. The exact information and retention period depend on the provider's settings and policies." },
+      { heading: "Cookies and local storage", body: "The site stores your light or dark theme choice in your browser's local storage. Hosting or analytics providers may use cookies or similar technologies as described in their own policies and settings." },
+      { heading: "Fonts and external links", body: "The site loads fonts from Google Fonts, so your browser makes a request to Google's servers. Product and guide links may take you to Amazon or another external website. Those websites have their own privacy notices and practices." },
+      { heading: "Email messages", body: "If you email us, we receive the email address and the information you include so we can reply. Please do not send passwords, payment details, medical records or other sensitive information." },
+      { heading: "Corrections, changes and questions", body: "If you notice an error, please contact us using the details on the Editorial Policy & Contact page. We may change website content or these terms as the site develops, and we may update this page when the website or the services it uses change. This page describes the website as currently configured and is not a legal compliance certification." }
     ]
   }
 };

@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/guides", label: "Guides" },
 ] as const;
 
 export const CATEGORY_NAV = [
@@ -19,17 +18,20 @@ export function SiteHeader() {
   const [dark, setDark] = useState(false);
   const fashionMenu = useRef<HTMLDetailsElement>(null);
   const beautyMenu = useRef<HTMLDetailsElement>(null);
+  const guidesMenu = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
     setDark(document.documentElement.classList.contains("dark"));
     const closeOnOutside = (event: PointerEvent) => {
       if (!fashionMenu.current?.contains(event.target as Node)) fashionMenu.current?.removeAttribute("open");
       if (!beautyMenu.current?.contains(event.target as Node)) beautyMenu.current?.removeAttribute("open");
+      if (!guidesMenu.current?.contains(event.target as Node)) guidesMenu.current?.removeAttribute("open");
     };
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         fashionMenu.current?.removeAttribute("open");
         beautyMenu.current?.removeAttribute("open");
+        guidesMenu.current?.removeAttribute("open");
       }
     };
     document.addEventListener("pointerdown", closeOnOutside);
@@ -69,13 +71,21 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <details ref={fashionMenu} onToggle={(e) => { if (e.currentTarget.open) beautyMenu.current?.removeAttribute("open"); }} className="group relative shrink-0">
+          <details ref={guidesMenu} onToggle={(e) => { if (e.currentTarget.open) { fashionMenu.current?.removeAttribute("open"); beautyMenu.current?.removeAttribute("open"); } }} className="group relative shrink-0">
+            <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+              Guides <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+            </summary>
+            <ul className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
+              <li><Link to="/guides" onClick={() => guidesMenu.current?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary">Beauty Guides</Link></li>
+              <li><a href="/fashion#fashion-articles" onClick={() => guidesMenu.current?.removeAttribute("open")} className="block rounded-lg px-3 py-2 text-sm hover:bg-secondary">Fashion Guides</a></li>
+            </ul>
+          </details>
+          <details ref={fashionMenu} onToggle={(e) => { if (e.currentTarget.open) { beautyMenu.current?.removeAttribute("open"); guidesMenu.current?.removeAttribute("open"); } }} className="group relative shrink-0">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Fashion <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>
             <ul className="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-lg">
               {[
-                { id: "fashion-articles", label: "Fashion Guide" },
                 { id: "ethnic", label: "Ethnic Wear" },
                 { id: "western", label: "Western Wear" },
                 { id: "everyday", label: "Everyday Fashion" },
@@ -89,7 +99,7 @@ export function SiteHeader() {
               ))}
             </ul>
           </details>
-          <details ref={beautyMenu} onToggle={(e) => { if (e.currentTarget.open) fashionMenu.current?.removeAttribute("open"); }} className="group relative shrink-0">
+          <details ref={beautyMenu} onToggle={(e) => { if (e.currentTarget.open) { fashionMenu.current?.removeAttribute("open"); guidesMenu.current?.removeAttribute("open"); } }} className="group relative shrink-0">
             <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
               Beauty <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>

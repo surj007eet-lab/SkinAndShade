@@ -1,37 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import {
-  Bath,
-  Shirt,
-  Scissors,
-  Search,
-  Sparkles,
-  SprayCan,
-  type LucideIcon,
-} from "lucide-react";
-import { ProductCard } from "@/components/ProductCard";
-import {
-  CATEGORIES,
-  products,
-  type Category,
-} from "@/data/products";
+import { ArrowRight, BookOpen, Heart, ShieldCheck } from "lucide-react";
+import { products } from "@/data/products";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "SkinAndShade | Shopping Guide for Women in India" },
-      {
-        name: "description",
-        content:
-          "A simple shopping guide for women in India. Explore beauty products, compare listed details and read practical buying guides. Explore our new fashion discovery section.",
-      },
-      { property: "og:title", content: "SkinAndShade — Shopping guide for women in India" },
-      {
-        property: "og:description",
-        content:
-          "Explore beauty products, compare the details shown on product listings and read practical guides before you shop. Fashion sections are being added.",
-      },
+      { title: "SkinAndShade | Fashion, Beauty & Everyday Style for Women" },
+      { name: "description", content: "Find outfit ideas, skincare essentials and practical buying guides for women in India. Browse fashion and beauty picks, then check details directly on Amazon." },
+      { property: "og:title", content: "SkinAndShade — Fashion & Beauty Finds for Women" },
+      { property: "og:description", content: "Easy outfit ideas, beauty essentials and useful guides to help you shop with confidence." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -41,236 +19,96 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const CATEGORY_ICONS: Record<Category, LucideIcon> = {
-  Skincare: Sparkles,
-  "Hair Care": Scissors,
-  Fragrance: SprayCan,
-  "Personal Care": Bath,
-};
+const fashion = [
+  { title: "Ethnic Wear", subtitle: "For celebrations and everyday elegance", href: "/fashion/ethnic", image: "https://m.media-amazon.com/images/I/71aZJp5w0aL._SY879_.jpg" },
+  { title: "Western Wear", subtitle: "Easy looks for plans big and small", href: "/fashion/western", image: "https://m.media-amazon.com/images/I/91IZ1hG6TwL._SX679_.jpg" },
+  { title: "Everyday Fashion", subtitle: "The pieces you'll reach for again", href: "/fashion/everyday", image: "https://m.media-amazon.com/images/I/81GtNzPZmlL._SX679_.jpg" },
+  { title: "Formal Wear", subtitle: "Feel ready for the workday", href: "/fashion/formal", image: "https://m.media-amazon.com/images/I/91FXQLEjDZL._SX679_.jpg" },
+  { title: "Winter Wear", subtitle: "Layers for cooler mornings", href: "/fashion/winter", image: "https://m.media-amazon.com/images/I/81Nn827f2CL._SX679_.jpg" },
+  { title: "Accessories", subtitle: "Small details, a fresh look", href: "/fashion/accessories", image: "https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg" },
+] as const;
 
-function Chip({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={`rounded-full border px-4 py-1.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-ring ${
-        active
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-border bg-card text-foreground hover:border-primary"
-      }`}
-    >
-      {children}
-    </button>
-  );
-}
+const beautyCategories = [
+  { title: "Skincare", subtitle: "A little care, every day", href: "/skincare", image: "" },
+  { title: "Hair Care", subtitle: "For your wash-day routine", href: "/haircare", image: "" },
+  { title: "Fragrance", subtitle: "Find a scent that feels like you", href: "/fragrance", image: "" },
+  { title: "Personal Care", subtitle: "Useful everyday essentials", href: "/bath-body", image: "" },
+] as const;
+
+const beautyAsins = ["B08M4QF7V9", "B0BDVG99J5", "B00JLGCPCU", "B0H6MC7DGG", "B0BVWDJTHF"];
+const fashionPicks = [
+  { name: "Everyday Co-ord Set", note: "A ready-to-wear look for busy mornings", image: "https://m.media-amazon.com/images/I/91IZ1hG6TwL._SX679_.jpg", href: "https://link.amazon/B0dthzEiF", category: "Everyday Fashion" },
+  { name: "White Collared Top", note: "An easy starting point for office outfits", image: "https://m.media-amazon.com/images/I/91FXQLEjDZL._SX679_.jpg", href: "https://link.amazon/B05gHhJ01", category: "Formal Wear" },
+  { name: "Knitted Sweater Set", note: "A coordinated option for cooler days", image: "https://m.media-amazon.com/images/I/81Nn827f2CL._SX679_.jpg", href: "https://link.amazon/B05qNlKgZ", category: "Winter Wear" },
+  { name: "Silver Bracelet", note: "A simple finishing touch", image: "https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg", href: "https://link.amazon/B0cMT39HS", category: "Accessories" },
+  { name: "Light Green Embroidered Kurti", note: "Easy to style with trousers or jeans", image: "https://m.media-amazon.com/images/I/71aZJp5w0aL._SY879_.jpg", href: "https://link.amazon/B07pp5uHL", category: "Everyday Fashion" },
+] as const;
+
+const stories = [
+  { title: "What should I wear to a job interview?", intro: "Put together a neat outfit without buying a whole new wardrobe.", href: "/guides/what-to-wear-to-a-job-interview", tag: "Fashion" },
+  { title: "Skin feeling dry again?", intro: "Small changes that can make your skincare routine easier.", href: "/guides/dry-skin-simple-moisturising-routine", tag: "Beauty" },
+  { title: "Make more outfits with fewer clothes", intro: "See how a few useful pieces can work together all week.", href: "/guides/building-a-versatile-everyday-wardrobe", tag: "Style ideas" },
+] as const;
 
 function Home() {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<Category | "All">("All");
-
-  // A small editorial sample, not a popularity or sales ranking.
-  const featuredPicks = useMemo(() => products.slice(0, 4), []);
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return products.filter((p) => {
-      if (category !== "All" && p.category !== category) return false;
-      if (q && !`${p.brand} ${p.title} ${p.category}`.toLowerCase().includes(q)) return false;
-      return true;
-    });
-  }, [query, category]);
-
+  const beautyPicks = beautyAsins.map(asin => products.find(p => p.asin === asin)).filter((p): p is (typeof products)[number] => Boolean(p));
   return (
-    <main>
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 pb-12 pt-14 text-center sm:px-6 sm:pt-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-          SHOPPING GUIDE · INDIA
-        </p>
-        <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-[1.1] text-primary sm:text-6xl">
-          Shopping, <em className="text-accent">made easier</em> to compare
-        </h1>
-        <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-          Explore beauty products, compare the details shown on listings, and check what matters before you buy. You can also browse our new fashion discovery section.
-        </p>
-
-        <div className="relative mx-auto mt-8 max-w-xl">
-          <Search
-            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-            aria-hidden
-          />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search serums, sunscreens, shampoos…"
-            aria-label="Search products"
-            className="w-full rounded-full border border-input bg-card py-3 pl-11 pr-4 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:outline-2 focus:outline-ring"
-          />
-        </div>
-      </section>
-
-      {/* Category tiles */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6" aria-label="Categories">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {CATEGORIES.map((c) => {
-            const Icon = CATEGORY_ICONS[c];
-            const count = products.filter((p) => p.category === c).length;
-            const active = category === c;
-            return (
-              <button
-                key={c}
-                type="button"
-                onClick={() => {
-                  setCategory(active ? "All" : c);
-                  setQuery("");
-                  requestAnimationFrame(() =>
-                    document.getElementById("all-picks")?.scrollIntoView({ behavior: "smooth" }),
-                  );
-                }}
-                aria-pressed={active}
-                className={`flex flex-col items-center gap-2 rounded-2xl border p-4 text-center transition-colors focus-visible:outline-2 focus-visible:outline-ring ${
-                  active
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-card hover:border-primary"
-                }`}
-              >
-                <Icon className={`h-6 w-6 ${active ? "text-primary-foreground" : "text-accent"}`} aria-hidden />
-                <span className="text-xs font-semibold leading-tight">{c}</span>
-                <span className={`text-[11px] ${active ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                  {count} {count === 1 ? "pick" : "picks"}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Separate Fashion discovery entry point; beauty product grid stays beauty-only */}
-      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="fashion-preview-heading">
-        <div className="rounded-3xl border border-border bg-card p-6 sm:p-9">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Fashion for women</p>
-          <h2 id="fashion-preview-heading" className="mt-2 text-2xl font-semibold text-primary sm:text-3xl">Explore Fashion</h2>
-          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Browse clothing and accessories by occasion and personal style. Explore ethnic outfits, Western styles, everyday essentials and more, with practical ideas to help you compare fits, fabrics and ways to wear them.</p>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {[
-              { id: "ethnic", title: "Ethnic Wear" },
-              { id: "western", title: "Western Wear" },
-              { id: "everyday", title: "Everyday Fashion" },
-              { id: "formal", title: "Formal Wear" },
-              { id: "winter", title: "Winter Wear" },
-              { id: "accessories", title: "Accessories" },
-            ].map((item) => (
-              <Link key={item.id} to={`/fashion/${item.id}`} className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-background p-3 text-center transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring">
-                <Shirt className="h-6 w-6 text-accent" aria-hidden />
-                <span className="text-xs font-semibold text-primary">{item.title}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href="/fashion" className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">Explore Fashion & Style Guides →</a>
-            <a href="https://link.amazon/A0aNtzL4K" target="_blank" rel="sponsored noopener noreferrer" className="rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary">Explore More on Amazon →</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Editorial selection notes */}
-      <section className="mx-auto mt-12 max-w-6xl rounded-2xl border border-border bg-card px-6 py-7 sm:px-8" aria-labelledby="selection-notes">
-        <h2 id="selection-notes" className="text-2xl font-semibold text-primary">How we help you compare products</h2>
-        <div className="mt-4 max-w-4xl space-y-3 text-sm leading-relaxed text-muted-foreground">
-          <p>SkinAndShade is a shopping guide for women in India. We bring product information and buying guides together so you can compare a few options before visiting the retailer. Our current catalogue focuses on beauty products. Our fashion discovery section links to Amazon while we build individual fashion picks.</p>
-          <p>We do not test products ourselves or make promises about results. Product details, sellers, stock and prices can change. Please check the current Amazon listing and product packaging for the latest information before ordering. Any old price used for a budget filter is only a past reference, not today’s price.</p>
-          <p>Some links are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This does not change the product information on this site. Always check the listing and seller before you order. If you notice a mistake, you can contact us through the Editorial Policy page.</p>
-        </div>
-      </section>
-
-      {/* Editorial sample — not a popularity ranking */}
-      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6" aria-label="A few products to explore">
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">A few picks to explore</h2>
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            A starting point for comparison
-          </span>
-        </div>
-        <div className="mt-6 flex snap-x gap-4 overflow-x-auto pb-4">
-          {featuredPicks.map((p) => (
-            <div key={p.asin} className="w-64 shrink-0 snap-start">
-              <ProductCard product={p} />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Filters + full grid */}
-      <section id="all-picks" className="mx-auto max-w-6xl scroll-mt-20 px-4 pt-12 sm:px-6" aria-label="All products">
-        <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 className="text-2xl font-semibold text-primary sm:text-3xl">All picks</h2>
-          <a
-            href="https://www.amazon.in/b?node=1355016031&linkCode=ll2&tag=zencart0c-21&linkId=c22e1e16471594b90fe93ec1356db9b5&ref_=as_li_ss_tl"
-            target="_blank"
-            rel="sponsored noopener"
-            className="rounded-full border border-primary px-4 py-1.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-ring"
-          >
-            Browse more on Amazon →
-          </a>
-        </div>
-
-        <div className="mt-6 space-y-4">
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Category
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Chip active={category === "All"} onClick={() => setCategory("All")}>
-                All
-              </Chip>
-              {CATEGORIES.map((c) => (
-                <Chip key={c} active={category === c} onClick={() => setCategory(c)}>
-                  {c}
-                </Chip>
-              ))}
+    <main className="pb-20">
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-[#f8e9eb] via-[#fff9f7] to-[#f4e9d8]">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 sm:px-6 md:grid-cols-[1.05fr_.95fr] md:py-20">
+          <div className="relative z-10">
+            <p className="text-xs font-semibold uppercase tracking-[.25em] text-accent">Fashion • Beauty • Your everyday style</p>
+            <h1 className="mt-5 max-w-xl text-4xl font-semibold leading-[1.1] text-primary sm:text-5xl lg:text-6xl">A little inspiration for <em className="text-accent">everyday you.</em></h1>
+            <p className="mt-5 max-w-lg text-base leading-8 text-foreground/75">Some days you need an outfit that just works. Other days, you want a skincare routine that feels simple. Find ideas for both, all in one place.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/fashion" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90">Explore fashion <ArrowRight size={17}/></Link>
+              <Link to="/guides" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/5">Read beauty guides <ArrowRight size={17}/></Link>
             </div>
           </div>
-
+          <div className="grid h-[320px] grid-cols-2 gap-3 sm:h-[430px]">
+            <Link to="/fashion/everyday" className="group relative overflow-hidden rounded-[2rem] bg-[#f0dedc]"><img src="https://m.media-amazon.com/images/I/81GtNzPZmlL._SX679_.jpg" alt="White collared shirt for everyday outfits" className="h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-primary shadow-sm">Everyday style ↗</span></Link>
+            <div className="grid grid-rows-2 gap-3">
+              <Link to="/fashion/winter" className="group relative overflow-hidden rounded-[1.5rem] bg-[#eee1d8]"><img src="https://m.media-amazon.com/images/I/81Nn827f2CL._SX679_.jpg" alt="Knitted outfit for cooler days" className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-primary">Winter looks ↗</span></Link>
+              <Link to="/fashion/accessories" className="group relative overflow-hidden rounded-[1.5rem] bg-[#f4e8eb]"><img src="https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg" alt="Bracelet accessory" className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-primary">Accessories ↗</span></Link>
+            </div>
+          </div>
         </div>
-
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm text-muted-foreground" role="status" aria-live="polite">
-            Showing {filtered.length} of {products.length} picks
-          </p>
-          {(query || category !== "All") && (
-            <button
-              type="button"
-              onClick={() => {
-                setQuery("");
-                setCategory("All");
-              }}
-              className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
-            >
-              Clear all filters
-            </button>
-          )}
-        </div>
-        <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((p) => (
-            <ProductCard key={p.asin} product={p} />
-          ))}
-        </div>
-        {filtered.length === 0 && (
-          <p className="mt-10 rounded-2xl border border-dashed border-border bg-card p-10 text-center text-sm text-muted-foreground">
-            No picks match this search or category. Clear your selection to see all products.
-          </p>
-        )}
       </section>
+
+      <section className="mx-auto max-w-6xl px-5 pt-16 sm:px-6" aria-labelledby="fashion-heading">
+        <div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-accent">Find your look</p><h2 id="fashion-heading" className="mt-2 text-3xl font-semibold text-primary sm:text-4xl">What are you dressing for?</h2><p className="mt-3 max-w-2xl text-muted-foreground">A family function, a workday or a quiet weekend? Start with what feels right for you.</p></div><Link to="/fashion" className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline underline-offset-4">See all fashion <ArrowRight size={16}/></Link></div>
+        <div className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+          {fashion.map(c => <Link key={c.title} to={c.href} className="group overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-lg"><div className="aspect-[3/4] overflow-hidden bg-[#f7eef0]"><img src={c.image} alt={c.title} loading="lazy" className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"/></div><div className="p-3"><h3 className="font-semibold text-primary">{c.title}</h3><p className="mt-1 text-xs leading-5 text-muted-foreground">{c.subtitle}</p></div></Link>)}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pt-20 sm:px-6" aria-labelledby="fashion-picks-heading">
+        <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-accent">Outfit inspiration</p><h2 id="fashion-picks-heading" className="mt-2 text-3xl font-semibold text-primary sm:text-4xl">A few pieces to start with</h2><p className="mt-3 max-w-2xl text-muted-foreground">You don't need to change your whole wardrobe. Sometimes one useful piece makes getting dressed easier.</p></div><Link to="/fashion" className="text-sm font-semibold text-primary underline underline-offset-4">Browse fashion collections</Link></div>
+        <div className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          {fashionPicks.map(p => <article key={p.href} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card"><a href={p.href} target="_blank" rel="sponsored noopener noreferrer" className="block aspect-[4/5] bg-[#f8eff1]"><img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-contain p-3"/></a><div className="flex flex-1 flex-col p-4"><span className="text-[11px] font-semibold uppercase tracking-wide text-accent">{p.category}</span><h3 className="mt-2 font-semibold leading-snug text-primary">{p.name}</h3><p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{p.note}</p><a href={p.href} target="_blank" rel="sponsored noopener noreferrer" className="mt-4 inline-flex min-h-10 items-center justify-center rounded-full bg-primary px-3 py-2 text-center text-xs font-semibold text-primary-foreground">View on Amazon ↗</a></div></article>)}
+        </div>
+      </section>
+
+      <section className="mt-20 bg-[#f8eef0] py-16" aria-labelledby="beauty-heading">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-accent">A little everyday care</p><h2 id="beauty-heading" className="mt-2 text-3xl font-semibold text-primary sm:text-4xl">Beauty, without the guesswork</h2><p className="mt-3 max-w-2xl text-muted-foreground">From a dry-skin day to a busy hair-wash morning, find the products and simple advice that fit your routine.</p></div><Link to="/guides" className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline underline-offset-4">Explore beauty guides <ArrowRight size={16}/></Link></div>
+          <div className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {beautyCategories.map(c => <Link key={c.title} to={c.href} className="group overflow-hidden rounded-2xl bg-white p-4 shadow-sm transition-shadow hover:shadow-md"><div className="flex aspect-[5/4] items-center justify-center overflow-hidden rounded-xl bg-[#f9f0f1]"><img src={products.find(p => p.category === c.title && p.image)?.image ?? ""} alt={c.title + " product selection"} loading="lazy" className="h-full w-full object-contain p-3"/></div><h3 className="mt-4 text-lg font-semibold text-primary">{c.title}</h3><p className="mt-1 text-sm text-muted-foreground">{c.subtitle}</p><span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">Explore <ArrowRight size={14}/></span></Link>)}
+          </div>
+          <h3 className="mt-12 text-2xl font-semibold text-primary">Five everyday beauty essentials to compare</h3>
+          <p className="mt-2 text-sm text-muted-foreground">A small selection from different routines, not a bestseller ranking. Check ingredients, sizes and current prices on Amazon.</p>
+          <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+            {beautyPicks.map(p => <article key={p.asin} className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm"><a href={p.affiliateUrl ?? `https://www.amazon.in/dp/${p.asin}?tag=zencart0c-21`} target="_blank" rel="sponsored noopener noreferrer" className="aspect-[4/5] bg-white p-3"><img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-contain"/></a><div className="flex flex-1 flex-col p-4"><p className="text-xs font-semibold text-accent">{p.category}</p><h4 className="mt-2 text-sm font-semibold leading-6 text-primary">{p.brand} {p.title}</h4><p className="mt-2 flex-1 text-xs leading-5 text-muted-foreground">{p.bestFor}</p><a href={p.affiliateUrl ?? `https://www.amazon.in/dp/${p.asin}?tag=zencart0c-21`} target="_blank" rel="sponsored noopener noreferrer" className="mt-4 rounded-full border border-primary px-3 py-2 text-center text-xs font-semibold text-primary">View on Amazon ↗</a></div></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6" aria-labelledby="guides-heading">
+        <div className="flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-accent">Good to know</p><h2 id="guides-heading" className="mt-2 text-3xl font-semibold text-primary sm:text-4xl">A little help before you shop</h2><p className="mt-3 max-w-2xl text-muted-foreground">Real questions deserve clear answers. These guides are here to make everyday choices feel easier.</p></div><Link to="/guides" className="text-sm font-semibold text-primary underline underline-offset-4">More beauty guides</Link></div>
+        <div className="mt-7 grid gap-5 md:grid-cols-3">{stories.map(s => <Link key={s.href} to={s.href} className="group rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"><div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent"><BookOpen size={15}/>{s.tag}</div><h3 className="mt-4 text-xl font-semibold leading-snug text-primary">{s.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{s.intro}</p><span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">Read the guide <ArrowRight size={16}/></span></Link>)}</div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 sm:px-6"><div className="grid gap-6 rounded-3xl border border-border bg-card p-7 sm:grid-cols-[auto_1fr] sm:p-9"><Heart className="h-8 w-8 text-accent"/><div><h2 className="text-2xl font-semibold text-primary">A thoughtful way to shop</h2><p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">We bring outfit ideas, product information and simple buying tips together so you can choose what works for you. We don't personally test every item, and prices, sizes and availability may change. Always check the latest details with the seller before ordering.</p><p className="mt-3 flex items-start gap-2 text-sm leading-7 text-muted-foreground"><ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-accent"/>Some links are affiliate links. As an Amazon Associate, we earn from qualifying purchases, at no extra cost to you.</p><Link to="/editorial-policy" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary underline underline-offset-4">How we choose what to share <ArrowRight size={15}/></Link></div></div></section>
     </main>
   );
 }

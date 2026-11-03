@@ -34,7 +34,11 @@ describe("Route layout integrity", () => {
     }
 
     for (const parent of parents) {
-      const source = readFileSync(join(routesDir, `${parent}.tsx`), "utf8");
+      const parentFile = join(routesDir, `${parent}.tsx`);
+      // `guides.index.tsx` / `guides.$slug.tsx` have no guides.tsx parent, so they
+      // stay top-level siblings and need no Outlet.
+      if (!existsSync(parentFile)) continue;
+      const source = readFileSync(parentFile, "utf8");
       expect(source, `${parent}.tsx has child routes and must render <Outlet />`).toContain("<Outlet");
     }
   });

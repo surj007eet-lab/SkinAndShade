@@ -27,7 +27,7 @@ function GuidePage() {
       <h1 className="mt-3 text-4xl font-semibold leading-tight text-primary sm:text-5xl">{guide.title}</h1>
       <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{guide.excerpt}</p>
       <div className="mt-5"><AffiliateNotice /></div>
-      <figure className="mt-8"><img src={editorialImage} width={1536} height={1024} loading="lazy" alt="Unbranded cleanser bottle, moisturizer jar and sunscreen tube on a blush surface" className="aspect-[3/2] w-full rounded-lg object-cover"/><figcaption className="mt-2 text-xs text-muted-foreground">Illustrative image, not a photograph of the products listed below.</figcaption></figure>
+      {!guide.fashionPicks && <figure className="mt-8"><img src={editorialImage} width={1536} height={1024} loading="lazy" alt="Unbranded cleanser bottle, moisturizer jar and sunscreen tube on a blush surface" className="aspect-[3/2] w-full rounded-lg object-cover"/><figcaption className="mt-2 text-xs text-muted-foreground">Illustrative image, not a photograph of the products listed below.</figcaption></figure>}
       {guide.blocks.some(block => block.heading) && (
         <nav aria-label="On this page" className="mt-8 rounded-2xl border border-border bg-card p-5 sm:p-6">
           <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">On this page</h2>
@@ -53,8 +53,20 @@ function GuidePage() {
           );
         })}
       </div>
-      <section className="mt-12"><h2 className="text-2xl font-semibold text-primary">Catalogue options to compare</h2><p className="mt-3 text-sm text-muted-foreground">Listed specifications have not been independently reverified. No current prices, test scores or treatment results are claimed.</p><div className="mt-4"><AffiliateNotice /></div><div className="mt-6 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-2">{guide.productAsins.map(asin => { const p = products.find(p => p.asin === asin); return p ? <ProductCard key={asin} product={p}/> : null; })}</div></section>
-      <section className="mt-12"><h2 className="text-2xl font-semibold text-primary">Sources and scope</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Sources support general skincare and sun-safety advice, not these products' efficacy. This is buying information, not medical advice. No personal testing or clinical review is claimed.</p><ul className="mt-4 space-y-3">{guide.sources.map(s => <li key={s.url}><a href={s.url} rel="noopener" target="_blank" className="text-primary underline">{s.title} <span className="text-xs">(external source)</span></a></li>)}</ul><p className="mt-4"><Link to="/editorial-policy" className="text-primary underline">Our editorial policy</Link> · <Link to="/editorial-policy" className="text-primary underline">Report a correction</Link></p></section>
+      {guide.fashionPicks && <section className="mt-12" aria-label="Fashion products to compare">
+        <h2 className="text-2xl font-semibold text-primary">Products to compare</h2>
+        <p className="mt-3 text-sm text-muted-foreground">These are optional examples, not personally tested picks. Check the current product details and price on Amazon before ordering.</p>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          {guide.fashionPicks.map(p => <article key={p.url} className="rounded-2xl border border-border bg-card p-6">
+            <h3 className="text-lg font-semibold text-primary">{p.name}</h3>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Why consider it:</strong> {p.benefit}</p>
+            <p className="mt-2 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Before buying:</strong> {p.check}</p>
+            <a href={p.url} target="_blank" rel="sponsored noopener noreferrer" className="mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">View on Amazon ↗</a>
+          </article>)}
+        </div>
+      </section>}
+      {!guide.fashionPicks && <section className="mt-12"><h2 className="text-2xl font-semibold text-primary">Catalogue options to compare</h2><p className="mt-3 text-sm text-muted-foreground">Listed specifications have not been independently reverified. No current prices, test scores or treatment results are claimed.</p><div className="mt-4"><AffiliateNotice /></div><div className="mt-6 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-2">{guide.productAsins.map(asin => { const p = products.find(p => p.asin === asin); return p ? <ProductCard key={asin} product={p}/> : null; })}</div></section>}
+      {!guide.fashionPicks && <section className="mt-12"><h2 className="text-2xl font-semibold text-primary">Sources and scope</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Sources support general skincare and sun-safety advice, not these products' efficacy. This is buying information, not medical advice. No personal testing or clinical review is claimed.</p><ul className="mt-4 space-y-3">{guide.sources.map(s => <li key={s.url}><a href={s.url} rel="noopener" target="_blank" className="text-primary underline">{s.title} <span className="text-xs">(external source)</span></a></li>)}</ul><p className="mt-4"><Link to="/editorial-policy" className="text-primary underline">Our editorial policy</Link> · <Link to="/editorial-policy" className="text-primary underline">Report a correction</Link></p></section>}
     </article>
     <section className="mt-12"><h2 className="text-2xl font-semibold text-primary">Continue reading</h2><ul className="mt-4 space-y-3">{guide.related.map(slug => { const related = guides.find(g => g.slug === slug); return related ? <li key={slug}><Link to="/guides/$slug" params={{slug}} className="text-primary underline">{related.title}</Link></li> : null; })}</ul><p className="mt-5"><Link to="/skincare" className="text-primary underline">Skincare</Link> · <Link to="/sunscreen" className="text-primary underline">Sunscreen</Link> · <Link to="/serums" className="text-primary underline">Serums</Link> · <Link to="/moisturizers" className="text-primary underline">Moisturizers</Link></p></section>
   </main>;

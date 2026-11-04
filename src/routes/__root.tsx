@@ -176,9 +176,39 @@ function RootComponent() {
         hostname.endsWith(".amazon.com");
       if (!isAmazonLink || typeof (window as Window & { gtag?: (...args: unknown[]) => void }).gtag !== "function") return;
 
-      (window as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
-        send_to: "AW-17531912305/KLnQCL3ylLIdEPGA76dB",
-      });
+      // For same-tab links, allow the conversion request a short chance to dispatch
+      // before navigation. New-tab and modified clicks retain their native behavior.
+      const isSameTabNavigation =
+        !event.defaultPrevented &&
+        event.button === 0 &&
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.shiftKey &&
+        !event.altKey &&
+        (!anchor.target || anchor.target === "_self") &&
+        !anchor.hasAttribute("download");
+
+      if (isSameTabNavigation) event.preventDefault();
+
+      let navigated = false;
+      const continueNavigation = () => {
+        if (!isSameTabNavigation || navigated) return;
+        navigated = true;
+        window.location.assign(anchor.href);
+      };
+
+      // The timeout ensures navigation still works if Google scripts are blocked.
+      if (isSameTabNavigation) window.setTimeout(continueNavigation, 800);
+
+      try {
+        (window as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
+          send_to: "AW-17531912305/KLnQCL3ylLIdEPGA76dB",
+          event_callback: continueNavigation,
+          event_timeout: 700,
+        });
+      } catch {
+        continueNavigation();
+      }
     };
 
     document.addEventListener("click", trackAmazonOutboundClick);

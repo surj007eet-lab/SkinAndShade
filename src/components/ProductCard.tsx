@@ -20,7 +20,7 @@ export function ProductCard({ product }: { product: Product }) {
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Style tip:</span> {product.styleTip}</p>
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Why consider it:</span> {product.whyConsider}</p>
       <Button asChild className="mt-auto min-h-11 w-full rounded-full px-3 py-3 h-auto whitespace-normal">
-        <a href={product.affiliateUrl ?? amazonUrl(product.asin)} target="_blank" rel="sponsored noopener" aria-label={`View ${product.brand} ${product.title} on Amazon (opens in a new tab)`}>View on Amazon →</a>
+        <a href={product.affiliateUrl ?? amazonUrl(product.asin)} target="_blank" rel="sponsored noopener noreferrer" aria-label={`View ${product.brand} ${product.title} on Amazon (opens in a new tab)`}>View on Amazon →</a>
       </Button>
       <p className="mt-2 text-center text-xs text-muted-foreground">Affiliate link · Amazon handles your purchase</p>
     </article>

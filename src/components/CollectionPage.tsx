@@ -43,7 +43,7 @@ export function CollectionPage({ slug }: { slug: string }) {
       <h1 className="mt-3 text-4xl font-semibold text-primary sm:text-5xl">{collection.title}: options to compare</h1>
       <p className="mt-5 text-base leading-8 text-muted-foreground">{collection.introduction}</p>
       <p className="mt-3 text-sm text-muted-foreground">
-        {allProducts.length} {allProducts.length === 1 ? "catalogue option" : "catalogue options"} currently listed. We do not claim personal testing or rank products by popularity.
+        Take your time comparing the details that matter to you. Check the latest product information with the seller before buying.
       </p>
     </header>
 

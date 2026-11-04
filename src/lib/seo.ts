@@ -3,7 +3,7 @@ export const SITE_NAME = "SkinAndShade";
 export const pageUrl = (path: string) => `${SITE_URL}${path === "/" ? "/" : path.replace(/\/$/, "")}`;
 
 export function pageHead(path: string, title: string, description: string, type = "website") {
-  const fullTitle = `${title} — ${SITE_NAME}`;
+  const fullTitle = title.toLowerCase().includes(SITE_NAME.toLowerCase()) ? title : `${title} — ${SITE_NAME}`;
   return {
     meta: [
       { title: fullTitle },
@@ -12,7 +12,7 @@ export function pageHead(path: string, title: string, description: string, type 
       { property: "og:description", content: description },
       { property: "og:type", content: type },
       { property: "og:url", content: pageUrl(path) },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: fullTitle },
       { name: "twitter:description", content: description },
     ],

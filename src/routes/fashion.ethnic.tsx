@@ -39,7 +39,7 @@ function EthnicWearPage() {
           {ethnicProducts.map((product) => (
             <article key={product.asin} className="overflow-hidden rounded-2xl border border-border bg-card">
               <div className="flex aspect-[4/3] items-center justify-center bg-white p-3">
-                {product.image ? <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-contain" /> : <div className="text-center text-muted-foreground"><Shirt className="mx-auto h-9 w-9" aria-hidden /><p className="mt-2 text-xs">Photo awaiting Amazon image link</p></div>}
+                {product.image ? <img src={product.image} alt={`${product.brand} ${product.title}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" width={679} height={850} className="h-full w-full object-contain" /> : <div className="text-center text-muted-foreground"><Shirt className="mx-auto h-9 w-9" aria-hidden /><p className="mt-2 text-xs">Photo awaiting Amazon image link</p></div>}
               </div>
               <div className="p-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent">{product.brand}</p>

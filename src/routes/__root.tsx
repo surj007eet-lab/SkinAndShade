@@ -153,6 +153,38 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    // Delegated listener covers product cards and other Amazon affiliate links.
+    const trackAmazonOutboundClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+      const anchor = event.target.closest("a[href]");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      let destination: URL;
+      try {
+        destination = new URL(anchor.href, window.location.href);
+      } catch {
+        return;
+      }
+      const hostname = destination.hostname.toLowerCase();
+      const isAmazonLink =
+        hostname === "link.amazon" ||
+        hostname === "amzn.to" ||
+        hostname === "amazon.in" ||
+        hostname.endsWith(".amazon.in") ||
+        hostname === "amazon.com" ||
+        hostname.endsWith(".amazon.com");
+      if (!isAmazonLink || typeof (window as Window & { gtag?: (...args: unknown[]) => void }).gtag !== "function") return;
+
+      (window as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
+        send_to: "AW-17531912305/KLnQCL3ylLIdEPGA76dB",
+      });
+    };
+
+    document.addEventListener("click", trackAmazonOutboundClick);
+    return () => document.removeEventListener("click", trackAmazonOutboundClick);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-background text-foreground">

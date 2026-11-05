@@ -174,7 +174,8 @@ function RootComponent() {
         hostname.endsWith(".amazon.in") ||
         hostname === "amazon.com" ||
         hostname.endsWith(".amazon.com");
-      if (!isAmazonLink || typeof (window as Window & { gtag?: (...args: unknown[]) => void }).gtag !== "function") return;
+      const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+      if (!isAmazonLink || typeof gtag !== "function") return;
 
       // For same-tab links, allow the conversion request a short chance to dispatch
       // before navigation. New-tab and modified clicks retain their native behavior.
@@ -201,7 +202,7 @@ function RootComponent() {
       if (isSameTabNavigation) window.setTimeout(continueNavigation, 800);
 
       try {
-        (window as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
+        gtag("event", "conversion", {
           send_to: "AW-17531912305/KLnQCL3ylLIdEPGA76dB",
           event_callback: continueNavigation,
           event_timeout: 700,

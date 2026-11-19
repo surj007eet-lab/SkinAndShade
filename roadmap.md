@@ -1,6 +1,7 @@
 # SkinAndShade optimization
 
 ## Open
+- [ ] Change the published address to skinandshade.lovable.app; update canonical URLs, sitemap, robots.txt, README and the active Google Ad, then verify the new address.
 - [ ] Add 20–30 more hair-care products with real photos and affiliate links — blocked: needs authorized Creators API credentials or permission-cleared details/photos; the secure credential form was declined.
 - [ ] Run an accessibility pass (keyboard order, screen-reader labels, colour contrast).
 

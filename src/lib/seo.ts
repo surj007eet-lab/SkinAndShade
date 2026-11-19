@@ -1,4 +1,4 @@
-export const SITE_URL = "https://amazon-finds-and-favorites.lovable.app";
+export const SITE_URL = "https://skinandshade.lovable.app";
 export const SITE_NAME = "SkinAndShade";
 export const pageUrl = (path: string) => `${SITE_URL}${path === "/" ? "/" : path.replace(/\/$/, "")}`;
 

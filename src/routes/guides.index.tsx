@@ -10,10 +10,10 @@ export const Route = createFileRoute("/guides/")({
       { property: "og:title", content: "Beauty Buying Guides | SkinAndShade" },
       { property: "og:description", content: "Practical beauty buying guides for women in India, covering skincare routines, sunscreen labels and how to compare face serums." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/guides" },
+      { property: "og:url", content: "https://skinandshade.lovable.app/guides" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://amazon-finds-and-favorites.lovable.app/guides" }],
+    links: [{ rel: "canonical", href: "https://skinandshade.lovable.app/guides" }],
   }),
   component: GuidesPage,
 });

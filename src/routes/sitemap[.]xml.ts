@@ -9,7 +9,7 @@ import {
   type SitemapEntry,
 } from "@/lib/sitemap";
 
-const BASE_URL = "https://amazon-finds-and-favorites.lovable.app";
+const BASE_URL = "https://skinandshade.lovable.app";
 
 export const Route = createFileRoute("/sitemap.xml")({
   staticData: { sitemap: false },

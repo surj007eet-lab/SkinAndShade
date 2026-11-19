@@ -4,7 +4,7 @@ https://link.amazon/B04DJ139z this is my amazon affiliate link create similar we
 
 This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://amazon-finds-and-favorites.lovable.app
+**Live app**: https://skinandshade.lovable.app
 
 ## Build with Lovable
 

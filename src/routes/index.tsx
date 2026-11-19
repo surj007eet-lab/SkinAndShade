@@ -11,10 +11,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "SkinAndShade — Fashion & Beauty Finds for Women" },
       { property: "og:description", content: "Easy outfit ideas, beauty essentials and useful guides to help you shop with confidence." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/" },
+      { property: "og:url", content: "https://skinandshade.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://amazon-finds-and-favorites.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://skinandshade.lovable.app/" }],
   }),
   component: Home,
 });

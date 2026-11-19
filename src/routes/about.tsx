@@ -9,10 +9,10 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About SkinAndShade" },
       { property: "og:description", content: "Learn what SkinAndShade is, how we put product information together and how to contact us." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://amazon-finds-and-favorites.lovable.app/about" },
+      { property: "og:url", content: "https://skinandshade.lovable.app/about" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://amazon-finds-and-favorites.lovable.app/about" }],
+    links: [{ rel: "canonical", href: "https://skinandshade.lovable.app/about" }],
   }),
   component: AboutPage,
 });

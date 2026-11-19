@@ -1,4 +1,4 @@
-# Amazon Finds And Favorites
+# SkinAndShade
 
 https://link.amazon/B04DJ139z this is my amazon affiliate link create similar website fetch products image and description after clicking on product it should open at amazon
 

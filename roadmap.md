@@ -1,6 +1,7 @@
 # SkinAndShade optimization
 
 ## Open
+- [ ] Replace the Winter Wear category tile photo on the homepage — blocked: waiting for the user to send that photo (the "Winter looks" panel photo is already in place).
 - [ ] Add 20–30 more hair-care products with real photos and affiliate links — blocked: needs authorized Creators API credentials or permission-cleared details/photos; the secure credential form was declined.
 - [ ] Run an accessibility pass (keyboard order, screen-reader labels, colour contrast).
 

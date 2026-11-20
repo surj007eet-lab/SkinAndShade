@@ -28,6 +28,41 @@ const fashion = [
   { title: "Accessories", subtitle: "Small details, a fresh look", href: "/fashion/accessories", image: "https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg" },
 ] as const;
 
+const heroFashion = [
+  {
+    title: "Formal Wear",
+    href: "/fashion/formal",
+    image: "https://m.media-amazon.com/images/I/41sClR5soBL._AC_AIweblab1392912,T3_FMavif_SF702.0,1018.5_PQ65_.jpg?aicid=detailPage-mediaBlock",
+    alt: "Pink blazer and matching formal trousers",
+    width: 211,
+    height: 610,
+    tileClass: "bg-[#f2e6df]",
+    imageClass: "object-cover object-[center_23%]",
+  },
+  {
+    title: "Winter looks",
+    href: "/fashion/winter",
+    image: "https://m.media-amazon.com/images/I/81vJBqU364L._AC_AIweblab1392912,T3_FMavif_SF1018.5,849.0_PQ65_.jpg?aicid=detailPage-mediaBlock",
+    alt: "Cream puffer jacket for winter",
+    width: 1018,
+    height: 849,
+    tileClass: "bg-[#eee1d8]",
+    imageClass: "object-contain p-2",
+  },
+  {
+    title: "Accessories",
+    href: "/fashion/accessories",
+    image: "https://m.media-amazon.com/images/I/71lMO8W0KhL._AC_AIweblab1392912,T3_FMavif_SF1042.5,868.5_PQ65_.jpg?aicid=detailPage-mediaBlock",
+    alt: "Pink flower pendant necklace",
+    width: 1041,
+    height: 868,
+    tileClass: "bg-[#f4e8eb]",
+    imageClass: "object-contain p-2",
+  },
+] as const;
+
+const heroLabelClass = "absolute bottom-2 left-2 rounded-full bg-white/95 px-2.5 py-1.5 text-xs font-semibold text-primary shadow-sm sm:bottom-3 sm:left-3 sm:px-3";
+
 const beautyCategories = [
   { title: "Skincare", subtitle: "A little care, every day", href: "/skincare", image: "" },
   { title: "Hair Care", subtitle: "For your wash-day routine", href: "/haircare", image: "" },
@@ -65,12 +100,19 @@ function Home() {
               <Link to="/guides" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/5">Read beauty guides <ArrowRight size={17}/></Link>
             </div>
           </div>
-          <div className="grid h-[320px] grid-cols-2 gap-3 sm:h-[430px]">
-            <a href="/fashion/everyday" className="group relative grid grid-rows-2 gap-2 overflow-hidden rounded-[2rem] bg-[#f0dedc]"><img src="https://m.media-amazon.com/images/I/71Gqdg+LZmL._SX679_.jpg" alt="Blue striped shirt worn with blue jeans" fetchPriority="high" loading="eager" decoding="async" width={679} height={566} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"/><img src="https://m.media-amazon.com/images/I/81i0qvJAmsL._SX679_.jpg" alt="Cream printed co-ord set with wide-leg trousers" loading="lazy" decoding="async" width={679} height={566} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-primary shadow-sm">Everyday style ↗</span></a>
-            <div className="grid grid-rows-3 gap-3">
-              <a href="/fashion/everyday" className="group relative overflow-hidden rounded-[1.5rem] bg-[#f2e6df]"><img src="https://m.media-amazon.com/images/I/81GtNzPZmlL._SX679_.jpg" alt="White shirt worn with grey trousers" loading="lazy" decoding="async" width={679} height={850} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-primary">Everyday essentials ↗</span></a>
-              <a href="/fashion/winter" className="group relative overflow-hidden rounded-[1.5rem] bg-[#eee1d8]"><img src="https://m.media-amazon.com/images/I/81vJBqU364L._AC_AIweblab1392912,T3_FMavif_SF1018.5,849.0_PQ65_.jpg?aicid=detailPage-mediaBlock" alt="Cream puffer jacket for winter" loading="lazy" decoding="async" width={1018} height={849} className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-primary">Winter looks ↗</span></a>
-              <a href="/fashion/accessories" className="group relative overflow-hidden rounded-[1.5rem] bg-[#f4e8eb]"><img src="https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg" alt="Bracelet accessory" loading="lazy" decoding="async" width={695} height={695} className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"/><span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-primary">Accessories ↗</span></a>
+          <div className="grid h-[400px] grid-cols-2 grid-rows-1 gap-2 sm:h-[450px] sm:gap-3">
+            <a href="/fashion/everyday" className="group relative grid min-h-0 grid-rows-2 gap-1 overflow-hidden rounded-[2rem] bg-[#f0dedc]">
+              <img src="https://m.media-amazon.com/images/I/71Gqdg+LZmL._SX679_.jpg" alt="Blue striped shirt worn with blue jeans" fetchPriority="high" loading="eager" decoding="async" width={679} height={566} className="h-full min-h-0 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <img src="https://m.media-amazon.com/images/I/81i0qvJAmsL._SX679_.jpg" alt="Cream printed co-ord set with wide-leg trousers" loading="lazy" decoding="async" width={679} height={566} className="h-full min-h-0 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <span className={heroLabelClass}>Everyday <span aria-hidden="true">↗</span></span>
+            </a>
+            <div className="grid min-h-0 grid-rows-3 gap-2 sm:gap-3">
+              {heroFashion.map(({ title, href, image, alt, width, height, tileClass, imageClass }) => (
+                <a key={href} href={href} className={`group relative min-h-0 overflow-hidden rounded-[1.5rem] ${tileClass}`}>
+                  <img src={image} alt={alt} loading="lazy" decoding="async" width={width} height={height} className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${imageClass}`} />
+                  <span className={heroLabelClass}>{title} <span aria-hidden="true">↗</span></span>
+                </a>
+              ))}
             </div>
           </div>
         </div>

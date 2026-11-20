@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 });
 
 const fashion = [
-  { title: "Ethnic Wear", subtitle: "For celebrations and everyday elegance", href: "/fashion/ethnic", image: "https://m.media-amazon.com/images/I/71aZJp5w0aL._SY879_.jpg" },
+  { title: "Ethnic Wear", subtitle: "For celebrations and everyday elegance", href: "/fashion/ethnic", image: "https://m.media-amazon.com/images/I/61a7MDYVGuL._SX679_.jpg" },
   { title: "Western Wear", subtitle: "Easy looks for plans big and small", href: "/fashion/western", image: "https://m.media-amazon.com/images/I/91IZ1hG6TwL._SX679_.jpg" },
   { title: "Everyday Fashion", subtitle: "The pieces you'll reach for again", href: "/fashion/everyday", image: "https://m.media-amazon.com/images/I/81GtNzPZmlL._SX679_.jpg" },
   { title: "Formal Wear", subtitle: "Feel ready for the workday", href: "/fashion/formal", image: "https://m.media-amazon.com/images/I/91FXQLEjDZL._SX679_.jpg" },

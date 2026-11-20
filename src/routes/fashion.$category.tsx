@@ -38,6 +38,15 @@ const formalProducts = [
 ] as const;
 
 const winterProducts = [
+  {
+    asin: "B0D83YQ8HV",
+    brand: "PIVL",
+    title: "Women's Rust Printed Winter Jacket",
+    detail: "The rust print adds colour to a casual winter outfit. Check the lining, fabric and size chart on Amazon before choosing.",
+    tip: "Wear it over a plain cream top with dark jeans to let the print stand out.",
+    affiliate: "https://link.amazon/B05fFgqtz",
+    image: "https://m.media-amazon.com/images/I/81-yzpjo4EL._AC_AIweblab1392912,T3_FMavif_SF1018.5,849.0_PQ65_.jpg?aicid=detailPage-mediaBlock",
+  },
   {asin:"B0HJRZTPGK",brand:"VENATORIA",title:"Women's Knitted Sweater Tracksuit",detail:"Knitted two-piece outfit for cold-weather styling. Check the listing for included pieces, fabric and size details.",tip:"Style the set together or pair each piece with wardrobe basics.",affiliate:"https://link.amazon/B05qNlKgZ",image:"https://m.media-amazon.com/images/I/81Nn827f2CL._SX679_.jpg"},
   {asin:"B0DH55BDMR",brand:"London Hills",title:"Women's Track Pants",detail:"Women's track pants for relaxed everyday outfits. Check fabric weight and fit before choosing them for winter.",tip:"Pair with a warm sweatshirt or knitwear.",affiliate:"https://link.amazon/B0ihX6RuL",image:"https://m.media-amazon.com/images/I/51nmZCyLrzL._SY879_.jpg"},
   {asin:"B0FQC9Z6YC",brand:"GLASGO",title:"Women's Printed Sweatshirt",detail:"Printed sweatshirt for casual winter layering. Review the size chart and fabric composition on Amazon.",tip:"Wear with plain jeans or trousers to balance the print.",affiliate:"https://link.amazon/B0c2HiK3I",image:"https://m.media-amazon.com/images/I/813RazTuH8L._SX679_.jpg"},

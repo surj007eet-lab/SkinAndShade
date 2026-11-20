@@ -24,7 +24,7 @@ const fashion = [
   { title: "Western Wear", subtitle: "Easy looks for plans big and small", href: "/fashion/western", image: "https://m.media-amazon.com/images/I/91IZ1hG6TwL._SX679_.jpg" },
   { title: "Everyday Fashion", subtitle: "The pieces you'll reach for again", href: "/fashion/everyday", image: "https://m.media-amazon.com/images/I/81GtNzPZmlL._SX679_.jpg" },
   { title: "Formal Wear", subtitle: "Feel ready for the workday", href: "/fashion/formal", image: "https://m.media-amazon.com/images/I/91FXQLEjDZL._SX679_.jpg" },
-  { title: "Winter Wear", subtitle: "Layers for cooler mornings", href: "/fashion/winter", image: "https://m.media-amazon.com/images/I/81Nn827f2CL._SX679_.jpg" },
+  { title: "Winter Wear", subtitle: "Layers for cooler mornings", href: "/fashion/winter", image: "https://m.media-amazon.com/images/I/81lFnX2WurL._SX679_.jpg" },
   { title: "Accessories", subtitle: "Small details, a fresh look", href: "/fashion/accessories", image: "https://m.media-amazon.com/images/I/71okMzeZh6L._SY695_.jpg" },
 ] as const;
 

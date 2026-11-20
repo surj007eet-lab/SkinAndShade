@@ -16,6 +16,7 @@
 - [x] Fix the build errors that blocked publishing (null-price sorting, malformed Fashion tile link, typed tile link target, one missing product photo).
 - [x] Fix Fashion subcategory pages showing the parent "Explore Fashion" page instead of their own content; /fashion now renders through a layout with an index page.
 - [x] Merge the privacy policy into the terms page (/privacy now redirects there) and point the footer's affiliate-disclosure link at the About section.
+- [x] Add the two new Everyday outfit photos to the homepage hero's Everyday style panel and place the white-shirt photo as its own Everyday essentials panel in the hero.
 
 ## Phase 2 — Fashion expansion and site improvements
 - Add Fashion menu and homepage subcategory discovery blocks below Beauty; link to the user-supplied Amazon Fashion affiliate URL `https://link.amazon/A0aNtzL4K`.

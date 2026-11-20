@@ -57,7 +57,7 @@ const heroFashion = [
     width: 1041,
     height: 868,
     tileClass: "bg-[#f4e8eb]",
-    imageClass: "object-contain p-2",
+    imageClass: "object-contain p-2 pb-9 sm:pb-10",
   },
 ] as const;
 

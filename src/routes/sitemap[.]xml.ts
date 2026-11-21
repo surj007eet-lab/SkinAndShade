@@ -45,7 +45,10 @@ export const Route = createFileRoute("/sitemap.xml")({
             if (path) entries.push({ path });
           }
         }
-        return new Response(sitemapXML(BASE_URL, entries), {
+        // Ethnic and Western Wear have their own static routes and are covered by sitemapStaticPaths.
+        // Remove duplicates and keep a predictable order for search engines.
+        const uniqueEntries = [...new Map(entries.map(entry => [entry.path, entry])).values()].sort((a, b) => a.path.localeCompare(b.path));
+        return new Response(sitemapXML(BASE_URL, uniqueEntries), {
           headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
         });
       },
